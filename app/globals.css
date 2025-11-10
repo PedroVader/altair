@@ -3,13 +3,24 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Colores de Altair Austin Roofing */
+  --primary-blue: #00529C;
+  --primary-red: #E0144C;
+  --primary-yellow: #FFE317;
+  --accent-white: #FFFFFF;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  
+  /* Tus colores personalizados */
+  --color-primary: var(--primary-blue);
+  --color-secondary: var(--primary-yellow);
+  --color-accent: var(--primary-red);
+  
+  --font-sans: var(--font-raleway);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +33,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-raleway), sans-serif;
 }
