@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[85vh] flex items-center py-12">
+    <section className="relative min-h-[85vh] flex items-center py-8 md:py-12">
       {/* Background Image con overlay */}
       <div 
         className="absolute inset-0 z-0"
@@ -20,10 +20,10 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-10 items-center">
           
           {/* Left Side - Content */}
-          <div className="text-white space-y-5">
+          <div className="text-white space-y-4 md:space-y-5">
             {/* Trust Badge */}
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
               <div className="flex">
@@ -35,64 +35,53 @@ export default function Hero() {
                   />
                 ))}
               </div>
-              <span className="text-white/90 font-medium text-sm flex items-center gap-1.5">
-                5/5 Star Rated on
+              <span className="text-white/90 font-medium text-xs sm:text-sm flex items-center gap-1.5">
+                <span className="hidden xs:inline">5/5 Star Rated on</span>
+                <span className="xs:hidden">5/5</span>
                 <img 
                   src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" 
                   alt="Google"
-                  className="h-5"
+                  className="h-4 sm:h-5"
                 />
               </span>
             </div>
 
             {/* Main Heading */}
             <div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 whitespace-nowrap">
-  Austin <span className="text-[#FFE317]">Roofing Company</span>
-</h1>
-  <p className="text-sm md:text-base text-white/90 leading-relaxed max-w-3xl">
-    Are you planning to have any construction or roofing done to your home? Then you've come to the right place. Austin Roofing Company – Roof Repair & Replacement is a leading roofing contractor in Austin, TX, offering expert roofing services for your family home or business in the greater Austin area. Another top Austin roofing company, WDR, to which we refer business, can be found here. We have a trusted business alliance with them.
-  </p>
-</div>
-
-            {/* Key Features - Simplified
-            <div className="flex flex-wrap gap-4 pt-2">
-              <div className="flex items-center gap-2">
-                <Icon icon="mdi:shield-check" className="w-5 h-5 text-[#FFE317]" />
-                <span className="text-sm font-semibold">Licensed & Insured</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Icon icon="mdi:clock-fast" className="w-5 h-5 text-[#FFE317]" />
-                <span className="text-sm font-semibold">24/7 Emergency</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Icon icon="mdi:certificate" className="w-5 h-5 text-[#FFE317]" />
-                <span className="text-sm font-semibold">Lifetime Warranty</span>
-              </div>
-            </div> */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-3 md:mb-4">
+                Austin <span className="text-[#FFE317] block sm:inline">Roofing Company</span>
+              </h1>
+              <p className="text-sm sm:text-base text-white/90 leading-relaxed max-w-3xl">
+                Are you planning to have any construction or roofing done to your home? Then you've come to the right place. Austin Roofing Company – Roof Repair & Replacement is a leading roofing contractor in Austin, TX, offering expert roofing services for your family home or business in the greater Austin area.
+              </p>
+            </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-3 pt-3">
+            <div className="flex flex-wrap gap-3 pt-2 md:pt-3">
               <a
                 href="tel:+15125550123"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-bold rounded-lg transition-all border-2 border-white/30 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-bold rounded-lg transition-all border-2 border-white/30 cursor-pointer text-sm sm:text-base"
               >
-                <Icon icon="mdi:phone" className="w-5 h-5" />
-                (512) 555-0123
+                <Icon icon="mdi:phone" className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="hidden xs:inline">(512) 555-0123</span>
+                <span className="xs:hidden">Call Now</span>
               </a>
             </div>
 
             {/* Service Areas - Compact */}
-            <div className="pt-4 border-t border-white/20">
-              <div className="flex items-center gap-2 text-xs text-white/80">
-                <Icon icon="mdi:map-marker" className="w-4 h-4" />
-                <span>Serving Austin, Round Rock, Cedar Park, Georgetown, Lakeway & Buda</span>
+            <div className="pt-3 md:pt-4 border-t border-white/20">
+              <div className="flex items-start sm:items-center gap-2 text-xs text-white/80">
+                <Icon icon="mdi:map-marker" className="w-4 h-4 flex-shrink-0 mt-0.5 sm:mt-0" />
+                <span className="leading-relaxed">
+                  <span className="hidden sm:inline">Serving Austin, Round Rock, Cedar Park, Georgetown, Lakeway & Buda</span>
+                  <span className="sm:hidden">Serving Austin & surrounding areas</span>
+                </span>
               </div>
             </div>
           </div>
 
           {/* Right Side - Form */}
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex justify-center lg:justify-end mt-6 lg:mt-0">
             <ContactForm variant="hero" />
           </div>
         </div>
