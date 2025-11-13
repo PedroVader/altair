@@ -1,0 +1,271 @@
+// components/Footer.tsx
+import Link from 'next/link';
+import { locations } from '@/data/locations';
+import Image from 'next/image';
+import { Icon } from '@iconify/react';
+
+export default function Footer() {
+  const services = [
+    { name: 'Roof Inspection', slug: 'roof-inspection' },
+    { name: 'Roof Estimate', slug: 'roof-estimate' },
+    { name: 'Roof Repair', slug: 'roof-repair' },
+    { name: 'Re-Roof', slug: 're-roof' },
+    { name: 'Roof Replacement', slug: 'roof-replacement' },
+    { name: 'Roof Installation', slug: 'roof-installation' },
+    { name: 'Storm Damage', slug: 'storm-damage' },
+    { name: 'Hail Damage', slug: 'hail-damage' },
+  ];
+
+  const roofTypes = [
+    { name: 'Asphalt Shingles Roof', slug: 'asphalt-shingles-roof' },
+    { name: 'Fiberglass Roof Panels', slug: 'fiberglass-roof-panels' },
+    { name: 'Clay / Concrete Roof Tiles', slug: 'clay-concrete-roof-tiles' },
+    { name: 'Metal Roofing', slug: 'metal-roofing' },
+  ];
+
+  const popularLocations = locations;
+  const halfLength = Math.ceil(popularLocations.length / 2);
+  const firstColumnLocations = popularLocations.slice(0, halfLength);
+  const secondColumnLocations = popularLocations.slice(halfLength);
+  
+  return (
+    <footer className="bg-white border-t-4 border-[#00529C]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        
+        {/* Logo y Descripción - Centrado */}
+        <div className="text-center mb-8 sm:mb-12 pb-6 sm:pb-8 border-b-2 border-gray-200">
+          <Link href="/" className="inline-flex items-center gap-3 mb-4">
+            <Icon icon="mdi:home-roof" className="w-12 h-12 sm:w-16 sm:h-16 text-[#00529C]" />
+            <div className="text-xl sm:text-2xl font-bold text-gray-900 leading-tight">
+              Altair Austin Roofing
+            </div>
+          </Link>
+          <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto mt-4 px-4">
+            Professional roofing services across Austin and Central Texas. Trusted by thousands of satisfied homeowners since 2008.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 sm:gap-10 lg:gap-8">
+          
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg sm:text-xl font-bold text-black mb-4 sm:mb-6">Quick Links</h3>
+            <ul className="space-y-2 sm:space-y-3">
+              <li>
+                <Link href="/" className="text-sm sm:text-base text-gray-700 hover:text-[#00529C] transition">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-sm sm:text-base text-gray-700 hover:text-[#00529C] transition">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/locations" className="text-sm sm:text-base text-gray-700 hover:text-[#00529C] transition">
+                  Service Areas
+                </Link>
+              </li>
+              <li>
+                <Link href="/gallery" className="text-sm sm:text-base text-gray-700 hover:text-[#00529C] transition">
+                  Gallery
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-sm sm:text-base text-gray-700 hover:text-[#00529C] transition">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy-policy" className="text-sm sm:text-base text-gray-700 hover:text-[#00529C] transition">
+                  Privacy Policy
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h3 className="text-lg sm:text-xl font-bold text-black mb-4 sm:mb-6">Services</h3>
+            <ul className="space-y-2 sm:space-y-3">
+              {services.map((service) => (
+                <li key={service.slug}>
+                  <Link 
+                    href={`/${service.slug}`}
+                    className="text-sm text-gray-700 hover:text-[#00529C] transition"
+                  >
+                    {service.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Roof Types */}
+          <div>
+            <h3 className="text-lg sm:text-xl font-bold text-black mb-4 sm:mb-6">Roof Types</h3>
+            <ul className="space-y-2 sm:space-y-3">
+              {roofTypes.map((type) => (
+                <li key={type.slug}>
+                  <Link 
+                    href={`/${type.slug}`}
+                    className="text-sm text-gray-700 hover:text-[#00529C] transition"
+                  >
+                    {type.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Locations - Column 1 */}
+          <div>
+            <h3 className="text-lg sm:text-xl font-bold text-black mb-4 sm:mb-6">Locations</h3>
+            <ul className="space-y-2 sm:space-y-3">
+              {firstColumnLocations.map((location) => (
+                <li key={location.slug}>
+                  <Link 
+                    href={`/locations/${location.slug}`}
+                    className="text-sm text-gray-700 hover:text-[#00529C] transition"
+                  >
+                    {location.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Locations - Column 2 */}
+          <div>
+            {/* Título invisible en desktop para alineación */}
+            <div className="hidden lg:block">
+              <h3 className="text-xl font-bold text-black mb-6 invisible">Locations</h3>
+            </div>
+            <ul className="space-y-2 sm:space-y-3">
+              {secondColumnLocations.map((location) => (
+                <li key={location.slug}>
+                  <Link 
+                    href={`/locations/${location.slug}`}
+                    className="text-sm text-gray-700 hover:text-[#00529C] transition"
+                  >
+                    {location.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Us */}
+          <div>
+            <h3 className="text-lg sm:text-xl font-bold text-black mb-4 sm:mb-6">Contact Us</h3>
+            <ul className="space-y-3 sm:space-y-4">
+              <li className="flex items-start gap-3">
+                <Icon icon="mdi:phone" className="w-5 h-5 text-[#00529C] flex-shrink-0 mt-1" />
+                <div>
+                  <a href="tel:+15125550123" className="text-sm text-gray-900 hover:text-[#00529C] transition font-semibold">
+                    (512) 555-0123
+                  </a>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <Icon icon="mdi:email" className="w-5 h-5 text-[#00529C] flex-shrink-0 mt-1" />
+                <div>
+                  <a href="mailto:info@altairaustin.com" className="text-sm text-gray-900 hover:text-[#00529C] transition">
+                    info@altairaustin.com
+                  </a>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <Icon icon="mdi:map-marker" className="w-5 h-5 text-[#00529C] flex-shrink-0 mt-1" />
+                <div>
+                  <p className="text-sm text-gray-700">
+                    Austin, TX<br />
+                    78701
+                  </p>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <Icon icon="mdi:clock" className="w-5 h-5 text-[#00529C] flex-shrink-0 mt-1" />
+                <div>
+                  <p className="text-sm text-gray-700">
+                    Mon - Sun<br />
+                    24/7 Emergency Service
+                  </p>
+                </div>
+              </li>
+            </ul>
+
+            {/* Google Map Preview */}
+            <div className="mt-6 rounded-lg overflow-hidden border-2 border-gray-200 hover:border-[#00529C] transition">
+              <a 
+                href="https://www.google.com/maps/place/Austin,+TX" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d441113.09114674534!2d-98.0357904!3d30.307182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1234567890"
+                  width="100%"
+                  height="200"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Altair Austin Roofing - Service Area"
+                />
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Social Media Icons */}
+        <div className="flex justify-center gap-4 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t-2 border-gray-200">
+          <a 
+            href="https://facebook.com" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 bg-[#00529C] hover:bg-[#003d75] text-white rounded-full flex items-center justify-center transition"
+            aria-label="Facebook"
+          >
+            <Icon icon="mdi:facebook" className="w-5 h-5" />
+          </a>
+          <a 
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 bg-[#00529C] hover:bg-[#003d75] text-white rounded-full flex items-center justify-center transition"
+            aria-label="Instagram"
+          >
+            <Icon icon="mdi:instagram" className="w-5 h-5" />
+          </a>
+          <a 
+            href="https://google.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 bg-[#00529C] hover:bg-[#003d75] text-white rounded-full flex items-center justify-center transition"
+            aria-label="Google"
+          >
+            <Icon icon="mdi:google" className="w-5 h-5" />
+          </a>
+          <a 
+            href="https://yelp.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 bg-[#00529C] hover:bg-[#003d75] text-white rounded-full flex items-center justify-center transition"
+            aria-label="Yelp"
+          >
+            <Icon icon="simple-icons:yelp" className="w-5 h-5" />
+          </a>
+        </div>
+
+        {/* Bottom Bar - Centrado */}
+        <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t-2 border-gray-200 text-center">
+          <p className="text-xs sm:text-sm text-gray-600">
+            © {new Date().getFullYear()} Altair Austin Roofing. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
