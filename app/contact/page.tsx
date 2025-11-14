@@ -6,6 +6,7 @@ import { Metadata } from 'next';
 import { Icon } from '@iconify/react';
 import ContactForm from '@/components/ContactForm';
 import Link from 'next/link';
+import { locations } from '@/data/locations';
 
 const faqs = [
   {
@@ -181,7 +182,7 @@ export default function ContactPage() {
             {/* Phone */}
             <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200 hover:border-[#00529C] transition text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-[#00529C] to-[#003d75] rounded-full flex items-center justify-center mx-auto mb-4">
-                <Icon icon="mdi:phone" className="w-8 h-8 text-[#FFE317]" />
+                <Icon icon="mdi:phone" className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-bold text-gray-900 mb-2 text-lg">Phone</h3>
               <a href="tel:+15125550123" className="text-[#00529C] hover:text-[#003d75] transition font-semibold block mb-2 text-lg">
@@ -196,7 +197,7 @@ export default function ContactPage() {
             {/* Email */}
             <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200 hover:border-[#00529C] transition text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-[#00529C] to-[#003d75] rounded-full flex items-center justify-center mx-auto mb-4">
-                <Icon icon="mdi:email" className="w-8 h-8 text-[#FFE317]" />
+                <Icon icon="mdi:email" className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-bold text-gray-900 mb-2 text-lg">Email</h3>
               <a href="mailto:info@altairaustin.com" className="text-sm text-[#00529C] hover:text-[#003d75] transition font-semibold block mb-2">
@@ -211,7 +212,7 @@ export default function ContactPage() {
             {/* Service Area */}
             <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200 hover:border-[#00529C] transition text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-[#00529C] to-[#003d75] rounded-full flex items-center justify-center mx-auto mb-4">
-                <Icon icon="mdi:map-marker" className="w-8 h-8 text-[#FFE317]" />
+                <Icon icon="mdi:map-marker" className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-bold text-gray-900 mb-2 text-lg">Service Area</h3>
               <p className="text-gray-700 font-semibold mb-2">
@@ -226,7 +227,7 @@ export default function ContactPage() {
             {/* Hours */}
             <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200 hover:border-[#00529C] transition text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-[#00529C] to-[#003d75] rounded-full flex items-center justify-center mx-auto mb-4">
-                <Icon icon="mdi:clock" className="w-8 h-8 text-[#FFE317]" />
+                <Icon icon="mdi:clock" className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-bold text-gray-900 mb-2 text-lg">Hours</h3>
               <div className="text-sm text-gray-700 space-y-1">
@@ -260,94 +261,125 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-[#00529C] mb-4">
-              Find Us in Austin
-            </h2>
-            <p className="text-gray-600">
-              Proudly serving the Greater Austin area
-            </p>
-            <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
-          </div>
-          
-          <div className="rounded-2xl overflow-hidden shadow-xl border-4 border-gray-200">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d441113.09114674534!2d-98.0357904!3d30.307182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1234567890"
-              width="100%"
-              height="450"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Austin, TX Location"
-            />
-          </div>
+      {/* Locations We Serve - Map Section */}
+<section className="py-16 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Roofing Services Throughout <span className="text-[#00529C]">Austin</span>
+      </h2>
+      <p className="text-gray-600 max-w-2xl mx-auto mb-6">
+        Professional roofing services throughout the greater Austin area
+      </p>
+      <div className="w-24 h-1 bg-[#FFE317] mx-auto"></div>
+    </div>
 
-          {/* Service Areas List */}
-          <div className="mt-8 bg-white rounded-xl p-8 shadow-lg">
-            <h3 className="font-bold text-gray-900 mb-6 text-center text-xl flex items-center justify-center gap-2">
-              <Icon icon="mdi:map-marker-radius" className="w-6 h-6 text-[#00529C]" />
-              Areas We Serve
+    {/* Grid de Locations */}
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto mb-16">
+      {locations.map((location) => (
+        <Link
+          key={location.slug}
+          href={`/locations/${location.slug}`}
+          className="bg-white rounded-lg p-4 text-center hover:shadow-lg transition-all border-2 border-gray-200 hover:border-[#00529C] group"
+        >
+          <Icon icon="mdi:map-marker" className="w-8 h-8 text-[#00529C] mx-auto mb-2 group-hover:scale-110 transition-transform" />
+          <p className="font-semibold text-gray-900 text-sm group-hover:text-[#00529C] transition-colors">{location.name}</p>
+          <p className="text-xs text-gray-500 mt-1">{location.zip}</p>
+        </Link>
+      ))}
+    </div>
+
+    {/* Map Section */}
+    <div className="mt-16">
+      <div className="text-center mb-8">
+        <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+          We Proudly Serve the Greater Austin Area
+        </h3>
+        <p className="text-gray-600">
+          Austin homeowners trust Altair Austin Roofing
+        </p>
+      </div>
+
+      {/* Google Maps Embed */}
+      <div className="rounded-2xl overflow-hidden shadow-xl border-4 border-gray-200">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d221094.07598632718!2d-97.9428734!3d30.307182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus"
+          width="100%"
+          height="450"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Austin Service Area Map"
+          className="w-full"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+        {/* FAQ Section - Horizontal 2 columnas plegable */}
+<section className="py-16 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-4">
+        Frequently Asked Questions
+      </h2>
+      <p className="text-gray-600">
+        Find answers to common questions about our roofing services
+      </p>
+      <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
+    </div>
+
+    <div className="grid md:grid-cols-2 gap-6">
+      {faqs.map((faq, idx) => (
+        <details key={idx} open className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200 shadow-sm group">
+          <summary className="flex items-center justify-between cursor-pointer list-none">
+            <h3 className="text-lg font-bold text-gray-900 pr-4">
+              {faq.q}
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-3 text-center">
-              {['Austin', 'Round Rock', 'Cedar Park', 'Georgetown', 'Lakeway', 'Buda', 'Pflugerville', 'Leander', 'Kyle', 'Dripping Springs'].map((area, idx) => (
-                <div key={idx} className="text-gray-700 font-medium hover:text-[#00529C] transition">
-                  {area}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-gray-600">
-              Find answers to common questions about our roofing services
-            </p>
-            <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
-          </div>
-          
-          <FAQAccordion />
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-16 bg-gradient-to-br from-[#00529C] to-[#003d75]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Icon icon="mdi:phone-in-talk" className="w-16 h-16 text-[#FFE317] mx-auto mb-6" />
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to Get Started?
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Call us now or schedule your free inspection online
+            <Icon 
+              icon="mdi:chevron-down" 
+              className="w-6 h-6 text-[#00529C] group-open:rotate-180 transition-transform flex-shrink-0"
+            />
+          </summary>
+          <p className="mt-4 text-gray-700 leading-relaxed text-sm">
+            {faq.a}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="tel:+15125550123"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFE317] hover:bg-[#ffd700] text-[#00529C] font-bold rounded-lg transition-all hover:scale-105 shadow-xl"
-            >
-              <Icon icon="mdi:phone" className="w-5 h-5" />
-              Call (512) 555-0123
-            </a>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-[#00529C] font-bold rounded-lg transition-all hover:scale-105 shadow-xl"
-            >
-              Request Free Estimate
-              <Icon icon="mdi:arrow-right" className="w-5 h-5" />
-            </Link>
-          </div>
-        </div>
-      </section>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* Final CTA */}
+<section className="py-16 bg-gradient-to-br from-[#00529C] to-[#003d75]">
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <Icon icon="mdi:phone-in-talk" className="w-16 h-16 text-[#FFE317] mx-auto mb-6" />
+    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+      Ready to Get Started?
+    </h2>
+    <p className="text-xl text-white/90 mb-8">
+      Call us now or schedule your free inspection online
+    </p>
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="tel:+15125550123"
+        className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFE317] hover:bg-[#ffd700] text-[#00529C] font-bold rounded-lg transition-all hover:scale-105 shadow-xl"
+      >
+        <Icon icon="mdi:phone" className="w-5 h-5" />
+        Call (512) 555-0123
+      </a>
+      <Link
+        href="/contact"
+        className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-[#00529C] font-bold rounded-lg transition-all hover:scale-105 shadow-xl"
+      >
+        Request Free Estimate
+        <Icon icon="mdi:arrow-right" className="w-5 h-5" />
+      </Link>
+    </div>
+  </div>
+</section>
     </main>
   );
 }
