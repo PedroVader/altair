@@ -292,7 +292,7 @@ export default async function LocationPage({
             {services.map((service, index) => (
               <div key={index} className="bg-white rounded-xl p-6 hover:shadow-xl transition-all duration-300 border-2 border-gray-200 hover:border-[#FFE317] group">
                 <div className="w-14 h-14 bg-gradient-to-br from-[#00529C] to-[#003d75] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Icon icon={service.icon} className="w-7 h-7 text-[#FFE317]" />
+                <Icon icon={service.icon} className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#00529C] transition-colors">
                   {service.title}

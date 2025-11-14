@@ -100,8 +100,8 @@ export default function ResidentialRoofing() {
               <div key={index} className="bg-white rounded-xl p-8 hover:shadow-xl transition-all duration-300 border border-gray-200 group cursor-pointer">
                 {/* Icon */}
                 <div className="w-16 h-16 bg-gradient-to-br from-[#00529C] to-[#003d75] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Icon icon={service.icon} className="w-8 h-8 text-[#FFE317]" />
-                </div>
+                <Icon icon={service.icon} className="w-8 h-8 text-white" />
+              </div>
                 
                 {/* Title */}
                 <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#00529C] transition-colors">

@@ -22,10 +22,10 @@ export default function Header() {
   ];
 
   const roofTypes = [
-    { name: 'Asphalt Shingles Roof', href: '/asphalt-shingles-roof', icon: 'mdi:layers' },
-    { name: 'Fiberglass Roof Panels', href: '/fiberglass-roof-panels', icon: 'mdi:crop-square' },
-    { name: 'Clay / Concrete Roof Tiles', href: '/clay-concrete-roof-tiles', icon: 'mdi:texture-box' },
-    { name: 'Metal Roofing', href: '/metal-roofing', icon: 'mdi:iron' },
+    { name: 'Asphalt Shingles Roof', href: '/roof-types/asphalt-shingles-roof', icon: 'mdi:layers' },
+    { name: 'Fiberglass Roof Panels', href: '/roof-types/fiberglass-roof-panels', icon: 'mdi:crop-square' },
+    { name: 'Clay / Concrete Roof Tiles', href: '/roof-types/clay-concrete-roof-tiles', icon: 'mdi:texture-box' },
+    { name: 'Metal Roofing', href: '/roof-types/metal-roofing', icon: 'mdi:iron' },
   ];
 
   return (

@@ -22,30 +22,29 @@ export default function Hero() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-6 md:gap-10 items-center">
           
-          {/* Left Side - Content */}
-          <div className="text-white space-y-4 md:space-y-5">
-            {/* Trust Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Icon 
-                    key={i} 
-                    icon="mdi:star"
-                    className="w-3.5 h-3.5 text-[#FFE317]"
-                  />
-                ))}
-              </div>
-              <span className="text-white/90 font-medium text-xs sm:text-sm flex items-center gap-1.5">
-                <span className="hidden xs:inline">5/5 Star Rated on</span>
-                <span className="xs:hidden">5/5</span>
-                <img 
-                  src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" 
-                  alt="Google"
-                  className="h-4 sm:h-5"
-                />
-              </span>
-            </div>
-
+         {/* Left Side - Content */}
+<div className="text-white space-y-4 md:space-y-5">
+  {/* Trust Badge */}
+  <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20">
+    <div className="flex gap-0.5">
+      {[...Array(5)].map((_, i) => (
+        <Icon 
+          key={i} 
+          icon="mdi:star"
+          className="w-3.5 h-3.5 text-[#FFE317]"
+        />
+      ))}
+    </div>
+    <span className="text-white font-medium text-sm flex items-center gap-1.5">
+      <span className="hidden sm:inline">5/5 Star Rated on</span>
+      <span className="sm:hidden">5/5</span>
+      <img 
+        src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" 
+        alt="Google"
+        className="h-4 sm:h-5"
+      />
+    </span>
+  </div>
             {/* Main Heading */}
             <div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-3 md:mb-4">
