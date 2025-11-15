@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import ContactForm from '@/components/ContactForm';
 import CTA from '@/components/CTA';
+import { getLocationServiceSchema, getBreadcrumbSchema } from '@/lib/schema';
 
 // Type guard para verificar si es RoofType
 function isRoofType(item: any): item is RoofType {
@@ -58,16 +59,32 @@ export async function generateMetadata({
 
   const isRoof = isRoofType(item);
   const title = `${item.name} in ${location.name}, TX | Altair Austin Roofing`;
-  const description = `Professional ${item.name.toLowerCase()} ${isRoof ? 'installation' : 'services'} in ${location.name}, TX. ${item.shortDescription} Licensed, insured, and trusted.`;
+  const description = `Professional ${item.name.toLowerCase()} ${isRoof ? 'installation' : 'services'} in ${location.name}, TX. ${item.shortDescription} Licensed, insured, and trusted by ${location.name} homeowners.`;
 
   return {
     title,
     description,
+    keywords: `${item.name} ${location.name}, ${location.name} ${item.slug}, ${item.name} ${location.zip}, roofing ${location.name} TX`,
     openGraph: {
       title,
       description,
       type: 'website',
       locale: 'en_US',
+      url: `https://altairaustin.com/locations/${location.slug}/${serviceSlug}`,
+      siteName: 'Altair Austin Roofing',
+      images: [
+        {
+          url: 'https://altairaustin.com/worker-repairing-roof.jpg',
+          width: 1200,
+          height: 630,
+          alt: `${item.name} in ${location.name}, TX`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
     },
   };
 }
@@ -91,12 +108,39 @@ export default async function LocationServicePage({
 
   const isRoof = isRoofType(item);
 
+  // Generar schemas
+  const locationServiceSchema = getLocationServiceSchema(
+    location.name,
+    location.zip,
+    location.slug,
+    item.name,
+    item.description,
+    serviceSlug
+  );
+
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Locations', url: '/locations' },
+    { name: location.name, url: `/locations/${location.slug}` },
+    { name: item.name, url: `/locations/${location.slug}/${serviceSlug}` }
+  ]);
+
   // Obtener TODOS los items (sin filtrar)
   const allServices = services;
   const allRoofTypes = roofTypes;
   const allLocations = locations;
 
   return (
+    <>
+      {/* Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(locationServiceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
     <div className="min-h-screen bg-white">
       {/* Breadcrumb */}
       <div className="bg-gray-50 py-4 border-b border-gray-200">
@@ -449,5 +493,6 @@ export default async function LocationServicePage({
         description="Contact us today for a free consultation and detailed estimate from Austin's trusted roofing experts."
       />
     </div>
+    </>
   );
 }

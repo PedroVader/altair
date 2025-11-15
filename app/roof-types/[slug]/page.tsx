@@ -7,6 +7,7 @@ import ContactForm from '@/components/ContactForm';
 import TrustBadgesMinimal from '@/components/TrustBadgesMinimal';
 import { locations } from '@/data/locations';
 import CTA from '@/components/CTA';
+import { getRoofTypeSchema, getBreadcrumbSchema } from '@/lib/schema';
 
 // Generar rutas estáticas para todos los tipos de techo
 export async function generateStaticParams() {
@@ -57,6 +58,22 @@ export default async function RoofTypePage({
   // Otros tipos de techo para mostrar al final
   const otherRoofTypes = roofTypes.filter(rt => rt.slug !== roofType.slug);
 
+  // ⬇️ AGREGAR ESTO AQUÍ ⬇️
+  // Generar schemas
+  const roofTypeSchema = getRoofTypeSchema(
+    roofType.name,
+    roofType.description,
+    roofType.slug,
+    roofType.averageLifespan,
+    roofType.averageCost
+  );
+  
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Roof Types', url: '/roof-types' },
+    { name: roofType.name, url: `/roof-types/${roofType.slug}` }
+  ]);
+
   const services = [
     {
       title: 'Installation',
@@ -91,6 +108,16 @@ export default async function RoofTypePage({
   ];
 
   return (
+    <>
+    {/* ⬇️ AGREGAR ESTO ⬇️ */}
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(roofTypeSchema) }}
+    />
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+    />
     <div className="min-h-screen bg-white">
       {/* Breadcrumb */}
       <div className="bg-gray-50 py-4 border-b border-gray-200">
@@ -624,5 +651,6 @@ export default async function RoofTypePage({
         </div>
       </section>
     </div>
+    </> 
   );
 }

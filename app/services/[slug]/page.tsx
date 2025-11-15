@@ -1,99 +1,129 @@
-import { services, Service } from '@/data/services';
-import { Icon } from '@iconify/react';
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import ContactForm from '@/components/ContactForm';
-import TrustBadgesMinimal from '@/components/TrustBadgesMinimal';
-import { locations } from '@/data/locations';
-import CTA from '@/components/CTA';
+  import { services, Service } from '@/data/services';
+  import { Icon } from '@iconify/react';
+  import { Metadata } from 'next';
+  import { notFound } from 'next/navigation';
+  import Link from 'next/link';
+  import ContactForm from '@/components/ContactForm';
+  import TrustBadgesMinimal from '@/components/TrustBadgesMinimal';
+  import { locations } from '@/data/locations';
+  import CTA from '@/components/CTA';
+  import { getServiceSchema, getBreadcrumbSchema, getFAQSchema } from '@/lib/schema';
 
-// Generar rutas estáticas para todos los servicios
-export async function generateStaticParams() {
-  return services.map((service) => ({
-    slug: service.slug,
-  }));
-}
+  // Generar rutas estáticas para todos los servicios
+  export async function generateStaticParams() {
+    return services.map((service) => ({
+      slug: service.slug,
+    }));
+  }
 
-// Generar metadata dinámica para SEO
-export async function generateMetadata({ 
-  params 
-}: { 
-  params: Promise<{ slug: string }> 
-}): Promise<Metadata> {
-  const { slug } = await params;
-  const service = services.find((srv) => srv.slug === slug);
-  
-  if (!service) {
+  // Generar metadata dinámica para SEO
+  export async function generateMetadata({ 
+    params 
+  }: { 
+    params: Promise<{ slug: string }> 
+  }): Promise<Metadata> {
+    const { slug } = await params;
+    const service = services.find((srv) => srv.slug === slug);
+    
+    if (!service) {
+      return {
+        title: 'Service Not Found',
+      };
+    }
+
     return {
-      title: 'Service Not Found',
+      title: `${service.name} in Austin, TX | Altair Austin Roofing`,
+      description: `${service.shortDescription} Professional roofing services in Austin. Licensed, insured, and trusted by homeowners. Free estimates available.`,
+      openGraph: {
+        title: `${service.name} in Austin, TX`,
+        description: service.shortDescription,
+        type: 'website',
+        locale: 'en_US',
+      },
     };
   }
 
-  return {
-    title: `${service.name} in Austin, TX | Altair Austin Roofing`,
-    description: `${service.shortDescription} Professional roofing services in Austin. Licensed, insured, and trusted by homeowners. Free estimates available.`,
-    openGraph: {
-      title: `${service.name} in Austin, TX`,
-      description: service.shortDescription,
-      type: 'website',
-      locale: 'en_US',
-    },
-  };
-}
+  export default async function ServicePage({ 
+    params 
+  }: { 
+    params: Promise<{ slug: string }> 
+  }) {
+    const { slug } = await params;
+    const service = services.find((srv) => srv.slug === slug);
 
-export default async function ServicePage({ 
-  params 
-}: { 
-  params: Promise<{ slug: string }> 
-}) {
-  const { slug } = await params;
-  const service = services.find((srv) => srv.slug === slug);
-
-  if (!service) {
-    notFound();
-  }
-
-  // Servicios relacionados
-  const relatedServices = services.filter(s => s.slug !== service.slug);
-
-  // FAQs dinámicas
-  const faqs = [
-    {
-      question: `How much does ${service.name.toLowerCase()} cost in Austin?`,
-      answer: `The cost of ${service.name.toLowerCase()} varies depending on your roof size, materials chosen, and the extent of work needed. We provide free, detailed estimates with transparent pricing and no hidden fees.`
-    },
-    {
-      question: `How long does ${service.name.toLowerCase()} take?`,
-      answer: `Most ${service.name.toLowerCase()} projects are completed within 1-3 days, depending on your roof's size and complexity. We'll provide a detailed timeline during your free consultation.`
-    },
-    {
-      question: `Do you offer emergency ${service.name.toLowerCase()}?`,
-      answer: `Yes! We offer 24/7 emergency roofing services throughout Austin and surrounding areas. Call us immediately at (512) 555-0123 if you're experiencing a roofing emergency.`
-    },
-    {
-      question: `Is ${service.name.toLowerCase()} covered by insurance?`,
-      answer: `Many roofing services, especially storm and hail damage repairs, are often covered by homeowners insurance. We work directly with insurance companies and can help you navigate the claims process.`
-    },
-    {
-      question: `Do you provide a warranty for ${service.name.toLowerCase()}?`,
-      answer: `Yes! We offer comprehensive warranties on all our work, including lifetime workmanship warranties and manufacturer warranties on materials. Your investment is fully protected.`
-    },
-    {
-      question: `What areas do you serve for ${service.name.toLowerCase()}?`,
-      answer: `We proudly serve Austin and all surrounding areas including Round Rock, Cedar Park, Georgetown, Pflugerville, Leander, Kyle, Buda, Lakeway, and Dripping Springs.`
-    },
-    {
-      question: `Are you licensed and insured in Austin?`,
-      answer: `Yes, Altair Austin Roofing is fully licensed and insured to operate in Austin and throughout Central Texas. We carry comprehensive liability insurance and workers' compensation coverage.`
-    },
-    {
-      question: `Do you provide free estimates for ${service.name.toLowerCase()}?`,
-      answer: `Absolutely! We provide free, no-obligation estimates for all projects. Our experts will visit your property, assess your needs, and provide a detailed quote with transparent pricing.`
+    if (!service) {
+      notFound();
     }
-  ];
+
+    // Servicios relacionados
+    const relatedServices = services.filter(s => s.slug !== service.slug);
+
+    // FAQs dinámicas - PRIMERO definir el array
+    const faqs = [
+      {
+        question: `How much does ${service.name.toLowerCase()} cost in Austin?`,
+        answer: `The cost of ${service.name.toLowerCase()} varies depending on your roof size, materials chosen, and the extent of work needed. We provide free, detailed estimates with transparent pricing and no hidden fees.`
+      },
+      {
+        question: `How long does ${service.name.toLowerCase()} take?`,
+        answer: `Most ${service.name.toLowerCase()} projects are completed within 1-3 days, depending on your roof's size and complexity. We'll provide a detailed timeline during your free consultation.`
+      },
+      {
+        question: `Do you offer emergency ${service.name.toLowerCase()}?`,
+        answer: `Yes! We offer 24/7 emergency roofing services throughout Austin and surrounding areas. Call us immediately at (512) 555-0123 if you're experiencing a roofing emergency.`
+      },
+      {
+        question: `Is ${service.name.toLowerCase()} covered by insurance?`,
+        answer: `Many roofing services, especially storm and hail damage repairs, are often covered by homeowners insurance. We work directly with insurance companies and can help you navigate the claims process.`
+      },
+      {
+        question: `Do you provide a warranty for ${service.name.toLowerCase()}?`,
+        answer: `Yes! We offer comprehensive warranties on all our work, including lifetime workmanship warranties and manufacturer warranties on materials. Your investment is fully protected.`
+      },
+      {
+        question: `What areas do you serve for ${service.name.toLowerCase()}?`,
+        answer: `We proudly serve Austin and all surrounding areas including Round Rock, Cedar Park, Georgetown, Pflugerville, Leander, Kyle, Buda, Lakeway, and Dripping Springs.`
+      },
+      {
+        question: `Are you licensed and insured in Austin?`,
+        answer: `Yes, Altair Austin Roofing is fully licensed and insured to operate in Austin and throughout Central Texas. We carry comprehensive liability insurance and workers' compensation coverage.`
+      },
+      {
+        question: `Do you provide free estimates for ${service.name.toLowerCase()}?`,
+        answer: `Absolutely! We provide free, no-obligation estimates for all projects. Our experts will visit your property, assess your needs, and provide a detailed quote with transparent pricing.`
+      }
+    ];
+
+  // Generar schemas DESPUÉS de definir faqs
+  const serviceSchema = getServiceSchema(
+    service.name,
+    service.description,
+    service.slug
+  );
+  
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Services', url: '/services' },
+    { name: service.name, url: `/services/${service.slug}` }
+  ]);
+
+  const faqSchema = getFAQSchema(faqs);
 
   return (
+    <>
+      {/* ⬇️ AGREGAR SCHEMAS ⬇️ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
     <div className="min-h-screen bg-white">
       {/* Breadcrumb */}
       <div className="bg-gray-50 py-4 border-b border-gray-200">
@@ -573,5 +603,6 @@ export default async function ServicePage({
         </div>
       </section>
     </div>
+    </> 
   );
 }
