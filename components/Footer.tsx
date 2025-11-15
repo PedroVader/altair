@@ -1,32 +1,14 @@
 // components/Footer.tsx
 import Link from 'next/link';
 import { locations } from '@/data/locations';
-import Image from 'next/image';
+import { services } from '@/data/services';
+import { roofTypes } from '@/data/roofTypes';
 import { Icon } from '@iconify/react';
 
 export default function Footer() {
-  const services = [
-    { name: 'Roof Inspection', slug: 'roof-inspection' },
-    { name: 'Roof Estimate', slug: 'roof-estimate' },
-    { name: 'Roof Repair', slug: 'roof-repair' },
-    { name: 'Re-Roof', slug: 're-roof' },
-    { name: 'Roof Replacement', slug: 'roof-replacement' },
-    { name: 'Roof Installation', slug: 'roof-installation' },
-    { name: 'Storm Damage', slug: 'storm-damage' },
-    { name: 'Hail Damage', slug: 'hail-damage' },
-  ];
-
-  const roofTypes = [
-    { name: 'Asphalt Shingles Roof', slug: 'asphalt-shingles-roof' },
-    { name: 'Fiberglass Roof Panels', slug: 'fiberglass-roof-panels' },
-    { name: 'Clay / Concrete Roof Tiles', slug: 'clay-concrete-roof-tiles' },
-    { name: 'Metal Roofing', slug: 'metal-roofing' },
-  ];
-
-  const popularLocations = locations;
-  const halfLength = Math.ceil(popularLocations.length / 2);
-  const firstColumnLocations = popularLocations.slice(0, halfLength);
-  const secondColumnLocations = popularLocations.slice(halfLength);
+  const halfLength = Math.ceil(locations.length / 2);
+  const firstColumnLocations = locations.slice(0, halfLength);
+  const secondColumnLocations = locations.slice(halfLength);
   
   return (
     <footer className="bg-white border-t-4 border-[#00529C]">
@@ -47,42 +29,32 @@ export default function Footer() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 sm:gap-10 lg:gap-8">
           
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg sm:text-xl font-bold text-black mb-4 sm:mb-6">Quick Links</h3>
-            <ul className="space-y-2 sm:space-y-3">
-              <li>
-                <Link href="/" className="text-sm sm:text-base text-gray-700 hover:text-[#00529C] transition">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="text-sm sm:text-base text-gray-700 hover:text-[#00529C] transition">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/locations" className="text-sm sm:text-base text-gray-700 hover:text-[#00529C] transition">
-                  Service Areas
-                </Link>
-              </li>
-              <li>
-                <Link href="/gallery" className="text-sm sm:text-base text-gray-700 hover:text-[#00529C] transition">
-                  Gallery
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-sm sm:text-base text-gray-700 hover:text-[#00529C] transition">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy-policy" className="text-sm sm:text-base text-gray-700 hover:text-[#00529C] transition">
-                  Privacy Policy
-                </Link>
-              </li>
-            </ul>
-          </div>
+{/* Quick Links */}
+<div>
+  <h3 className="text-lg sm:text-xl font-bold text-black mb-4 sm:mb-6">Quick Links</h3>
+  <ul className="space-y-2 sm:space-y-3">
+    <li>
+      <Link href="/" className="text-sm sm:text-base text-gray-700 hover:text-[#00529C] transition">
+        Home
+      </Link>
+    </li>
+    <li>
+      <Link href="/about" className="text-sm sm:text-base text-gray-700 hover:text-[#00529C] transition">
+        About
+      </Link>
+    </li>
+    <li>
+      <Link href="/locations" className="text-sm sm:text-base text-gray-700 hover:text-[#00529C] transition">
+        Service Areas
+      </Link>
+    </li>
+    <li>
+      <Link href="/contact" className="text-sm sm:text-base text-gray-700 hover:text-[#00529C] transition">
+        Contact
+      </Link>
+    </li>
+  </ul>
+</div>
 
           {/* Services */}
           <div>
@@ -91,7 +63,7 @@ export default function Footer() {
               {services.map((service) => (
                 <li key={service.slug}>
                   <Link 
-                    href={`/${service.slug}`}
+                    href={`/services/${service.slug}`}
                     className="text-sm text-gray-700 hover:text-[#00529C] transition"
                   >
                     {service.name}
@@ -108,7 +80,7 @@ export default function Footer() {
               {roofTypes.map((type) => (
                 <li key={type.slug}>
                   <Link 
-                    href={`/${type.slug}`}
+                    href={`/roof-types/${type.slug}`}
                     className="text-sm text-gray-700 hover:text-[#00529C] transition"
                   >
                     {type.name}

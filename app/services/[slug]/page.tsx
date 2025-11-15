@@ -400,42 +400,42 @@ export default async function ServicePage({
   </div>
 </section>
 
-     {/* Related Services - H2 con H3 */}
+ {/* All Services - H2 con H3 */}
 <section className="py-16 bg-white">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="text-center mb-12">
       <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-4">
-        Related Roofing Services
+        All Roofing Services
       </h2>
       <p className="text-gray-600 max-w-2xl mx-auto">
-        Explore our other professional roofing services
+        Complete roofing solutions for every need
       </p>
       <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
     </div>
 
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-      {relatedServices.map((relatedService) => (
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+      {services.map((serviceItem) => (
         <Link
-          key={relatedService.slug}
-          href={`/services/${relatedService.slug}`}
+          key={serviceItem.slug}
+          href={`/services/${serviceItem.slug}`}
           className="group"
         >
-          <div className="h-full bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 hover:border-[#00529C] overflow-hidden">
+          <div className="h-full bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 hover:border-[#00529C] overflow-hidden">
             <div className="p-6 sm:p-8 text-center flex flex-col items-center min-h-[280px]">
               
               {/* Icon */}
-              <div className="mb-4 sm:mb-5 text-gray-700 group-hover:text-[#00529C] transition-colors duration-300">
-                <Icon icon={relatedService.icon} className="w-14 h-14 sm:w-16 sm:h-16" />
+              <div className="mb-4 text-gray-700 group-hover:text-[#00529C] transition-colors duration-300">
+                <Icon icon={serviceItem.icon} className="w-14 h-14 sm:w-16 sm:h-16" />
               </div>
 
               {/* Title - H3 */}
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 group-hover:text-[#00529C] transition-colors duration-300">
-                {relatedService.name}
+                {serviceItem.name}
               </h3>
 
               {/* Description */}
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed flex-grow">
-                {relatedService.shortDescription}
+                {serviceItem.shortDescription}
               </p>
 
               {/* View Service Link */}
@@ -470,20 +470,20 @@ export default async function ServicePage({
             <div className="w-24 h-1 bg-[#FFE317] mx-auto"></div>
           </div>
 
-          {/* Grid de Locations */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto mb-16">
-            {locations.map((location) => (
-              <Link
-                key={location.slug}
-                href={`/locations/${location.slug}`}
-                className="bg-white rounded-lg p-4 text-center hover:shadow-lg transition-all border-2 border-gray-200 hover:border-[#00529C] group"
-              >
-                <Icon icon="mdi:map-marker" className="w-8 h-8 text-[#00529C] mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                <p className="font-semibold text-gray-900 text-sm group-hover:text-[#00529C] transition-colors">{location.name}</p>
-                <p className="text-xs text-gray-500 mt-1">{location.zip}</p>
-              </Link>
-            ))}
-          </div>
+                {/* Grid de Locations */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto mb-16">
+          {locations.map((location) => (
+            <Link
+              key={location.slug}
+              href={`/locations/${location.slug}/${service.slug}`}
+              className="bg-white rounded-lg p-4 text-center hover:shadow-lg transition-all border-2 border-gray-200 hover:border-[#00529C] group"
+            >
+              <Icon icon="mdi:map-marker" className="w-8 h-8 text-[#00529C] mx-auto mb-2 group-hover:scale-110 transition-transform" />
+              <p className="font-semibold text-gray-900 text-sm group-hover:text-[#00529C] transition-colors">{location.name}</p>
+              <p className="text-xs text-gray-500 mt-1">{location.zip}</p>
+            </Link>
+          ))}
+        </div>
 
           {/* Map Section - H3 */}
           <div className="mt-16">

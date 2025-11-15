@@ -1,4 +1,6 @@
 import { locations, Location } from '@/data/locations';
+import { services } from '@/data/services';
+import { roofTypes } from '@/data/roofTypes';
 import { Icon } from '@iconify/react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -28,7 +30,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${location.name} Roofing Services | Austin Roofing Company`,
+    title: `${location.name} Roofing Services | Altair Austin Roofing`,
     description: location.description,
   };
 }
@@ -44,39 +46,6 @@ export default async function LocationPage({
   if (!location) {
     notFound();
   }
-
-  const services = [
-    {
-      title: 'Roof Installation',
-      icon: 'mdi:hammer-wrench',
-      description: `Professional roof installation services in ${location.name}. Quality craftsmanship for your home.`
-    },
-    {
-      title: 'Roof Repairs',
-      icon: 'mdi:tools',
-      description: `Fast and reliable roof repair services for ${location.name} homeowners.`
-    },
-    {
-      title: 'Storm Damage',
-      icon: 'mdi:weather-lightning',
-      description: `Emergency storm damage repair available 24/7 in ${location.name}.`
-    },
-    {
-      title: 'Roof Replacement',
-      icon: 'mdi:home-roof',
-      description: `Complete roof replacement services in ${location.name} with quality materials.`
-    },
-    {
-      title: 'Inspections',
-      icon: 'mdi:clipboard-check',
-      description: `Free roof inspections for ${location.name} residents. Comprehensive assessment.`
-    },
-    {
-      title: 'Maintenance',
-      icon: 'mdi:wrench',
-      description: `Regular roof maintenance services to protect your ${location.name} home.`
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -269,7 +238,7 @@ export default async function LocationPage({
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
             <p className="mb-4">
-              Have you been trying to find a reliable roofer in <strong>{location.name}, TX</strong>? If you have been searching high and low for the best quality roofing company near you, then look no further than <strong>Austin Roofing Company – Roof Repair & Replacement</strong>.
+              Have you been trying to find a reliable roofer in <strong>{location.name}, TX</strong>? If you have been searching high and low for the best quality roofing company near you, then look no further than <strong>Altair Austin Roofing – Roof Repair & Replacement</strong>.
             </p>
             <p>
               We offer several services to our clients, including roof inspection, roof estimate, roof repair, roof replacement, roof installation and re-roof services. We also offer storm damage roofing, hail damage roofing and wind damage roofing.
@@ -278,66 +247,125 @@ export default async function LocationPage({
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* All Services */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-4">
-              Our Services in {location.name}
+              All Roofing Services in {location.name}
             </h2>
-            <div className="w-24 h-1 bg-[#FFE317] mx-auto"></div>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Comprehensive roofing solutions for every need
+            </p>
+            <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 hover:shadow-xl transition-all duration-300 border-2 border-gray-200 hover:border-[#FFE317] group">
-                <div className="w-14 h-14 bg-gradient-to-br from-[#00529C] to-[#003d75] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <Icon icon={service.icon} className="w-7 h-7 text-white" />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+            {services.map((service) => (
+              <Link
+                key={service.slug}
+                href={`/locations/${location.slug}/${service.slug}`}
+                className="group"
+              >
+                <div className="h-full bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 hover:border-[#00529C] overflow-hidden">
+                  <div className="p-6 sm:p-8 text-center flex flex-col items-center min-h-[280px]">
+                    <div className="mb-4 text-gray-700 group-hover:text-[#00529C] transition-colors duration-300">
+                      <Icon icon={service.icon} className="w-14 h-14 sm:w-16 sm:h-16" />
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 group-hover:text-[#00529C] transition-colors duration-300">
+                      {service.name}
+                    </h3>
+                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed flex-grow">
+                      {service.shortDescription}
+                    </p>
+                    <div className="flex items-center gap-2 text-[#00529C] font-semibold text-sm group-hover:gap-3 transition-all duration-300 mt-4">
+                      <span>Learn More</span>
+                      <Icon icon="mdi:arrow-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#00529C] transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  {service.description}
-                </p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-<section className="relative py-16 overflow-hidden">
-  {/* Background Image with Blur */}
-  <div className="absolute inset-0 z-0">
-    <img 
-      src="/worker-roofing-altair.jpg" 
-      alt="Roofing background"
-      className="w-full h-full object-cover blur-[2px]"
-    />
-    {/* Dark overlay for text readability */}
-    <div className="absolute inset-0 bg-black/60"></div>
-  </div>
+      {/* All Roof Types */}
+      <section className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-4">
+            All Roof Types We Install in {location.name}
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Expert installation of every roofing system
+          </p>
+          <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
+        </div>
 
-  {/* Content */}
-  <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center drop-shadow-lg">
-      Why Choose Us?
-    </h2>
-    
-    <div className="prose prose-lg max-w-none text-white leading-relaxed space-y-4 drop-shadow-md">
-      <p>
-        If you are a resident of <strong className="text-[#FFE317]">Texas</strong>, then odds are you're already aware of just how much damage the weather conditions can be to your home or property. This is something that we keep in mind when it comes to repairing, installing, or replacing your roof in <strong className="text-[#FFE317]">{location.name}</strong>.
-      </p>
-      <p>
-        We have an experienced team in which we can put your mind at ease knowing you are getting the highest quality roofing that is available in your area. What's more, we even offer a <strong className="text-[#FFE317]">free estimate service</strong> so that you can get an idea of what you need before the work begins on your new roofing project.
-      </p>
-      <p>
-        So what are you waiting for? If you are based in <strong className="text-[#FFE317]">{location.name}</strong> then do not hesitate to get in touch with our team at <strong className="text-[#FFE317]">Austin Roofing Company – Roof Repair & Replacement</strong> today. To discuss all of your roofing needs, simply give us a call to speak with one of our team members. Alternatively, if you would like further details on our services, then you can find out more about our company and arrange your free estimate over on our website.
-      </p>
-    </div>
-  </div>
-</section>
+        <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
+          {roofTypes.map((roofType) => (
+            <Link
+              key={roofType.slug}
+              href={`/locations/${location.slug}/${roofType.slug}`}
+              className="group"
+            >
+              <div className="h-full bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 hover:border-[#00529C] overflow-hidden">
+                <div className="p-6 sm:p-8 text-center flex flex-col items-center min-h-[280px]">
+                  <div className="mb-4 text-gray-700 group-hover:text-[#00529C] transition-colors duration-300">
+                    <Icon icon={roofType.icon} className="w-14 h-14 sm:w-16 sm:h-16" />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 group-hover:text-[#00529C] transition-colors duration-300">
+                    {roofType.name}
+                  </h3>
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed flex-grow">
+                    {roofType.shortDescription}
+                  </p>
+                  <div className="flex items-center gap-2 text-[#00529C] font-semibold text-sm group-hover:gap-3 transition-all duration-300 mt-4">
+                    <span>Learn More</span>
+                    <Icon icon="mdi:arrow-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+
+      {/* Why Choose Us Section */}
+      <section className="relative py-16 overflow-hidden">
+        {/* Background Image with Blur */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/worker-roofing-altair.jpg" 
+            alt="Roofing background"
+            className="w-full h-full object-cover blur-[2px]"
+          />
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-black/60"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center drop-shadow-lg">
+            Why Choose Us?
+          </h2>
+          
+          <div className="prose prose-lg max-w-none text-white leading-relaxed space-y-4 drop-shadow-md">
+            <p>
+              If you are a resident of <strong className="text-[#FFE317]">Texas</strong>, then odds are you're already aware of just how much damage the weather conditions can be to your home or property. This is something that we keep in mind when it comes to repairing, installing, or replacing your roof in <strong className="text-[#FFE317]">{location.name}</strong>.
+            </p>
+            <p>
+              We have an experienced team in which we can put your mind at ease knowing you are getting the highest quality roofing that is available in your area. What's more, we even offer a <strong className="text-[#FFE317]">free estimate service</strong> so that you can get an idea of what you need before the work begins on your new roofing project.
+            </p>
+            <p>
+              So what are you waiting for? If you are based in <strong className="text-[#FFE317]">{location.name}</strong> then do not hesitate to get in touch with our team at <strong className="text-[#FFE317]">Altair Austin Roofing – Roof Repair & Replacement</strong> today. To discuss all of your roofing needs, simply give us a call to speak with one of our team members. Alternatively, if you would like further details on our services, then you can find out more about our company and arrange your free estimate over on our website.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Neighborhoods Section */}
       {location.neighborhoods && location.neighborhoods.length > 0 && (
         <section className="py-16 bg-gray-50">

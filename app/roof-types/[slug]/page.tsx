@@ -361,12 +361,12 @@ export default async function RoofTypePage({
         </div>
       </section>
 
-      {/* Other Roof Types - H2 con H3 para cada card */}
+{/* All Roof Types - H2 con H3 para cada card */}
 <section className="py-16 bg-gray-50">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="text-center mb-12">
       <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-4">
-        Explore Other Roof Types
+        All Roof Types We Install
       </h2>
       <p className="text-gray-600 max-w-2xl mx-auto">
         Discover the perfect roofing material for your Austin home
@@ -374,29 +374,29 @@ export default async function RoofTypePage({
       <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
     </div>
 
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-      {otherRoofTypes.map((otherType) => (
+    <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
+      {roofTypes.map((roofTypeItem) => (
         <Link
-          key={otherType.slug}
-          href={`/roof-types/${otherType.slug}`}
+          key={roofTypeItem.slug}
+          href={`/roof-types/${roofTypeItem.slug}`}
           className="group"
         >
-          <div className="h-full bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 hover:border-[#00529C] overflow-hidden">
+          <div className="h-full bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 hover:border-[#00529C] overflow-hidden">
             <div className="p-6 sm:p-8 text-center flex flex-col items-center min-h-[280px]">
               
               {/* Icon */}
-              <div className="mb-4 sm:mb-5 text-gray-700 group-hover:text-[#00529C] transition-colors duration-300">
-                <Icon icon={otherType.icon} className="w-14 h-14 sm:w-16 sm:h-16" />
+              <div className="mb-4 text-gray-700 group-hover:text-[#00529C] transition-colors duration-300">
+                <Icon icon={roofTypeItem.icon} className="w-14 h-14 sm:w-16 sm:h-16" />
               </div>
 
               {/* Title - H3 */}
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 group-hover:text-[#00529C] transition-colors duration-300">
-                {otherType.name}
+                {roofTypeItem.name}
               </h3>
 
               {/* Description */}
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed flex-grow">
-                {otherType.shortDescription}
+                {roofTypeItem.shortDescription}
               </p>
 
               {/* View Link */}

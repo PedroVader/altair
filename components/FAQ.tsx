@@ -54,15 +54,21 @@ export default function FAQ({
   title = "Frequently Asked Questions", 
   subtitle = "Everything you need to know about our roofing services" 
 }: FAQProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndexes, setOpenIndexes] = useState<number[]>(
+    Array.from({ length: faqs.length }, (_, i) => i)
+  );
 
   const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+    if (openIndexes.includes(index)) {
+      setOpenIndexes(openIndexes.filter(i => i !== index));
+    } else {
+      setOpenIndexes([...openIndexes, index]);
+    }
   };
 
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-4">
@@ -71,44 +77,47 @@ export default function FAQ({
           <p className="text-lg text-gray-600">
             {subtitle}
           </p>
+          <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
         </div>
 
-        {/* FAQ Items - TODAS ABIERTAS */}
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="border border-gray-200 rounded-lg overflow-hidden bg-white"
-            >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors cursor-pointer"
-              >
-                <h3 className="text-lg font-bold text-gray-900 pr-4">
-                  {faq.question}
-                </h3>
-                <Icon
-                  icon={openIndex === index ? "mdi:chevron-up" : "mdi:chevron-down"}
-                  className="w-6 h-6 flex-shrink-0 text-[#00529C] transition-transform"
-                />
-              </button>
-
-              {/* SIEMPRE VISIBLE - Solo se oculta si se hace click */}
-              <div
-                className={`transition-all duration-300 ease-in-out ${
-                  openIndex === index ? 'max-h-0 opacity-0' : 'max-h-[1000px] opacity-100'
-                }`}
-              >
-                <div className="px-6 pb-6 text-gray-700 leading-relaxed border-t border-gray-100 pt-4">
-                  {faq.answer}
+        {/* FAQ Items - Grid 2 columnas, todas abiertas por defecto */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndexes.includes(index);
+            
+            return (
+              <details key={index} open className="bg-white rounded-xl shadow-sm border-2 border-gray-200 overflow-hidden hover:border-[#00529C] transition">
+                <summary 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    toggleFAQ(index);
+                  }}
+                  className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition cursor-pointer list-none"
+                >
+                  <h3 className="font-bold text-gray-900 text-lg pr-4">{faq.question}</h3>
+                  <Icon 
+                    icon="mdi:chevron-down" 
+                    className={`w-6 h-6 text-[#00529C] flex-shrink-0 transition-transform duration-300 ${
+                      isOpen ? 'rotate-180' : ''
+                    }`}
+                  />
+                </summary>
+                <div 
+                  className={`transition-all duration-300 ease-in-out ${
+                    isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  } overflow-hidden`}
+                >
+                  <div className="px-6 pb-4 text-gray-600 border-t border-gray-100 pt-4 leading-relaxed">
+                    {faq.answer}
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </details>
+            );
+          })}
         </div>
 
         {/* CTA Optional */}
-        <div className="mt-12 text-center bg-gray-50 rounded-xl p-8">
+        <div className="mt-12 text-center bg-white rounded-xl p-8 shadow-lg border-2 border-gray-200">
           <h3 className="text-xl font-bold text-gray-900 mb-3">
             Still Have Questions?
           </h3>
@@ -125,7 +134,7 @@ export default function FAQ({
             </a>
             <a
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#FFD700] hover:bg-[#FFC700] text-[#00529C] font-bold rounded-lg transition-all hover:scale-105 cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#FFE317] hover:bg-[#ffd700] text-[#00529C] font-bold rounded-lg transition-all hover:scale-105 cursor-pointer"
             >
               Contact Us
               <Icon icon="mdi:arrow-right" className="w-5 h-5" />
