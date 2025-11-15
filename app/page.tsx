@@ -6,6 +6,7 @@ import ServicesGrid from '@/components/ServicesGrid';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
+import RoofTypesGrid from '@/components/RoofTypesGrid';
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <AboutSection />
       <ServicesGrid />
       <WhyChooseUs />
+      <RoofTypesGrid />
       <Testimonials />
       <FAQ />
       {/* Próximas secciones */}
