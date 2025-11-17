@@ -1,5 +1,7 @@
+'use client';
+
 import { Icon } from '@iconify/react';
-import Link from 'next/link';
+import QuoteButtonModal from './QuoteButtonModal';
 
 interface CTAProps {
   title?: string;
@@ -7,7 +9,6 @@ interface CTAProps {
   primaryButtonText?: string;
   primaryButtonHref?: string;
   secondaryButtonText?: string;
-  secondaryButtonHref?: string;
   feature1?: string;
   feature2?: string;
 }
@@ -18,7 +19,6 @@ export default function CTA({
   primaryButtonText = "Call (512) 555-0123",
   primaryButtonHref = "tel:+15125550123",
   secondaryButtonText = "Get a Quote",
-  secondaryButtonHref = "/contact",
   feature1 = "24/7 Emergency Service",
   feature2 = "100% Satisfaction Guarantee"
 }: CTAProps) {
@@ -43,14 +43,12 @@ export default function CTA({
             {primaryButtonText}
           </a>
 
-          {/* White/Gray Quote Button */}
-          <Link
-            href={secondaryButtonHref}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-[#00529C] text-base font-bold rounded-xl transition-all hover:scale-105 shadow-lg"
-          >
-            {secondaryButtonText}
-            <Icon icon="mdi:arrow-right" className="w-5 h-5" />
-          </Link>
+          {/* White Quote Button - AHORA CON MODAL */}
+          <QuoteButtonModal 
+            text={secondaryButtonText}
+            variant="secondary"
+            className="cursor-pointer"
+          />
         </div>
 
         {/* Features */}

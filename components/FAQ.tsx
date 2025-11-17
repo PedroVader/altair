@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Icon } from '@iconify/react';
+import QuoteButtonModal from './QuoteButtonModal';
 
 interface FAQItem {
   question: string;
@@ -132,13 +133,10 @@ export default function FAQ({
               <Icon icon="mdi:phone" className="w-5 h-5" />
               Call (512) 555-0123
             </a>
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#FFE317] hover:bg-[#ffd700] text-[#00529C] font-bold rounded-lg transition-all hover:scale-105 cursor-pointer"
-            >
-              Contact Us
-              <Icon icon="mdi:arrow-right" className="w-5 h-5" />
-            </a>
+            <QuoteButtonModal 
+  text="Contact Us"
+  variant="primary"  // ✅ Correcto - amarillo con azul
+/>
           </div>
         </div>
       </div>

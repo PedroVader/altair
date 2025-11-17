@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import ContactForm from '@/components/ContactForm';
 import { getLocationSchema, getBreadcrumbSchema } from '@/lib/schema';
+import QuoteButtonModal from '@/components/QuoteButtonModal';
 
 // Generar rutas estáticas para todas las ubicaciones
 export async function generateStaticParams() {
@@ -452,13 +453,11 @@ export default async function LocationPage({
                 <Icon icon="mdi:phone" className="w-5 h-5" />
                 Call (512) 555-0123
               </a>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-[#00529C] font-bold rounded-lg transition-all hover:scale-105 shadow-lg"
-              >
-                Get a Quote
-                <Icon icon="mdi:arrow-right" className="w-5 h-5" />
-              </Link>
+              <QuoteButtonModal 
+  text="Get a Quote"
+  variant="primary"  
+   className='cursor-pointer'
+/>
             </div>
           </div>
         </section>

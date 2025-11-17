@@ -8,6 +8,7 @@ import Link from 'next/link';
 import ContactForm from '@/components/ContactForm';
 import CTA from '@/components/CTA';
 import { getLocationServiceSchema, getBreadcrumbSchema } from '@/lib/schema';
+import QuoteButtonModal from '@/components/QuoteButtonModal';
 
 // Type guard para verificar si es RoofType
 function isRoofType(item: any): item is RoofType {
@@ -236,13 +237,11 @@ export default async function LocationServicePage({
                   <Icon icon="mdi:phone" className="w-4 h-4" />
                   Call (512) 555-0123
                 </a>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white font-bold rounded-xl transition-all border-2 border-white/30 text-sm"
-                >
-                  Get Free Estimate
-                  <Icon icon="mdi:arrow-right" className="w-4 h-4" />
-                </Link>
+                <QuoteButtonModal 
+  text="Get a Quote"
+  variant="primary"  
+   className='cursor-pointer'
+/>
               </div>
             </div>
 

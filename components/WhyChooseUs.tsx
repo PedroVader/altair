@@ -1,6 +1,7 @@
 'use client';
 
 import { Icon } from '@iconify/react';
+import QuoteButtonModal from '@/components/QuoteButtonModal';
 
 export default function ResidentialRoofing() {
   const services = [
@@ -192,13 +193,11 @@ export default function ResidentialRoofing() {
                 <Icon icon="mdi:phone" className="w-5 h-5" />
                 Call (512) 555-0123
               </a>
-   <a           
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#00529C] hover:bg-[#003d75] text-white font-bold rounded-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
-              >
-                Get a Quote
-                <Icon icon="mdi:arrow-right" className="w-5 h-5" />
-              </a>
+              <QuoteButtonModal 
+  text="Get a Quote"
+  variant="primary"
+  className="cursor-pointer"
+/>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@
 
 import { Icon } from '@iconify/react';
 import { useState } from 'react';
+import QuoteButtonModal from '@/components/QuoteButtonModal';
 
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -180,13 +181,11 @@ export default function Testimonials() {
           <p className="text-xl text-gray-700 mb-6">
             Join hundreds of satisfied customers in the Austin area
           </p>
-          <a
-            href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#FFE317] hover:bg-[#FFC700] text-white font-bold rounded-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
-          >
-             Get a Quote
-            <Icon icon="mdi:arrow-right" className="w-5 h-5" />
-          </a>
+          <QuoteButtonModal 
+  text="Get a Quote"
+  variant="primary"
+   className='cursor-pointer'
+/>
         </div>
       </div>
     </section>

@@ -13,6 +13,7 @@ interface ContactFormProps {
   buttonText?: string;
   buttonColor?: "primary" | "secondary" | "accent";
   onSubmit?: (data: FormData) => Promise<void>;
+  onSuccess?: () => void; // 👈 NUEVO
 }
 
 interface FormData {
@@ -26,11 +27,11 @@ interface FormData {
 const ContactForm = ({
   variant = "hero",
   title = "Get a Quote Today",
-  subtitle = "Fill out the form and we'll get back to you within 24 hours",
   showPhone = false,
   buttonText = "Get a Quote",
   buttonColor = "accent",
-  onSubmit
+  onSubmit,
+  onSuccess // 👈 NUEVO
 }: ContactFormProps) => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -47,7 +48,7 @@ const ContactForm = ({
     hero: "bg-white rounded-xl shadow-xl p-4 sm:p-6 w-full max-w-md",
     sidebar: "bg-white rounded-xl shadow-lg p-4 sm:p-5 w-full",
     fullpage: "bg-white rounded-xl shadow-xl p-6 sm:p-8 w-full max-w-2xl mx-auto",
-    modal: "bg-white p-4 sm:p-5 w-full rounded-xl"
+    modal: "bg-white"
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -75,12 +76,24 @@ const ContactForm = ({
         service: "Roof Repair",
         message: "" 
       });
+
+      // 👇 NUEVO: Llamar onSuccess después de mostrar el mensaje de éxito
+      setTimeout(() => {
+        if (onSuccess) {
+          onSuccess();
+        }
+        setSubmitStatus("idle");
+      }, 2000);
+
     } catch (error) {
       console.error("Form submission error:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus("idle"), 3000);
+      // 👇 MODIFICADO: Solo reset si hay error
+      if (submitStatus === "error") {
+        setTimeout(() => setSubmitStatus("idle"), 3000);
+      }
     }
   };
 
@@ -88,15 +101,12 @@ const ContactForm = ({
     <div className={containerStyles[variant]}>
       {/* Header - OPTIMIZADO */}
       <div className="mb-4 sm:mb-5 text-center">
-        <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-[#00529C] rounded-full mb-2 sm:mb-3">
-          <Icon icon="mdi:clipboard-text" className="w-6 h-6 sm:w-7 sm:h-7 text-[#FFE317]" />
+        <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-[#00529C] rounded-full mb-2 sm:mb-3 mt-4">
+          <Icon icon="mdi:clipboard-text" className="w-6 h-6 sm:w-7 sm:h-7 text-[#fffff]" />
         </div>
         <h3 className="text-lg sm:text-xl font-bold text-[#00529C] mb-1 sm:mb-1.5">
           {title}
         </h3>
-        <p className="text-gray-600 text-xs leading-relaxed px-2 sm:px-0">
-          {subtitle}
-        </p>
       </div>
 
       {/* Form - ESPACIADO MOBILE */}

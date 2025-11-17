@@ -8,6 +8,7 @@ import TrustBadgesMinimal from '@/components/TrustBadgesMinimal';
 import { locations } from '@/data/locations';
 import CTA from '@/components/CTA';
 import { getRoofTypeSchema, getBreadcrumbSchema } from '@/lib/schema';
+import QuoteButtonModal from '@/components/QuoteButtonModal';
 
 // Generar rutas estáticas para todos los tipos de techo
 export async function generateStaticParams() {
@@ -207,13 +208,6 @@ export default async function RoofTypePage({
                   <Icon icon="mdi:phone" className="w-4 h-4" />
                   Call (512) 555-0123
                 </a>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white font-bold rounded-xl transition-all border-2 border-white/30 text-sm"
-                >
-                  Get Free Estimate
-                  <Icon icon="mdi:arrow-right" className="w-4 h-4" />
-                </Link>
               </div>
             </div>
 
@@ -640,13 +634,11 @@ export default async function RoofTypePage({
               <Icon icon="mdi:phone" className="w-5 h-5" />
               Call (512) 555-0123
             </a>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-[#00529C] font-bold rounded-lg transition-all hover:scale-105 shadow-lg"
-            >
-              Get a Quote
-              <Icon icon="mdi:arrow-right" className="w-5 h-5" />
-            </Link>
+            <QuoteButtonModal 
+  text="Get a Quote"
+  variant="primary"  
+   className='cursor-pointer'
+/>
           </div>
         </div>
       </section>

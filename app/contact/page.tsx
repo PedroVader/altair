@@ -341,24 +341,36 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-4">
-                Frequently Asked Questions
-              </h2>
-              <p className="text-gray-600">
-                Find answers to common questions about our roofing services
-              </p>
-              <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
-            </div>
+{/* FAQ Section */}
+<section className="py-16 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-4">
+        Frequently Asked Questions
+      </h2>
+      <p className="text-gray-600">
+        Find answers to common questions about our roofing services
+      </p>
+      <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
+    </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              <FAQAccordion />
-            </div>
-          </div>
-        </section>
+    <div className="grid md:grid-cols-2 gap-6">
+      {faqs.map((faq, idx) => (
+        <details key={idx} open className="bg-white rounded-xl p-6 border-2 border-gray-200 shadow-sm group">
+          <summary className="flex items-center justify-between cursor-pointer list-none">
+            <h3 className="text-lg font-bold text-gray-900 pr-4">
+              {faq.question}
+            </h3>
+            <Icon icon="mdi:chevron-down" className="w-6 h-6 text-[#00529C] group-open:rotate-180 transition-transform flex-shrink-0" />
+          </summary>
+          <p className="mt-4 text-gray-700 leading-relaxed text-sm">
+            {faq.answer}
+          </p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
 
         {/* Final CTA */}
         <section className="py-16 bg-gradient-to-br from-[#00529C] to-[#003d75]">
@@ -368,7 +380,7 @@ export default function ContactPage() {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-white/90 mb-8">
-              Call us now or schedule your free inspection online
+              Call us now or schedule your inspection online
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -380,9 +392,9 @@ export default function ContactPage() {
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-[#00529C] font-bold rounded-lg transition-all hover:scale-105 shadow-xl"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-[#00529C] font-bold rounded-lg transition-all hover:scale-105 shadow-xl cursor-pointer"
               >
-                Request Free Estimate
+                Get a Quote
                 <Icon icon="mdi:arrow-right" className="w-5 h-5" />
               </Link>
             </div>

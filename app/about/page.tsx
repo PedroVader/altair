@@ -4,6 +4,7 @@ import { Icon } from '@iconify/react';
 import Link from 'next/link';
 import TrustBadgesMinimal from '@/components/TrustBadgesMinimal';
 import { getOrganizationSchema, getBreadcrumbSchema } from '@/lib/schema';
+import QuoteButtonModal from '@/components/QuoteButtonModal';
 
 export const metadata: Metadata = {
   title: 'About Us | Altair Austin Roofing - Professional Roofing Contractors',
@@ -79,13 +80,11 @@ export default function AboutPage() {
                   <Icon icon="mdi:phone" className="w-5 h-5" />
                   Call (512) 555-0123
                 </a>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white font-bold rounded-xl transition-all border-2 border-white/30"
-                >
-                  Get Free Estimate
-                  <Icon icon="mdi:arrow-right" className="w-5 h-5" />
-                </Link>
+                <QuoteButtonModal 
+  text="Get a Quote"
+  variant="white"
+  className='cursor-pointer'
+/>
               </div>
             </div>
           </div>
@@ -356,13 +355,11 @@ export default function AboutPage() {
                 <Icon icon="mdi:phone" className="w-5 h-5" />
                 Call (512) 555-0123
               </a>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-[#00529C] font-bold rounded-lg transition-all hover:scale-105 shadow-lg"
-              >
-                Get Free Estimate
-                <Icon icon="mdi:arrow-right" className="w-5 h-5" />
-              </Link>
+              <QuoteButtonModal 
+              text="Get a Quote"
+              variant="primary" 
+               className='cursor-pointer'
+            />
             </div>
           </div>
         </section>
