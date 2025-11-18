@@ -4,18 +4,20 @@ import { Icon } from "@iconify/react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[85vh] flex items-center py-8 md:py-12">
-      {/* Background Image con overlay premium */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat"
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#001F3F]/90 via-[#001F3F]/70 to-[#003d75]/60"></div>
+    <section className="relative min-h-[85vh] flex items-center py-8 md:py-12 overflow-hidden">
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/videos/roof-video-1.mp4" type="video/mp4" />
+        </video>
+        {/* Overlay gradient para legibilidad */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#001F3F]/95 via-[#001F3F]/30 to-[#003d75]/80"></div>
       </div>
 
       {/* Content */}
@@ -67,28 +69,6 @@ export default function Hero() {
                 <span className="xs:hidden">Call Now</span>
               </a>
             </div>
-
-            {/* Features Icons
-            <div className="flex flex-wrap gap-4 pt-2">
-              <div className="flex items-center gap-2 text-white/90 text-xs sm:text-sm">
-                <div className="w-8 h-8 rounded-lg bg-[#D4AF37]/20 flex items-center justify-center">
-                  <Icon icon="mdi:shield-check" className="w-4 h-4 text-[#D4AF37]" />
-                </div>
-                <span className="font-medium">Licensed & Insured</span>
-              </div>
-              <div className="flex items-center gap-2 text-white/90 text-xs sm:text-sm">
-                <div className="w-8 h-8 rounded-lg bg-[#D4AF37]/20 flex items-center justify-center">
-                  <Icon icon="mdi:clock-fast" className="w-4 h-4 text-[#D4AF37]" />
-                </div>
-                <span className="font-medium">24/7 Emergency</span>
-              </div>
-              <div className="flex items-center gap-2 text-white/90 text-xs sm:text-sm">
-                <div className="w-8 h-8 rounded-lg bg-[#D4AF37]/20 flex items-center justify-center">
-                  <Icon icon="mdi:certificate" className="w-4 h-4 text-[#D4AF37]" />
-                </div>
-                <span className="font-medium">Lifetime Warranty</span>
-              </div>
-            </div> */}
 
             {/* Service Areas - Compact con estilo premium */}
             <div className="pt-3 md:pt-4 border-t border-[#D4AF37]/20">

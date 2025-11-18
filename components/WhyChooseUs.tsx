@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Icon } from '@iconify/react';
 import QuoteButtonModal from '@/components/QuoteButtonModal';
 
@@ -7,32 +8,32 @@ export default function ResidentialRoofing() {
   const services = [
     {
       title: 'Roof Installation',
-      icon: 'mdi:hammer-wrench',
+      image: '/roof-images/roof-19.jpg',
       description: 'Professional residential roof installation services in Austin with over 15 years of experience. Whether you need asphalt shingles, metal roofing, or tile installation, our expert team delivers quality craftsmanship that enhances your home\'s curb appeal and protects your investment for decades to come.'
     },
     {
       title: 'Roof Repairs',
-      icon: 'mdi:tools',
+      image: '/roof-images/roof-10.jpg',
       description: 'Fast and reliable roof repair services for Austin homeowners. From minor leak repairs to extensive damage restoration, our licensed contractors fix all types of residential roofing problems. Don\'t wait until small issues become major expenses – get your roof repaired quickly and affordably by our experienced team.'
     },
     {
       title: 'Re-Roofing Services',
-      icon: 'mdi:autorenew',
+      image: '/roof-images/roof-7.jpg',
       description: 'Complete re-roofing solutions for Austin homes with worn or outdated roofs. Our professional re-roofing process includes removing old shingles, inspecting the deck, and installing a brand new roofing system. Transform your home with a fresh, durable roof that provides superior protection and energy efficiency.'
     },
     {
       title: 'Roof Replacement',
-      icon: 'mdi:home-roof',
+      image: '/roof-images/roof-9.jpg',
       description: 'Expert roof replacement services for Austin residential properties. When repairs aren\'t enough, trust our team to replace your entire roofing system with high-quality materials and expert installation. We handle projects of all sizes, from small homes to large estates, with transparent pricing and professional results.'
     },
     {
       title: 'Storm Damage Repair',
-      icon: 'mdi:weather-lightning',
+      image: '/roof-images/roof-16.jpg',
       description: 'Emergency storm damage repair services available 24/7 for Austin homeowners. Our team responds quickly to assess wind, hail, and weather-related roof damage. We work directly with insurance companies to streamline your claim process and restore your roof to pre-storm condition efficiently.'
     },
     {
       title: 'Hail Damage Restoration',
-      icon: 'mdi:weather-hail',
+      image: '/roof-images/roof-20.jpg',
       description: 'Specialized hail damage inspection and repair services in Austin, TX. Our experts identify even minor hail damage that could lead to future problems. We provide detailed documentation for insurance claims and complete restoration services to protect your home and maintain its value.'
     }
   ];
@@ -97,25 +98,37 @@ export default function ResidentialRoofing() {
             </p>
           </div>
 
-          {/* Services Grid - MINIMALISTA */}
+          {/* Services Grid - CON IMÁGENES LOCALES */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {services.map((service, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 border border-gray-200 hover:border-[#D4AF37] hover:shadow-xl transition-all duration-300">
+              <div key={index} className="bg-white rounded-xl border border-gray-200 hover:border-[#D4AF37] hover:shadow-xl transition-all duration-300 overflow-hidden group">
                 
-                {/* Icon */}
-                <div className="w-14 h-14 bg-[#001F3F] rounded-lg flex items-center justify-center mb-6">
-                  <Icon icon={service.icon} className="w-7 h-7 text-[#D4AF37]" />
+                {/* Image */}
+                <div className="relative h-48 w-full overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#001F3F]/70 to-transparent"></div>
+                  
+                  {/* Title over image */}
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="font-display text-xl font-bold text-white">
+                      {service.title}
+                    </h3>
+                  </div>
                 </div>
-                
-                {/* Title */}
-                <h3 className="font-display text-xl font-bold text-[#001F3F] mb-3">
-                  {service.title}
-                </h3>
-                
-                {/* Description */}
-                <p className="text-[#334155] text-sm leading-relaxed">
-                  {service.description}
-                </p>
+
+                {/* Content */}
+                <div className="p-6">
+                  {/* Description */}
+                  <p className="text-[#334155] text-sm leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
