@@ -9,6 +9,7 @@ import FAQ from '@/components/FAQ';
 import RoofTypesGrid from '@/components/RoofTypesGrid';
 import { getOrganizationSchema } from '@/lib/schema';
 import type { Metadata } from 'next';
+import CertificatesCarousel from '@/components/CertificatesCarousel';
 
 export const metadata: Metadata = {
   title: 'Altair Austin Roofing | Professional Roofing Services in Austin, TX',
@@ -70,6 +71,8 @@ export default function Home() {
         
         {/* Trust Badges */}
         <TrustBadges />
+
+        <CertificatesCarousel />
         
         {/* About Section */}
         <AboutSection />
