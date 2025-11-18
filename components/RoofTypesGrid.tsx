@@ -23,64 +23,62 @@ export default function RoofTypesGrid({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            {title} <span className="text-[#00529C]">{subtitle}</span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#001F3F] mb-4">
+            {title} <span className="text-[#D4AF37]">{subtitle}</span>
           </h2>
-          <div className="w-20 h-1 bg-[#FFE317] mx-auto mb-6"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+          <p className="text-[#334155] max-w-2xl mx-auto text-lg mb-6">
             Expert installation of premium roofing materials designed for Central Texas climate
           </p>
+          <div className="w-24 h-0.5 bg-[#D4AF37] mx-auto"></div>
         </div>
 
         {/* Roof Types Grid - 2x2 para 4 items */}
-        <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
+        <div className="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {displayRoofTypes.map((roofType) => (
             <Link 
               key={roofType.slug} 
               href={`/roof-types/${roofType.slug}`}
               className="group"
             >
-              <div className="h-full bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 hover:border-[#00529C] overflow-hidden">
-                <div className="p-6 sm:p-8 text-center flex flex-col items-center min-h-[320px]">
-                  
-                  {/* Icon */}
-                  <div className="mb-4 sm:mb-5 text-gray-700 group-hover:text-[#00529C] transition-colors duration-300">
-                    <Icon icon={roofType.icon} className="w-14 h-14 sm:w-16 sm:h-16" />
+              <div className="h-full bg-white rounded-xl border border-gray-200 hover:border-[#D4AF37] hover:shadow-xl transition-all duration-300 p-8">
+                
+                {/* Icon */}
+                <div className="w-14 h-14 bg-[#001F3F] rounded-lg flex items-center justify-center mb-6">
+                  <Icon icon={roofType.icon} className="w-7 h-7 text-[#D4AF37]" />
+                </div>
+
+                {/* Title */}
+                <h3 className="font-display text-xl font-bold text-[#001F3F] mb-3">
+                  {roofType.name}
+                </h3>
+
+                {/* Description */}
+                <p className="text-[#334155] text-sm leading-relaxed mb-4">
+                  {roofType.shortDescription}
+                </p>
+
+                {/* Additional Info */}
+                {(roofType.averageLifespan || roofType.averageCost) && (
+                  <div className="flex flex-wrap gap-3 mb-6 text-xs">
+                    {roofType.averageLifespan && (
+                      <div className="flex items-center gap-1.5 bg-gray-50 px-3 py-2 rounded-lg border border-gray-200">
+                        <Icon icon="mdi:clock-outline" className="w-4 h-4 text-[#D4AF37]" />
+                        <span className="text-[#334155] font-medium">{roofType.averageLifespan}</span>
+                      </div>
+                    )}
+                    {roofType.averageCost && (
+                      <div className="flex items-center gap-1.5 bg-gray-50 px-3 py-2 rounded-lg border border-gray-200">
+                        <Icon icon="mdi:currency-usd" className="w-4 h-4 text-[#D4AF37]" />
+                        <span className="text-[#334155] font-medium">{roofType.averageCost}</span>
+                      </div>
+                    )}
                   </div>
+                )}
 
-                  {/* Title */}
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 group-hover:text-[#00529C] transition-colors duration-300">
-                    {roofType.name}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed flex-grow mb-4">
-                    {roofType.shortDescription}
-                  </p>
-
-                  {/* Additional Info */}
-                  {(roofType.averageLifespan || roofType.averageCost) && (
-                    <div className="flex flex-wrap gap-3 justify-center mb-4 text-xs">
-                      {roofType.averageLifespan && (
-                        <div className="flex items-center gap-1 bg-gray-100 px-3 py-1.5 rounded-full">
-                          <Icon icon="mdi:clock-outline" className="w-4 h-4 text-[#00529C]" />
-                          <span className="text-gray-700 font-medium">{roofType.averageLifespan}</span>
-                        </div>
-                      )}
-                      {roofType.averageCost && (
-                        <div className="flex items-center gap-1 bg-gray-100 px-3 py-1.5 rounded-full">
-                          <Icon icon="mdi:currency-usd" className="w-4 h-4 text-[#00529C]" />
-                          <span className="text-gray-700 font-medium">{roofType.averageCost}</span>
-                        </div>
-                      )}
-                    </div>
-                  )}
-
-                  {/* View Details Link */}
-                  <div className="flex items-center gap-2 text-[#00529C] font-semibold text-sm group-hover:gap-3 transition-all duration-300">
-                    <span>View Details</span>
-                    <Icon icon="mdi:arrow-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                  </div>
+                {/* View Details Link */}
+                <div className="flex items-center gap-2 text-[#D4AF37] font-semibold text-sm">
+                  <span>View Details</span>
+                  <Icon icon="mdi:arrow-right" className="w-4 h-4" />
                 </div>
               </div>
             </Link>
@@ -92,7 +90,7 @@ export default function RoofTypesGrid({
           <div className="text-center mt-12">
             <Link
               href="/roof-types"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#00529C] hover:bg-[#003d75] text-white font-bold rounded-lg transition-all hover:scale-105 shadow-lg"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#001F3F] hover:bg-[#003d75] text-white font-semibold rounded-lg transition-colors"
             >
               View All Roof Types
               <Icon icon="mdi:arrow-right" className="w-5 h-5" />

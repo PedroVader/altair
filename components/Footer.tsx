@@ -11,60 +11,62 @@ export default function Footer() {
   const secondColumnLocations = locations.slice(halfLength);
   
   return (
-    <footer className="bg-white border-t-4 border-[#00529C]">
+    <footer className="bg-[#001F3F] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         
         {/* Logo y Descripción - Centrado */}
-        <div className="text-center mb-8 sm:mb-12 pb-6 sm:pb-8 border-b-2 border-gray-200">
-          <Link href="/" className="inline-flex items-center gap-3 mb-4">
-            <Icon icon="mdi:home-roof" className="w-12 h-12 sm:w-16 sm:h-16 text-[#00529C]" />
-            <div className="text-xl sm:text-2xl font-bold text-gray-900 leading-tight">
+        <div className="text-center mb-8 sm:mb-12 pb-6 sm:pb-8 border-b border-white/10">
+          <Link href="/" className="inline-flex items-center gap-3 mb-4 group">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#D4AF37] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+              <Icon icon="mdi:home-roof" className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+            </div>
+            <div className="font-display text-xl sm:text-2xl font-bold text-white leading-tight">
               Altair Austin Roofing
             </div>
           </Link>
-          <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto mt-4 px-4">
+          <p className="text-sm sm:text-base text-white/70 max-w-2xl mx-auto mt-4 px-4">
             Professional roofing services across Austin and Central Texas. Trusted by thousands of satisfied homeowners since 2008.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 sm:gap-10 lg:gap-8">
           
-{/* Quick Links */}
-<div>
-  <h3 className="text-lg sm:text-xl font-bold text-black mb-4 sm:mb-6">Quick Links</h3>
-  <ul className="space-y-2 sm:space-y-3">
-    <li>
-      <Link href="/" className="text-sm sm:text-base text-gray-700 hover:text-[#00529C] transition">
-        Home
-      </Link>
-    </li>
-    <li>
-      <Link href="/about" className="text-sm sm:text-base text-gray-700 hover:text-[#00529C] transition">
-        About
-      </Link>
-    </li>
-    <li>
-      <Link href="/locations" className="text-sm sm:text-base text-gray-700 hover:text-[#00529C] transition">
-        Service Areas
-      </Link>
-    </li>
-    <li>
-      <Link href="/contact" className="text-sm sm:text-base text-gray-700 hover:text-[#00529C] transition">
-        Contact
-      </Link>
-    </li>
-  </ul>
-</div>
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg sm:text-xl font-semibold text-[#D4AF37] mb-4 sm:mb-6">Quick Links</h3>
+            <ul className="space-y-2 sm:space-y-3">
+              <li>
+                <Link href="/" className="text-sm sm:text-base text-white/70 hover:text-[#D4AF37] transition">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-sm sm:text-base text-white/70 hover:text-[#D4AF37] transition">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/locations" className="text-sm sm:text-base text-white/70 hover:text-[#D4AF37] transition">
+                  Service Areas
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-sm sm:text-base text-white/70 hover:text-[#D4AF37] transition">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
 
           {/* Services */}
           <div>
-            <h3 className="text-lg sm:text-xl font-bold text-black mb-4 sm:mb-6">Services</h3>
+            <h3 className="text-lg sm:text-xl font-semibold text-[#D4AF37] mb-4 sm:mb-6">Services</h3>
             <ul className="space-y-2 sm:space-y-3">
               {services.map((service) => (
                 <li key={service.slug}>
                   <Link 
                     href={`/services/${service.slug}`}
-                    className="text-sm text-gray-700 hover:text-[#00529C] transition"
+                    className="text-sm text-white/70 hover:text-[#D4AF37] transition"
                   >
                     {service.name}
                   </Link>
@@ -75,13 +77,13 @@ export default function Footer() {
 
           {/* Roof Types */}
           <div>
-            <h3 className="text-lg sm:text-xl font-bold text-black mb-4 sm:mb-6">Roof Types</h3>
+            <h3 className="text-lg sm:text-xl font-semibold text-[#D4AF37] mb-4 sm:mb-6">Roof Types</h3>
             <ul className="space-y-2 sm:space-y-3">
               {roofTypes.map((type) => (
                 <li key={type.slug}>
                   <Link 
                     href={`/roof-types/${type.slug}`}
-                    className="text-sm text-gray-700 hover:text-[#00529C] transition"
+                    className="text-sm text-white/70 hover:text-[#D4AF37] transition"
                   >
                     {type.name}
                   </Link>
@@ -92,13 +94,13 @@ export default function Footer() {
 
           {/* Locations - Column 1 */}
           <div>
-            <h3 className="text-lg sm:text-xl font-bold text-black mb-4 sm:mb-6">Locations</h3>
+            <h3 className="text-lg sm:text-xl font-semibold text-[#D4AF37] mb-4 sm:mb-6">Locations</h3>
             <ul className="space-y-2 sm:space-y-3">
               {firstColumnLocations.map((location) => (
                 <li key={location.slug}>
                   <Link 
                     href={`/locations/${location.slug}`}
-                    className="text-sm text-gray-700 hover:text-[#00529C] transition"
+                    className="text-sm text-white/70 hover:text-[#D4AF37] transition"
                   >
                     {location.name}
                   </Link>
@@ -111,14 +113,14 @@ export default function Footer() {
           <div>
             {/* Título invisible en desktop para alineación */}
             <div className="hidden lg:block">
-              <h3 className="text-xl font-bold text-black mb-6 invisible">Locations</h3>
+              <h3 className="text-xl font-semibold text-[#D4AF37] mb-6 invisible">Locations</h3>
             </div>
             <ul className="space-y-2 sm:space-y-3">
               {secondColumnLocations.map((location) => (
                 <li key={location.slug}>
                   <Link 
                     href={`/locations/${location.slug}`}
-                    className="text-sm text-gray-700 hover:text-[#00529C] transition"
+                    className="text-sm text-white/70 hover:text-[#D4AF37] transition"
                   >
                     {location.name}
                   </Link>
@@ -129,37 +131,37 @@ export default function Footer() {
 
           {/* Contact Us */}
           <div>
-            <h3 className="text-lg sm:text-xl font-bold text-black mb-4 sm:mb-6">Contact Us</h3>
+            <h3 className="text-lg sm:text-xl font-semibold text-[#D4AF37] mb-4 sm:mb-6">Contact Us</h3>
             <ul className="space-y-3 sm:space-y-4">
               <li className="flex items-start gap-3">
-                <Icon icon="mdi:phone" className="w-5 h-5 text-[#00529C] flex-shrink-0 mt-1" />
+                <Icon icon="mdi:phone" className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-1" />
                 <div>
-                  <a href="tel:+15125550123" className="text-sm text-gray-900 hover:text-[#00529C] transition font-semibold">
+                  <a href="tel:+15125550123" className="text-sm text-white hover:text-[#D4AF37] transition font-semibold">
                     (512) 555-0123
                   </a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <Icon icon="mdi:email" className="w-5 h-5 text-[#00529C] flex-shrink-0 mt-1" />
+                <Icon icon="mdi:email" className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-1" />
                 <div>
-                  <a href="mailto:info@altairaustin.com" className="text-sm text-gray-900 hover:text-[#00529C] transition">
+                  <a href="mailto:info@altairaustin.com" className="text-sm text-white hover:text-[#D4AF37] transition">
                     info@altairaustin.com
                   </a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <Icon icon="mdi:map-marker" className="w-5 h-5 text-[#00529C] flex-shrink-0 mt-1" />
+                <Icon icon="mdi:map-marker" className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-1" />
                 <div>
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm text-white/70">
                     Austin, TX<br />
                     78701
                   </p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <Icon icon="mdi:clock" className="w-5 h-5 text-[#00529C] flex-shrink-0 mt-1" />
+                <Icon icon="mdi:clock" className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-1" />
                 <div>
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm text-white/70">
                     Mon - Sun<br />
                     24/7 Emergency Service
                   </p>
@@ -168,7 +170,7 @@ export default function Footer() {
             </ul>
 
             {/* Google Map Preview */}
-            <div className="mt-6 rounded-lg overflow-hidden border-2 border-gray-200 hover:border-[#00529C] transition">
+            <div className="mt-6 rounded-lg overflow-hidden border-2 border-white/10 hover:border-[#D4AF37] transition">
               <a 
                 href="https://www.google.com/maps/place/Austin,+TX" 
                 target="_blank" 
@@ -192,12 +194,12 @@ export default function Footer() {
         </div>
 
         {/* Social Media Icons */}
-        <div className="flex justify-center gap-4 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t-2 border-gray-200">
+        <div className="flex justify-center gap-4 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/10">
           <a 
             href="https://facebook.com" 
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 bg-[#00529C] hover:bg-[#003d75] text-white rounded-full flex items-center justify-center transition"
+            className="w-10 h-10 bg-white/10 hover:bg-[#D4AF37] text-white rounded-lg flex items-center justify-center transition"
             aria-label="Facebook"
           >
             <Icon icon="mdi:facebook" className="w-5 h-5" />
@@ -206,7 +208,7 @@ export default function Footer() {
             href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 bg-[#00529C] hover:bg-[#003d75] text-white rounded-full flex items-center justify-center transition"
+            className="w-10 h-10 bg-white/10 hover:bg-[#D4AF37] text-white rounded-lg flex items-center justify-center transition"
             aria-label="Instagram"
           >
             <Icon icon="mdi:instagram" className="w-5 h-5" />
@@ -215,7 +217,7 @@ export default function Footer() {
             href="https://google.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 bg-[#00529C] hover:bg-[#003d75] text-white rounded-full flex items-center justify-center transition"
+            className="w-10 h-10 bg-white/10 hover:bg-[#D4AF37] text-white rounded-lg flex items-center justify-center transition"
             aria-label="Google"
           >
             <Icon icon="mdi:google" className="w-5 h-5" />
@@ -224,7 +226,7 @@ export default function Footer() {
             href="https://yelp.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 bg-[#00529C] hover:bg-[#003d75] text-white rounded-full flex items-center justify-center transition"
+            className="w-10 h-10 bg-white/10 hover:bg-[#D4AF37] text-white rounded-lg flex items-center justify-center transition"
             aria-label="Yelp"
           >
             <Icon icon="simple-icons:yelp" className="w-5 h-5" />
@@ -232,8 +234,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar - Centrado */}
-        <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t-2 border-gray-200 text-center">
-          <p className="text-xs sm:text-sm text-gray-600">
+        <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/10 text-center">
+          <p className="text-xs sm:text-sm text-white/50">
             © {new Date().getFullYear()} Altair Austin Roofing. All rights reserved.
           </p>
         </div>

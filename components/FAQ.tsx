@@ -68,26 +68,26 @@ export default function FAQ({
   };
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-[#001F3F] mb-4">
             {title}
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-[#334155] max-w-2xl mx-auto">
             {subtitle}
           </p>
-          <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
+          <div className="w-24 h-0.5 bg-[#D4AF37] mx-auto mt-6"></div>
         </div>
 
-        {/* FAQ Items - Grid 2 columnas, todas abiertas por defecto */}
-        <div className="grid md:grid-cols-2 gap-6">
+        {/* FAQ Items - Grid 2 columnas */}
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
           {faqs.map((faq, index) => {
             const isOpen = openIndexes.includes(index);
             
             return (
-              <details key={index} open className="bg-white rounded-xl shadow-sm border-2 border-gray-200 overflow-hidden hover:border-[#00529C] transition">
+              <details key={index} open className="bg-white rounded-xl border border-gray-200 hover:border-[#D4AF37] transition-all overflow-hidden">
                 <summary 
                   onClick={(e) => {
                     e.preventDefault();
@@ -95,20 +95,24 @@ export default function FAQ({
                   }}
                   className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition cursor-pointer list-none"
                 >
-                  <h3 className="font-bold text-gray-900 text-lg pr-4">{faq.question}</h3>
-                  <Icon 
-                    icon="mdi:chevron-down" 
-                    className={`w-6 h-6 text-[#00529C] flex-shrink-0 transition-transform duration-300 ${
-                      isOpen ? 'rotate-180' : ''
-                    }`}
-                  />
+                  <h3 className="font-semibold text-[#001F3F] text-base pr-4">{faq.question}</h3>
+                  <div className={`w-8 h-8 rounded-full border-2 border-[#D4AF37] flex items-center justify-center flex-shrink-0 transition-all ${
+                    isOpen ? 'bg-[#D4AF37]' : 'bg-white'
+                  }`}>
+                    <Icon 
+                      icon="mdi:chevron-down" 
+                      className={`w-5 h-5 transition-all duration-300 ${
+                        isOpen ? 'rotate-180 text-white' : 'text-[#D4AF37]'
+                      }`}
+                    />
+                  </div>
                 </summary>
                 <div 
                   className={`transition-all duration-300 ease-in-out ${
                     isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                   } overflow-hidden`}
                 >
-                  <div className="px-6 pb-4 text-gray-600 border-t border-gray-100 pt-4 leading-relaxed">
+                  <div className="px-6 pb-4 text-[#334155] border-t border-gray-100 pt-4 leading-relaxed text-sm">
                     {faq.answer}
                   </div>
                 </div>
@@ -117,26 +121,26 @@ export default function FAQ({
           })}
         </div>
 
-        {/* CTA Optional */}
-        <div className="mt-12 text-center bg-white rounded-xl p-8 shadow-lg border-2 border-gray-200">
-          <h3 className="text-xl font-bold text-gray-900 mb-3">
+        {/* CTA */}
+        <div className="text-center bg-gray-50 rounded-2xl p-8 border border-gray-200">
+          <h3 className="font-display text-2xl font-bold text-[#001F3F] mb-3">
             Still Have Questions?
           </h3>
-          <p className="text-gray-600 mb-6">
+          <p className="text-[#334155] mb-6 max-w-xl mx-auto">
             Our team is here to help. Contact us for personalized answers.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="tel:+15125550123"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#00529C] hover:bg-[#003d75] text-white font-bold rounded-lg transition-all hover:scale-105 cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#001F3F] hover:bg-[#003d75] text-white font-semibold rounded-lg transition-colors"
             >
               <Icon icon="mdi:phone" className="w-5 h-5" />
               Call (512) 555-0123
             </a>
             <QuoteButtonModal 
-  text="Contact Us"
-  variant="primary"  // ✅ Correcto - amarillo con azul
-/>
+              text="Get Free Estimate"
+              variant="primary"
+            />
           </div>
         </div>
       </div>

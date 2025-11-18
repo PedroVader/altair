@@ -13,7 +13,7 @@ interface ContactFormProps {
   buttonText?: string;
   buttonColor?: "primary" | "secondary" | "accent";
   onSubmit?: (data: FormData) => Promise<void>;
-  onSuccess?: () => void; // 👈 NUEVO
+  onSuccess?: () => void;
 }
 
 interface FormData {
@@ -31,7 +31,7 @@ const ContactForm = ({
   buttonText = "Get a Quote",
   buttonColor = "accent",
   onSubmit,
-  onSuccess // 👈 NUEVO
+  onSuccess
 }: ContactFormProps) => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -43,12 +43,12 @@ const ContactForm = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-  // Estilos según variante - MEJORADO PARA MOBILE
+  // Estilos según variante - COMPACTO
   const containerStyles = {
-    hero: "bg-white rounded-xl shadow-xl p-4 sm:p-6 w-full max-w-md",
-    sidebar: "bg-white rounded-xl shadow-lg p-4 sm:p-5 w-full",
-    fullpage: "bg-white rounded-xl shadow-xl p-6 sm:p-8 w-full max-w-2xl mx-auto",
-    modal: "bg-white"
+    hero: "bg-white rounded-2xl shadow-2xl p-5 w-full max-w-md border-2 border-gray-100",
+    sidebar: "bg-white rounded-2xl shadow-xl p-4 w-full border-2 border-gray-100",
+    fullpage: "bg-white rounded-2xl shadow-2xl p-6 w-full max-w-2xl mx-auto border-2 border-gray-100",
+    modal: "bg-white rounded-2xl p-5"
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -77,7 +77,6 @@ const ContactForm = ({
         message: "" 
       });
 
-      // 👇 NUEVO: Llamar onSuccess después de mostrar el mensaje de éxito
       setTimeout(() => {
         if (onSuccess) {
           onSuccess();
@@ -90,7 +89,6 @@ const ContactForm = ({
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
-      // 👇 MODIFICADO: Solo reset si hay error
       if (submitStatus === "error") {
         setTimeout(() => setSubmitStatus("idle"), 3000);
       }
@@ -99,22 +97,22 @@ const ContactForm = ({
 
   return (
     <div className={containerStyles[variant]}>
-      {/* Header - OPTIMIZADO */}
-      <div className="mb-4 sm:mb-5 text-center">
-        <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-[#00529C] rounded-full mb-2 sm:mb-3 mt-4">
-          <Icon icon="mdi:clipboard-text" className="w-6 h-6 sm:w-7 sm:h-7 text-[#fffff]" />
+      {/* Header - COMPACTO */}
+      <div className="mb-4 text-center">
+        <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#001F3F] to-[#003d75] rounded-xl mb-2 shadow-lg">
+          <Icon icon="mdi:clipboard-text" className="w-6 h-6 text-[#D4AF37]" />
         </div>
-        <h3 className="text-lg sm:text-xl font-bold text-[#00529C] mb-1 sm:mb-1.5">
+        <h3 className="font-display text-lg font-bold text-[#001F3F]">
           {title}
         </h3>
       </div>
 
-      {/* Form - ESPACIADO MOBILE */}
-      <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-3">
+      {/* Form - COMPACTO */}
+      <form onSubmit={handleSubmit} className="space-y-3">
         {/* Name */}
         <div>
-          <Label htmlFor="name" className="text-gray-700 font-semibold text-xs mb-1.5 flex items-center gap-1.5">
-            <Icon icon="mdi:account" className="w-3.5 h-3.5 text-gray-500" />
+          <Label htmlFor="name" className="text-[#001F3F] font-semibold text-xs mb-1 flex items-center gap-1.5">
+            <Icon icon="mdi:account" className="w-3.5 h-3.5 text-[#D4AF37]" />
             Full Name *
           </Label>
           <Input
@@ -125,15 +123,15 @@ const ContactForm = ({
             onChange={handleInputChange}
             placeholder="John Doe"
             required
-            className="border border-gray-300 focus:border-[#00529C] focus:ring-1 focus:ring-[#00529C] rounded-md py-2.5 sm:py-2 text-sm transition-all text-gray-900"
+            className="border-2 border-gray-200 focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/20 rounded-lg py-2 text-sm transition-all text-gray-900 placeholder:text-gray-400 h-10"
           />
         </div>
 
         {/* Phone */}
         <div>
-          <Label htmlFor="phone" className="text-gray-700 font-semibold text-xs mb-1.5 flex items-center gap-1.5">
-            <Icon icon="mdi:phone" className="w-3.5 h-3.5 text-gray-500" />
-            Phone Number *
+          <Label htmlFor="phone" className="text-[#001F3F] font-semibold text-xs mb-1 flex items-center gap-1.5">
+            <Icon icon="mdi:phone" className="w-3.5 h-3.5 text-[#D4AF37]" />
+            Phone *
           </Label>
           <Input
             id="phone"
@@ -143,15 +141,15 @@ const ContactForm = ({
             onChange={handleInputChange}
             placeholder="(512) 555-0123"
             required
-            className="border border-gray-300 focus:border-[#00529C] focus:ring-1 focus:ring-[#00529C] rounded-md py-2.5 sm:py-2 text-sm transition-all text-gray-900"
+            className="border-2 border-gray-200 focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/20 rounded-lg py-2 text-sm transition-all text-gray-900 placeholder:text-gray-400 h-10"
           />
         </div>
 
         {/* Email */}
         <div>
-          <Label htmlFor="email" className="text-gray-700 font-semibold text-xs mb-1.5 flex items-center gap-1.5">
-            <Icon icon="mdi:email" className="w-3.5 h-3.5 text-gray-500" />
-            Email Address *
+          <Label htmlFor="email" className="text-[#001F3F] font-semibold text-xs mb-1 flex items-center gap-1.5">
+            <Icon icon="mdi:email" className="w-3.5 h-3.5 text-[#D4AF37]" />
+            Email *
           </Label>
           <Input
             id="email"
@@ -161,15 +159,15 @@ const ContactForm = ({
             onChange={handleInputChange}
             placeholder="john@example.com"
             required
-            className="border border-gray-300 focus:border-[#00529C] focus:ring-1 focus:ring-[#00529C] rounded-md py-2.5 sm:py-2 text-sm transition-all text-gray-900"
+            className="border-2 border-gray-200 focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/20 rounded-lg py-2 text-sm transition-all text-gray-900 placeholder:text-gray-400 h-10"
           />
         </div>
 
         {/* Service */}
         <div>
-          <Label htmlFor="service" className="text-gray-700 font-semibold text-xs mb-1.5 flex items-center gap-1.5">
-            <Icon icon="mdi:tools" className="w-3.5 h-3.5 text-gray-500" />
-            Service Needed *
+          <Label htmlFor="service" className="text-[#001F3F] font-semibold text-xs mb-1 flex items-center gap-1.5">
+            <Icon icon="mdi:tools" className="w-3.5 h-3.5 text-[#D4AF37]" />
+            Service *
           </Label>
           <div className="relative">
             <select
@@ -178,7 +176,7 @@ const ContactForm = ({
               value={formData.service}
               onChange={handleInputChange}
               required
-              className="w-full px-3 py-2.5 sm:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#00529C] focus:border-[#00529C] appearance-none bg-white text-gray-900 text-sm transition-all cursor-pointer"
+              className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] appearance-none bg-white text-gray-900 text-sm transition-all cursor-pointer h-10"
             >
               <option value="Roof Repair">Roof Repair</option>
               <option value="Roof Replacement">Roof Replacement</option>
@@ -192,7 +190,7 @@ const ContactForm = ({
             </select>
             <Icon 
               icon="mdi:chevron-down" 
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#D4AF37] pointer-events-none"
             />
           </div>
         </div>
@@ -200,47 +198,47 @@ const ContactForm = ({
         {/* Message - Solo en variantes fullpage y modal */}
         {(variant === "fullpage" || variant === "modal") && (
           <div>
-            <Label htmlFor="message" className="text-gray-700 font-semibold text-xs mb-1.5 flex items-center gap-1.5">
-              <Icon icon="mdi:message-text" className="w-3.5 h-3.5 text-gray-500" />
-              Additional Details (Optional)
+            <Label htmlFor="message" className="text-[#001F3F] font-semibold text-xs mb-1 flex items-center gap-1.5">
+              <Icon icon="mdi:message-text" className="w-3.5 h-3.5 text-[#D4AF37]" />
+              Details (Optional)
             </Label>
             <textarea
               id="message"
               name="message"
               value={formData.message}
               onChange={handleInputChange}
-              placeholder="Tell us more about your roofing needs..."
+              placeholder="Tell us more..."
               rows={3}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#00529C] focus:border-[#00529C] resize-none text-sm transition-all text-gray-900"
+              className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] resize-none text-sm transition-all text-gray-900 placeholder:text-gray-400"
             />
           </div>
         )}
 
-        {/* Submit Button - MOBILE OPTIMIZADO */}
+        {/* Submit Button - COMPACTO */}
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-[#FFE317] hover:bg-[#ffd700] text-[#00529C] font-bold py-3 sm:py-3 text-sm sm:text-base cursor-pointer transition-all disabled:opacity-50 rounded-md flex items-center justify-center gap-2 mt-4 shadow-md hover:shadow-lg"
+          className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B87333] hover:from-[#E5C158] hover:to-[#D4AF37] text-white font-bold py-2.5 text-sm cursor-pointer transition-all disabled:opacity-50 rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-105 h-11"
         >
           {isSubmitting ? (
             <>
-              <Icon icon="mdi:loading" className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" />
-              <span className="text-sm sm:text-base">Submitting...</span>
+              <Icon icon="mdi:loading" className="w-4 h-4 animate-spin" />
+              <span>Submitting...</span>
             </>
           ) : (
             <>
-              <span className="text-sm sm:text-base">{buttonText}</span>
-              <Icon icon="mdi:arrow-right" className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span>{buttonText}</span>
+              <Icon icon="mdi:arrow-right" className="w-4 h-4" />
             </>
           )}
         </Button>
 
-        {/* Status Messages - MOBILE */}
+        {/* Status Messages - COMPACTO */}
         {submitStatus === "success" && (
-          <div className="bg-green-50 border border-green-400 rounded-lg p-3">
+          <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-400 rounded-lg p-2.5">
             <div className="flex items-center gap-2 justify-center">
-              <Icon icon="mdi:check-circle" className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 flex-shrink-0" />
-              <p className="text-green-800 text-xs sm:text-sm font-semibold">
+              <Icon icon="mdi:check-circle" className="w-4 h-4 text-green-600 flex-shrink-0" />
+              <p className="text-green-800 text-xs font-semibold">
                 Thank you! We'll contact you soon.
               </p>
             </div>
@@ -248,30 +246,32 @@ const ContactForm = ({
         )}
         
         {submitStatus === "error" && (
-          <div className="bg-red-50 border border-red-400 rounded-lg p-3">
+          <div className="bg-gradient-to-r from-red-50 to-rose-50 border border-red-400 rounded-lg p-2.5">
             <div className="flex items-center gap-2 justify-center">
-              <Icon icon="mdi:alert-circle" className="w-4 h-4 sm:w-5 sm:h-5 text-red-600 flex-shrink-0" />
-              <p className="text-red-800 text-xs sm:text-sm font-semibold">
-                Something went wrong. Please try again.
+              <Icon icon="mdi:alert-circle" className="w-4 h-4 text-red-600 flex-shrink-0" />
+              <p className="text-red-800 text-xs font-semibold">
+                Something went wrong. Try again.
               </p>
             </div>
           </div>
         )}
       </form>
 
-      {/* Phone CTA - MOBILE OPTIMIZADO */}
+      {/* Phone CTA - COMPACTO */}
       {showPhone && (
-        <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-gray-200">
+        <div className="mt-4 pt-4 border-t border-gray-200">
           <div className="text-center">
-            <p className="text-xs sm:text-sm text-gray-500 mb-2">
-              Prefer to talk? Call us now
+            <p className="text-xs text-[#334155] mb-2">
+              Prefer to talk?
             </p>
             <a 
               href="tel:+15125550123" 
-              className="inline-flex items-center gap-2 text-[#00529C] font-bold text-base sm:text-lg hover:text-[#003d75] transition-colors cursor-pointer"
+              className="inline-flex items-center gap-2 text-[#001F3F] font-bold text-base hover:text-[#D4AF37] transition-colors cursor-pointer group"
             >
-              <Icon icon="mdi:phone" className="w-4 h-4 sm:w-5 sm:h-5" />
-              (512) 555-0123
+              <div className="w-8 h-8 rounded-full bg-[#D4AF37]/10 flex items-center justify-center group-hover:bg-[#D4AF37] transition-colors">
+                <Icon icon="mdi:phone" className="w-4 h-4 text-[#D4AF37] group-hover:text-white transition-colors" />
+              </div>
+              <span>(512) 555-0123</span>
             </a>
           </div>
         </div>

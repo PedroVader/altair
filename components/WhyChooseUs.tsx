@@ -39,29 +39,28 @@ export default function ResidentialRoofing() {
 
   return (
     <>
-      {/* Central Texas Best Roofing Company Section - PRIMERA */}
-      <div className="relative py-16 overflow-hidden">
-        {/* Background Image with Blur */}
+      {/* Central Texas Best Roofing Company Section */}
+      <div className="relative py-20 overflow-hidden">
+        {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
             src="/worker-repairing-roof.jpg" 
             alt="Roofing background"
-            className="w-full h-full object-cover blur-[2px]"
+            className="w-full h-full object-cover"
           />
-          {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#001F3F]/95 to-[#003d75]/85"></div>
         </div>
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 drop-shadow-lg">
-              Central Texas <span className="text-[#FFE317]">Best Roofing Company</span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8">
+              Central Texas <span className="text-[#D4AF37]">Best Roofing Company</span>
             </h2>
             
-            <div className="space-y-6 text-white text-lg leading-relaxed text-left md:text-center drop-shadow-md">
+            <div className="space-y-6 text-white/90 text-lg leading-relaxed">
               <p>
-                Are you looking for information on what the best roofing company in central Texas is? We're happy you found us! We've been in the roofing and construction business within Austin, Texas, for a long time. <strong className="text-[#FFE317]">We have helped over 25,000 customers</strong> with their roofing concerns. With that kind of experience, we're confident we can help you too!
+                Are you looking for information on what the best roofing company in central Texas is? We're happy you found us! We've been in the roofing and construction business within Austin, Texas, for a long time. <strong className="text-[#D4AF37]">We have helped over 25,000 customers</strong> with their roofing concerns. With that kind of experience, we're confident we can help you too!
               </p>
               
               <p>
@@ -69,7 +68,7 @@ export default function ResidentialRoofing() {
               </p>
               
               <p>
-                <strong className="text-[#FFE317]">Austin Roofing Company – Roof Repair & Replacement</strong> will provide you with a high-standard roof. We are a top-notch roofing company in Austin offering the Austin community commercial and industrial roofing solutions. You will enjoy a roof that lasts your entire life at an affordable price.
+                <strong className="text-[#D4AF37]">Austin Roofing Company – Roof Repair & Replacement</strong> will provide you with a high-standard roof. We are a top-notch roofing company in Austin offering the Austin community commercial and industrial roofing solutions. You will enjoy a roof that lasts your entire life at an affordable price.
               </p>
             </div>
           </div>
@@ -77,40 +76,44 @@ export default function ResidentialRoofing() {
       </div>
 
       {/* Services Section */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-6">
+          <div className="text-center mb-16">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#001F3F] mb-4">
               Local Roof Repair Contractors
             </h2>
-            <div className="w-24 h-1 bg-[#FFE317] mx-auto mb-8"></div>
+            <p className="text-[#334155] max-w-2xl mx-auto text-lg">
+              Professional roofing services for Austin homeowners
+            </p>
+            <div className="w-24 h-0.5 bg-[#D4AF37] mx-auto mt-6"></div>
           </div>
 
           {/* Intro Text */}
-          <div className="max-w-4xl mx-auto mb-16 space-y-4 text-gray-700 leading-relaxed">
-            <p>
-              Is your roof leaking? Does your home have missing shingles? Have you meant to repair that hole for a while now, but it continues to grow as you put off the work? Let us help! <strong>Austin Roofing Company – Roof Repair & Replacement</strong> understands a roof is a critical part of your home. We get the job done right!
+          <div className="max-w-4xl mx-auto mb-16 text-center">
+            <p className="text-[#334155] text-lg leading-relaxed">
+              Is your roof leaking? Does your home have missing shingles? Have you meant to repair that hole for a while now, but it continues to grow as you put off the work? Let us help! <strong className="text-[#001F3F]">Austin Roofing Company – Roof Repair & Replacement</strong> understands a roof is a critical part of your home. We get the job done right!
             </p>
           </div>
 
-          {/* Services Grid */}
+          {/* Services Grid - MINIMALISTA */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {services.map((service, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 hover:shadow-xl transition-all duration-300 border border-gray-200 group cursor-pointer">
+              <div key={index} className="bg-white rounded-xl p-8 border border-gray-200 hover:border-[#D4AF37] hover:shadow-xl transition-all duration-300">
+                
                 {/* Icon */}
-                <div className="w-16 h-16 bg-gradient-to-br from-[#00529C] to-[#003d75] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Icon icon={service.icon} className="w-8 h-8 text-white" />
-              </div>
+                <div className="w-14 h-14 bg-[#001F3F] rounded-lg flex items-center justify-center mb-6">
+                  <Icon icon={service.icon} className="w-7 h-7 text-[#D4AF37]" />
+                </div>
                 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#00529C] transition-colors">
+                <h3 className="font-display text-xl font-bold text-[#001F3F] mb-3">
                   {service.title}
                 </h3>
                 
                 {/* Description */}
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-[#334155] text-sm leading-relaxed">
                   {service.description}
                 </p>
               </div>
@@ -119,99 +122,92 @@ export default function ResidentialRoofing() {
 
           {/* Closing Text */}
           <div className="max-w-4xl mx-auto mb-16 text-center">
-            <p className="text-gray-700 leading-relaxed text-lg">
-              When your roof starts to leak or some wind-damaged shingles, call us for the best solutions. We will give your Austin home a high-standard shelter with a classy outer appearance once again. <strong className="text-[#00529C]">We provide a free estimate to all customers in the Austin area.</strong>
+            <p className="text-[#334155] leading-relaxed text-lg">
+              When your roof starts to leak or some wind-damaged shingles, call us for the best solutions. We will give your Austin home a high-standard shelter with a classy outer appearance once again. <strong className="text-[#001F3F]">We provide a free estimate to all customers in the Austin area.</strong>
             </p>
           </div>
 
         </div>
 
-        {/* Why Choose Us Section */}
+        {/* Why Choose Us Section - MINIMALISTA */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl border-2 border-[#FFE317]">
+          <div className="bg-gray-50 rounded-2xl p-8 md:p-12 border border-gray-200">
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center text-[#00529C]">
+              <h3 className="font-display text-2xl md:text-3xl font-bold mb-8 text-center text-[#001F3F]">
                 Why Choose Austin Roofing Company?
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="flex items-start gap-3">
-                  <Icon icon="mdi:check-circle" className="w-6 h-6 text-[#00529C] flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1">Licensed & Insured</h4>
-                    <p className="text-gray-600 text-sm">Fully certified roofing contractors in Austin, TX</p>
+                {[
+                  {
+                    title: 'Licensed & Insured',
+                    description: 'Fully certified roofing contractors in Austin, TX'
+                  },
+                  {
+                    title: 'Free Roof Inspections',
+                    description: 'Comprehensive assessment at no cost to you'
+                  },
+                  {
+                    title: 'Lifetime Warranties',
+                    description: 'Industry-leading protection on workmanship'
+                  },
+                  {
+                    title: '24/7 Emergency Service',
+                    description: 'Available when you need us most'
+                  },
+                  {
+                    title: 'Insurance Assistance',
+                    description: 'We help navigate your insurance claims'
+                  },
+                  {
+                    title: 'Local Austin Experts',
+                    description: 'We understand Texas weather challenges'
+                  }
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-[#D4AF37] flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Icon icon="mdi:check" className="w-4 h-4 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-[#001F3F] mb-1">{item.title}</h4>
+                      <p className="text-[#334155] text-sm">{item.description}</p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Icon icon="mdi:check-circle" className="w-6 h-6 text-[#00529C] flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1">Free Roof Inspections</h4>
-                    <p className="text-gray-600 text-sm">Comprehensive assessment at no cost to you</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Icon icon="mdi:check-circle" className="w-6 h-6 text-[#00529C] flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1">Lifetime Warranties</h4>
-                    <p className="text-gray-600 text-sm">Industry-leading protection on workmanship</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Icon icon="mdi:check-circle" className="w-6 h-6 text-[#00529C] flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1">24/7 Emergency Service</h4>
-                    <p className="text-gray-600 text-sm">Available when you need us most</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Icon icon="mdi:check-circle" className="w-6 h-6 text-[#00529C] flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1">Insurance Assistance</h4>
-                    <p className="text-gray-600 text-sm">We help navigate your insurance claims</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Icon icon="mdi:check-circle" className="w-6 h-6 text-[#00529C] flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1">Local Austin Experts</h4>
-                    <p className="text-gray-600 text-sm">We understand Texas weather challenges</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
 
           {/* CTA */}
           <div className="text-center mt-12">
-            <p className="text-xl text-gray-700 mb-6">
+            <p className="text-xl text-[#334155] mb-6">
               Ready to protect your home with professional roofing services?
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:+15125550123"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFE317] hover:bg-[#ffd700] text-[#00529C] font-bold rounded-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#001F3F] hover:bg-[#003d75] text-white font-semibold rounded-lg transition-colors"
               >
                 <Icon icon="mdi:phone" className="w-5 h-5" />
                 Call (512) 555-0123
               </a>
               <QuoteButtonModal 
-  text="Get a Quote"
-  variant="primary"
-  className="cursor-pointer"
-/>
+                text="Get Free Estimate"
+                variant="primary"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Premium Austin Roofing Section - AL FINAL */}
-      <section className="py-16 bg-gradient-to-r from-[#0074C7] to-[#00529C]">
+      {/* Premium Austin Roofing Section */}
+      <section className="py-20 bg-[#001F3F]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">
               Premium Austin Roofing
             </h2>
             <p className="text-white/90 text-lg leading-relaxed">
-              Are you looking for premium Austin roofing? We are highly experienced roofers and known experts in custom roofing. Over the years, we have successfully handled many projects in the greater Austin area; Get only the best Austin roofing service from our company.
+              Are you looking for premium Austin roofing? We are highly experienced roofers and known experts in custom roofing. Over the years, we have successfully handled many projects in the greater Austin area. Get only the best Austin roofing service from our company.
             </p>
           </div>
         </div>
