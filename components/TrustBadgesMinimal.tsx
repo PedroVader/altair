@@ -9,7 +9,7 @@ export default function TrustBadges() {
         
         {/* Mobile: Stacked */}
         <div className="lg:hidden text-center mb-6">
-          <h3 className="text-lg font-bold text-[#00529C] mb-1">
+          <h3 className="text-lg font-bold text-black mb-1">
             Trusted by Austin Homeowners
           </h3>
           <p className="text-xs text-gray-600">5-star rated on all platforms</p>
