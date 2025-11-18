@@ -23,7 +23,7 @@ export default function AboutSection() {
           <div className="space-y-6">
             <div className="space-y-4 text-[#232323] leading-relaxed text-base">
               <p>
-                We provide various services, including <strong className="text-[#232323]">new roofing</strong>, maintenance, <strong className="text-[#232323]">roof replacement</strong>, or <strong className="text-[#232323]">repairs</strong>. Call today for an inquiry and a free <span className="text-[#0CEBD2] font-semibold">roof estimate</span>. You get friendly local professional roofers with excellent solutions for all your roofing requirements.
+                We provide various services, including <strong className="text-[#232323]">new roofing</strong>, maintenance, <strong className="text-[#232323]">roof replacement</strong>, or <strong className="text-[#232323]">repairs</strong>. Call today for an inquiry and a free <span className="text-[#FF570A] font-semibold">roof estimate</span>. You get friendly local professional roofers with excellent solutions for all your roofing requirements.
               </p>
               
               <p>

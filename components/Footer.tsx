@@ -18,7 +18,7 @@ export default function Footer() {
         <div className="text-center mb-8 sm:mb-12 pb-6 sm:pb-8 border-b-2 border-[#E2E2E2]">
           <Link href="/" className="inline-flex items-center gap-3 mb-4 group">
             <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#232323] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Icon icon="mdi:home-roof" className="w-7 h-7 sm:w-8 sm:h-8 text-[#0CEBD2]" />
+              <Icon icon="mdi:home-roof" className="w-7 h-7 sm:w-8 sm:h-8 text-[#FF570A]" />
             </div>
             <div className="font-display text-xl sm:text-2xl font-bold text-[#232323] leading-tight">
               Altair Austin Roofing
@@ -36,22 +36,22 @@ export default function Footer() {
             <h3 className="text-lg sm:text-xl font-semibold text-[#232323] mb-4 sm:mb-6">Quick Links</h3>
             <ul className="space-y-2 sm:space-y-3">
               <li>
-                <Link href="/" className="text-sm sm:text-base text-gray-600 hover:text-[#0CEBD2] transition">
+                <Link href="/" className="text-sm sm:text-base text-gray-600 hover:text-[#FF570A] transition">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-sm sm:text-base text-gray-600 hover:text-[#0CEBD2] transition">
+                <Link href="/about" className="text-sm sm:text-base text-gray-600 hover:text-[#FF570A] transition">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/locations" className="text-sm sm:text-base text-gray-600 hover:text-[#0CEBD2] transition">
+                <Link href="/locations" className="text-sm sm:text-base text-gray-600 hover:text-[#FF570A] transition">
                   Service Areas
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-sm sm:text-base text-gray-600 hover:text-[#0CEBD2] transition">
+                <Link href="/contact" className="text-sm sm:text-base text-gray-600 hover:text-[#FF570A] transition">
                   Contact
                 </Link>
               </li>
@@ -66,7 +66,7 @@ export default function Footer() {
                 <li key={service.slug}>
                   <Link 
                     href={`/services/${service.slug}`}
-                    className="text-sm text-gray-600 hover:text-[#0CEBD2] transition"
+                    className="text-sm text-gray-600 hover:text-[#FF570A] transition"
                   >
                     {service.name}
                   </Link>
@@ -83,7 +83,7 @@ export default function Footer() {
                 <li key={type.slug}>
                   <Link 
                     href={`/roof-types/${type.slug}`}
-                    className="text-sm text-gray-600 hover:text-[#0CEBD2] transition"
+                    className="text-sm text-gray-600 hover:text-[#FF570A] transition"
                   >
                     {type.name}
                   </Link>
@@ -100,7 +100,7 @@ export default function Footer() {
                 <li key={location.slug}>
                   <Link 
                     href={`/locations/${location.slug}`}
-                    className="text-sm text-gray-600 hover:text-[#0CEBD2] transition"
+                    className="text-sm text-gray-600 hover:text-[#FF570A] transition"
                   >
                     {location.name}
                   </Link>
@@ -120,7 +120,7 @@ export default function Footer() {
                 <li key={location.slug}>
                   <Link 
                     href={`/locations/${location.slug}`}
-                    className="text-sm text-gray-600 hover:text-[#0CEBD2] transition"
+                    className="text-sm text-gray-600 hover:text-[#FF570A] transition"
                   >
                     {location.name}
                   </Link>
@@ -134,23 +134,23 @@ export default function Footer() {
             <h3 className="text-lg sm:text-xl font-semibold text-[#232323] mb-4 sm:mb-6">Contact Us</h3>
             <ul className="space-y-3 sm:space-y-4">
               <li className="flex items-start gap-3">
-                <Icon icon="mdi:phone" className="w-5 h-5 text-[#0CEBD2] flex-shrink-0 mt-1" />
+                <Icon icon="mdi:phone" className="w-5 h-5 text-[#FF570A] flex-shrink-0 mt-1" />
                 <div>
-                  <a href="tel:+15125550123" className="text-sm text-[#232323] hover:text-[#0CEBD2] transition font-semibold">
+                  <a href="tel:+15125550123" className="text-sm text-[#232323] hover:text-[#FF570A] transition font-semibold">
                     (512) 555-0123
                   </a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <Icon icon="mdi:email" className="w-5 h-5 text-[#0CEBD2] flex-shrink-0 mt-1" />
+                <Icon icon="mdi:email" className="w-5 h-5 text-[#FF570A] flex-shrink-0 mt-1" />
                 <div>
-                  <a href="mailto:info@altairaustin.com" className="text-sm text-[#232323] hover:text-[#0CEBD2] transition">
+                  <a href="mailto:info@altairaustin.com" className="text-sm text-[#232323] hover:text-[#FF570A] transition">
                     info@altairaustin.com
                   </a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <Icon icon="mdi:map-marker" className="w-5 h-5 text-[#0CEBD2] flex-shrink-0 mt-1" />
+                <Icon icon="mdi:map-marker" className="w-5 h-5 text-[#FF570A] flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-sm text-gray-600">
                     Austin, TX<br />
@@ -159,7 +159,7 @@ export default function Footer() {
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <Icon icon="mdi:clock" className="w-5 h-5 text-[#0CEBD2] flex-shrink-0 mt-1" />
+                <Icon icon="mdi:clock" className="w-5 h-5 text-[#FF570A] flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-sm text-gray-600">
                     Mon - Sun<br />
@@ -170,7 +170,7 @@ export default function Footer() {
             </ul>
 
             {/* Google Map Preview */}
-            <div className="mt-6 rounded-lg overflow-hidden border-2 border-[#E2E2E2] hover:border-[#0CEBD2] transition">
+            <div className="mt-6 rounded-lg overflow-hidden border-2 border-[#E2E2E2] hover:border-[#FF570A] transition">
               <a 
                 href="https://www.google.com/maps/place/Austin,+TX" 
                 target="_blank" 
@@ -199,7 +199,7 @@ export default function Footer() {
             href="https://facebook.com" 
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 bg-[#F6F6F6] hover:bg-[#0CEBD2] text-[#232323] hover:text-white rounded-lg flex items-center justify-center transition"
+            className="w-10 h-10 bg-[#F6F6F6] hover:bg-[#FF570A] text-[#232323] hover:text-white rounded-lg flex items-center justify-center transition"
             aria-label="Facebook"
           >
             <Icon icon="mdi:facebook" className="w-5 h-5" />
@@ -208,7 +208,7 @@ export default function Footer() {
             href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 bg-[#F6F6F6] hover:bg-[#0CEBD2] text-[#232323] hover:text-white rounded-lg flex items-center justify-center transition"
+            className="w-10 h-10 bg-[#F6F6F6] hover:bg-[#FF570A] text-[#232323] hover:text-white rounded-lg flex items-center justify-center transition"
             aria-label="Instagram"
           >
             <Icon icon="mdi:instagram" className="w-5 h-5" />
@@ -217,7 +217,7 @@ export default function Footer() {
             href="https://google.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 bg-[#F6F6F6] hover:bg-[#0CEBD2] text-[#232323] hover:text-white rounded-lg flex items-center justify-center transition"
+            className="w-10 h-10 bg-[#F6F6F6] hover:bg-[#FF570A] text-[#232323] hover:text-white rounded-lg flex items-center justify-center transition"
             aria-label="Google"
           >
             <Icon icon="mdi:google" className="w-5 h-5" />
@@ -226,7 +226,7 @@ export default function Footer() {
             href="https://yelp.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 bg-[#F6F6F6] hover:bg-[#0CEBD2] text-[#232323] hover:text-white rounded-lg flex items-center justify-center transition"
+            className="w-10 h-10 bg-[#F6F6F6] hover:bg-[#FF570A] text-[#232323] hover:text-white rounded-lg flex items-center justify-center transition"
             aria-label="Yelp"
           >
             <Icon icon="simple-icons:yelp" className="w-5 h-5" />

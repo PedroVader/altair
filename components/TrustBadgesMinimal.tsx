@@ -19,7 +19,7 @@ export default function TrustBadges() {
           
           {/* Desktop: Left Text */}
           <div className="hidden lg:block flex-shrink-0">
-            <h3 className="text-xl font-bold text-[#00529C] mb-1">
+            <h3 className="text-xl font-bold text-black mb-1">
               Trusted by Austin Homeowners
             </h3>
             <p className="text-sm text-gray-600">5-star rated service</p>

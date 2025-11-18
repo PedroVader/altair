@@ -24,12 +24,12 @@ export default function RoofTypesGrid({
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#232323] mb-4">
-            {title} <span className="text-[#0CEBD2]">{subtitle}</span>
+            {title} <span className="text-[#FF570A]">{subtitle}</span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg mb-6">
             Expert installation of premium roofing materials designed for Central Texas climate
           </p>
-          <div className="w-24 h-0.5 bg-[#0CEBD2] mx-auto"></div>
+          <div className="w-24 h-0.5 bg-[#FF570A] mx-auto"></div>
         </div>
 
         {/* Roof Types Grid - 2x2 para 4 items */}
@@ -40,15 +40,15 @@ export default function RoofTypesGrid({
               href={`/roof-types/${roofType.slug}`}
               className="group"
             >
-              <div className="h-full bg-white rounded-xl border-2 border-[#E2E2E2] hover:border-[#0CEBD2] hover:shadow-xl transition-all duration-300 p-8">
+              <div className="h-full bg-white rounded-xl border-2 border-[#E2E2E2] hover:border-[#FF570A] hover:shadow-xl transition-all duration-300 p-8">
                 
                 {/* Icon */}
-                <div className="w-14 h-14 bg-[#232323] rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#0CEBD2] transition-colors">
+                <div className="w-14 h-14 bg-[#232323] rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#FF570A] transition-colors">
                   <Icon icon={roofType.icon} className="w-7 h-7 text-white" />
                 </div>
 
                 {/* Title */}
-                <h3 className="font-display text-xl font-bold text-[#232323] mb-3 group-hover:text-[#0CEBD2] transition-colors">
+                <h3 className="font-display text-xl font-bold text-[#232323] mb-3 group-hover:text-[#FF570A] transition-colors">
                   {roofType.name}
                 </h3>
 
@@ -62,13 +62,13 @@ export default function RoofTypesGrid({
                   <div className="flex flex-wrap gap-3 mb-6 text-xs">
                     {roofType.averageLifespan && (
                       <div className="flex items-center gap-1.5 bg-[#F6F6F6] px-3 py-2 rounded-lg border border-[#E2E2E2]">
-                        <Icon icon="mdi:clock-outline" className="w-4 h-4 text-[#0CEBD2]" />
+                        <Icon icon="mdi:clock-outline" className="w-4 h-4 text-[#FF570A]" />
                         <span className="text-[#232323] font-medium">{roofType.averageLifespan}</span>
                       </div>
                     )}
                     {roofType.averageCost && (
                       <div className="flex items-center gap-1.5 bg-[#F6F6F6] px-3 py-2 rounded-lg border border-[#E2E2E2]">
-                        <Icon icon="mdi:currency-usd" className="w-4 h-4 text-[#0CEBD2]" />
+                        <Icon icon="mdi:currency-usd" className="w-4 h-4 text-[#FF570A]" />
                         <span className="text-[#232323] font-medium">{roofType.averageCost}</span>
                       </div>
                     )}
@@ -76,7 +76,7 @@ export default function RoofTypesGrid({
                 )}
 
                 {/* View Details Link */}
-                <div className="flex items-center gap-2 text-[#0CEBD2] font-semibold text-sm">
+                <div className="flex items-center gap-2 text-[#FF570A] font-semibold text-sm">
                   <span>View Details</span>
                   <Icon icon="mdi:arrow-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -90,7 +90,7 @@ export default function RoofTypesGrid({
           <div className="text-center mt-12">
             <Link
               href="/roof-types"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#0CEBD2] hover:bg-[#0ad4bf] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-xl"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FF570A] hover:bg-[#E64D09] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-xl"
             >
               View All Roof Types
               <Icon icon="mdi:arrow-right" className="w-5 h-5" />

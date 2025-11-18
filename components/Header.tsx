@@ -36,13 +36,13 @@ export default function Header() {
           {/* Logo - Left */}
           <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
             <div className="w-10 h-10 bg-[#232323] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Icon icon="mdi:home-roof" className="w-6 h-6 text-[#0CEBD2]" />
+              <Icon icon="mdi:home-roof" className="w-6 h-6 text-[#FF570A]" />
             </div>
             <div className="flex flex-col">
-              <span className="font-display text-xl font-bold text-[#232323] group-hover:text-[#0CEBD2] transition-colors leading-tight hidden sm:block">
+              <span className="font-display text-xl font-bold text-[#232323] group-hover:text-[#FF570A] transition-colors leading-tight hidden sm:block">
                 Altair Austin Roofing
               </span>
-              <span className="font-display text-xl font-bold text-[#232323] group-hover:text-[#0CEBD2] transition-colors sm:hidden">
+              <span className="font-display text-xl font-bold text-[#232323] group-hover:text-[#FF570A] transition-colors sm:hidden">
                 Altair
               </span>
               <span className="text-xs text-gray-600 font-medium tracking-wide hidden sm:block">
@@ -55,9 +55,9 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-8">
             <ul className="flex items-center gap-7">
               <li>
-                <Link href="/" className="text-[#232323] hover:text-[#0CEBD2] transition-colors font-semibold text-sm cursor-pointer relative group">
+                <Link href="/" className="text-[#232323] hover:text-[#FF570A] transition-colors font-semibold text-sm cursor-pointer relative group">
                   Home
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0CEBD2] group-hover:w-full transition-all duration-300"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FF570A] group-hover:w-full transition-all duration-300"></span>
                 </Link>
               </li>
 
@@ -67,13 +67,13 @@ export default function Header() {
                 onMouseEnter={() => setServicesOpen(true)}
                 onMouseLeave={() => setServicesOpen(false)}
               >
-                <button className="flex items-center gap-1 text-[#232323] hover:text-[#0CEBD2] transition-colors font-semibold text-sm group">
+                <button className="flex items-center gap-1 text-[#232323] hover:text-[#FF570A] transition-colors font-semibold text-sm group">
                   Services
                   <Icon 
                     icon="mdi:chevron-down" 
                     className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`}
                   />
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0CEBD2] group-hover:w-full transition-all duration-300"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FF570A] group-hover:w-full transition-all duration-300"></span>
                 </button>
 
                 <div 
@@ -86,10 +86,10 @@ export default function Header() {
                       <Link
                         key={service.name}
                         href={service.href}
-                        className="flex items-center gap-3 px-4 py-3 hover:bg-[#9AF4E5]/20 hover:text-[#232323] transition-all group cursor-pointer"
+                        className="flex items-center gap-3 px-4 py-3 hover:bg-[#FF570A]/10 hover:text-[#232323] transition-all group cursor-pointer"
                       >
-                        <div className="w-8 h-8 rounded-lg bg-[#F6F6F6] flex items-center justify-center group-hover:bg-[#0CEBD2] transition-colors">
-                          <Icon icon={service.icon} className="w-4 h-4 text-[#232323]" />
+                        <div className="w-8 h-8 rounded-lg bg-[#F6F6F6] flex items-center justify-center group-hover:bg-[#FF570A] transition-colors">
+                          <Icon icon={service.icon} className="w-4 h-4 text-[#232323] group-hover:text-white" />
                         </div>
                         <span className="text-sm font-medium text-gray-600 group-hover:text-[#232323]">{service.name}</span>
                       </Link>
@@ -104,13 +104,13 @@ export default function Header() {
                 onMouseEnter={() => setRoofTypesOpen(true)}
                 onMouseLeave={() => setRoofTypesOpen(false)}
               >
-                <button className="flex items-center gap-1 text-[#232323] hover:text-[#0CEBD2] transition-colors font-semibold text-sm group">
+                <button className="flex items-center gap-1 text-[#232323] hover:text-[#FF570A] transition-colors font-semibold text-sm group">
                   Roof Types
                   <Icon 
                     icon="mdi:chevron-down" 
                     className={`w-4 h-4 transition-transform ${roofTypesOpen ? 'rotate-180' : ''}`}
                   />
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0CEBD2] group-hover:w-full transition-all duration-300"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FF570A] group-hover:w-full transition-all duration-300"></span>
                 </button>
 
                 <div 
@@ -123,10 +123,10 @@ export default function Header() {
                       <Link
                         key={type.name}
                         href={type.href}
-                        className="flex items-center gap-3 px-4 py-3 hover:bg-[#9AF4E5]/20 hover:text-[#232323] transition-all group cursor-pointer"
+                        className="flex items-center gap-3 px-4 py-3 hover:bg-[#FF570A]/10 hover:text-[#232323] transition-all group cursor-pointer"
                       >
-                        <div className="w-8 h-8 rounded-lg bg-[#F6F6F6] flex items-center justify-center group-hover:bg-[#0CEBD2] transition-colors">
-                          <Icon icon={type.icon} className="w-4 h-4 text-[#232323]" />
+                        <div className="w-8 h-8 rounded-lg bg-[#F6F6F6] flex items-center justify-center group-hover:bg-[#FF570A] transition-colors">
+                          <Icon icon={type.icon} className="w-4 h-4 text-[#232323] group-hover:text-white" />
                         </div>
                         <span className="text-sm font-medium text-gray-600 group-hover:text-[#232323]">{type.name}</span>
                       </Link>
@@ -137,22 +137,22 @@ export default function Header() {
 
               {/* Service Areas */}
               <li>
-                <Link href="/locations" className="text-[#232323] hover:text-[#0CEBD2] transition-colors font-semibold text-sm cursor-pointer whitespace-nowrap relative group">
+                <Link href="/locations" className="text-[#232323] hover:text-[#FF570A] transition-colors font-semibold text-sm cursor-pointer whitespace-nowrap relative group">
                   Service Areas
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0CEBD2] group-hover:w-full transition-all duration-300"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FF570A] group-hover:w-full transition-all duration-300"></span>
                 </Link>
               </li>
 
               <li>
-                <Link href="/about" className="text-[#232323] hover:text-[#0CEBD2] transition-colors font-semibold text-sm cursor-pointer relative group">
+                <Link href="/about" className="text-[#232323] hover:text-[#FF570A] transition-colors font-semibold text-sm cursor-pointer relative group">
                   About
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0CEBD2] group-hover:w-full transition-all duration-300"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FF570A] group-hover:w-full transition-all duration-300"></span>
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-[#232323] hover:text-[#0CEBD2] transition-colors font-semibold text-sm cursor-pointer relative group">
+                <Link href="/contact" className="text-[#232323] hover:text-[#FF570A] transition-colors font-semibold text-sm cursor-pointer relative group">
                   Contact
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0CEBD2] group-hover:w-full transition-all duration-300"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FF570A] group-hover:w-full transition-all duration-300"></span>
                 </Link>
               </li>
             </ul>
@@ -160,7 +160,7 @@ export default function Header() {
             {/* Phone Button */}
             <button 
               onClick={() => window.location.href = 'tel:+15125550123'}
-              className="flex items-center gap-2 px-6 py-3 bg-[#0CEBD2] hover:bg-[#0ad4bf] text-[#fffff] rounded-lg transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl font-bold text-sm flex-shrink-0"
+              className="flex items-center gap-2 px-6 py-3 bg-[#FF570A] hover:bg-[#E64D09] text-white rounded-lg transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl font-bold text-sm flex-shrink-0"
             >
               <Icon icon="mdi:phone" className="w-5 h-5" />
               <span>(512) 555-0123</span>
@@ -170,7 +170,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden text-[#232323] hover:text-[#0CEBD2] transition-colors cursor-pointer"
+            className="lg:hidden text-[#232323] hover:text-[#FF570A] transition-colors cursor-pointer"
           >
             <Icon 
               icon={mobileMenuOpen ? "mdi:close" : "mdi:menu"} 
@@ -189,7 +189,7 @@ export default function Header() {
             <li>
               <Link 
                 href="/" 
-                className="block px-4 py-3 text-[#232323] hover:bg-[#9AF4E5]/20 hover:text-[#232323] rounded-xl transition-all text-base font-semibold cursor-pointer"
+                className="block px-4 py-3 text-[#232323] hover:bg-[#FF570A]/10 hover:text-[#232323] rounded-xl transition-all text-base font-semibold cursor-pointer"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Home
@@ -218,7 +218,7 @@ export default function Header() {
                         className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:bg-[#F6F6F6] rounded-lg transition-colors cursor-pointer"
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        <Icon icon={service.icon} className="w-4 h-4 text-[#0CEBD2]" />
+                        <Icon icon={service.icon} className="w-4 h-4 text-[#FF570A]" />
                         {service.name}
                       </Link>
                     </li>
@@ -249,7 +249,7 @@ export default function Header() {
                         className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:bg-[#F6F6F6] rounded-lg transition-colors cursor-pointer"
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        <Icon icon={type.icon} className="w-4 h-4 text-[#0CEBD2]" />
+                        <Icon icon={type.icon} className="w-4 h-4 text-[#FF570A]" />
                         {type.name}
                       </Link>
                     </li>
@@ -292,7 +292,7 @@ export default function Header() {
             <li className="pt-4">
               <button 
                 onClick={() => window.location.href = 'tel:+15125550123'}
-                className="flex items-center justify-center gap-2 w-full px-6 py-4 bg-[#0CEBD2] hover:bg-[#0ad4bf] text-[#ffffff] rounded-xl transition-all shadow-lg font-bold text-base cursor-pointer"
+                className="flex items-center justify-center gap-2 w-full px-6 py-4 bg-[#FF570A] hover:bg-[#E64D09] text-white rounded-xl transition-all shadow-lg font-bold text-base cursor-pointer"
               >
                 <Icon icon="mdi:phone" className="w-5 h-5" />
                 <span>(512) 555-0123</span>

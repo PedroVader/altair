@@ -78,7 +78,7 @@ export default function FAQ({
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             {subtitle}
           </p>
-          <div className="w-24 h-0.5 bg-[#0CEBD2] mx-auto mt-6"></div>
+          <div className="w-24 h-0.5 bg-[#FF570A] mx-auto mt-6"></div>
         </div>
 
         {/* FAQ Items - Grid 2 columnas */}
@@ -87,7 +87,7 @@ export default function FAQ({
             const isOpen = openIndexes.includes(index);
             
             return (
-              <details key={index} open className="bg-white rounded-xl border-2 border-[#E2E2E2] hover:border-[#0CEBD2] transition-all overflow-hidden">
+              <details key={index} open className="bg-white rounded-xl border-2 border-[#E2E2E2] hover:border-[#FF570A] transition-all overflow-hidden">
                 <summary 
                   onClick={(e) => {
                     e.preventDefault();
@@ -96,13 +96,13 @@ export default function FAQ({
                   className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-[#F6F6F6] transition cursor-pointer list-none"
                 >
                   <h3 className="font-semibold text-[#232323] text-base pr-4">{faq.question}</h3>
-                  <div className={`w-8 h-8 rounded-full border-2 border-[#0CEBD2] flex items-center justify-center flex-shrink-0 transition-all ${
-                    isOpen ? 'bg-[#0CEBD2]' : 'bg-white'
+                  <div className={`w-8 h-8 rounded-full border-2 border-[#FF570A] flex items-center justify-center flex-shrink-0 transition-all ${
+                    isOpen ? 'bg-[#FF570A]' : 'bg-white'
                   }`}>
                     <Icon 
                       icon="mdi:chevron-down" 
                       className={`w-5 h-5 transition-all duration-300 ${
-                        isOpen ? 'rotate-180 text-white' : 'text-[#0CEBD2]'
+                        isOpen ? 'rotate-180 text-white' : 'text-[#FF570A]'
                       }`}
                     />
                   </div>
@@ -132,13 +132,13 @@ export default function FAQ({
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="tel:+15125550123"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#232323] hover:bg-[#1a1a1a] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-xl"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#FF570A] hover:bg-[#E64D09] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-xl"
             >
               <Icon icon="mdi:phone" className="w-5 h-5" />
               Call (512) 555-0123
             </a>
             <QuoteButtonModal 
-              text="Get Free Estimate"
+              text="Get a Quote"
               variant="primary"
             />
           </div>
