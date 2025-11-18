@@ -32,6 +32,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${playfair.variable} ${outfit.variable}`}>
+      <head>
+        {/* Iconify CDN para resolver CORS en Vercel */}
+        <script src="https://code.iconify.design/3/3.1.0/iconify.min.js" defer></script>
+      </head>
       <body className={outfit.className}>
         <Header />
         <StickyStormButton />
