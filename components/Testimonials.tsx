@@ -64,13 +64,13 @@ export default function Testimonials() {
         
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#001F3F] mb-4">
-            Happy <span className="text-[#D4AF37]">Customers</span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#232323] mb-4">
+            Happy <span className="text-[#0CEBD2]">Customers</span>
           </h2>
-          <p className="text-[#334155] max-w-2xl mx-auto text-base mb-6">
+          <p className="text-gray-600 max-w-2xl mx-auto text-base mb-6">
             Austin Roofing Company – Roof Repair & Replacement's reviews are most impressive and encouraging. Our repairs take the shortest time possible, and our free estimate is unbeatable.
           </p>
-          <div className="w-24 h-0.5 bg-[#D4AF37] mx-auto"></div>
+          <div className="w-24 h-0.5 bg-[#0CEBD2] mx-auto"></div>
         </div>
 
         {/* Reviews Carousel with Navigation */}
@@ -81,7 +81,7 @@ export default function Testimonials() {
               const newIndex = activeIndex === 0 ? testimonials.length - 3 : activeIndex - 1;
               setActiveIndex(newIndex);
             }}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 bg-white border-2 border-[#D4AF37] rounded-full shadow-md hover:bg-[#D4AF37] hover:shadow-lg transition-all flex items-center justify-center text-[#001F3F] hover:text-white cursor-pointer"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 bg-white border-2 border-[#0CEBD2] rounded-full shadow-md hover:bg-[#0CEBD2] hover:shadow-lg transition-all flex items-center justify-center text-[#232323] hover:text-white cursor-pointer"
             aria-label="Previous reviews"
           >
             <Icon icon="mdi:chevron-left" className="w-6 h-6" />
@@ -96,18 +96,18 @@ export default function Testimonials() {
               {testimonials.map((testimonial, index) => (
                 <div 
                   key={index}
-                  className="bg-white rounded-xl border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all duration-300 p-6 flex flex-col w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] flex-shrink-0"
+                  className="bg-white rounded-xl border-2 border-[#E2E2E2] hover:border-[#0CEBD2] hover:shadow-lg transition-all duration-300 p-6 flex flex-col w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] flex-shrink-0"
                 >
                   {/* Header with Name and Google Logo */}
                   <div className="flex items-start justify-between mb-3">
                     <div>
                       <div className="flex items-center gap-1.5">
-                        <h4 className="font-semibold text-[#001F3F] text-base">
+                        <h4 className="font-semibold text-[#232323] text-base">
                           {testimonial.name}
                         </h4>
-                        <Icon icon="mdi:check-decagram" className="w-4 h-4 text-blue-500" />
+                        <Icon icon="mdi:check-decagram" className="w-4 h-4 text-[#0CEBD2]" />
                       </div>
-                      <p className="text-xs text-[#334155]">
+                      <p className="text-xs text-gray-600">
                         {testimonial.date}
                       </p>
                     </div>
@@ -121,24 +121,24 @@ export default function Testimonials() {
                   {/* Stars */}
                   <div className="flex gap-0.5 mb-3">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Icon key={i} icon="mdi:star" className="w-5 h-5 text-[#D4AF37]" />
+                      <Icon key={i} icon="mdi:star" className="w-5 h-5 text-[#0CEBD2]" />
                     ))}
                   </div>
 
                   {/* Review Text */}
-                  <p className="text-[#334155] text-sm leading-relaxed mb-4 flex-grow">
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">
                     {testimonial.text}
                   </p>
 
                   {/* Location & Service - Bottom */}
-                  <div className="flex items-center justify-between pt-3 border-t border-gray-100">
-                    <div className="flex items-center gap-1 text-xs text-[#334155]">
-                      <Icon icon="mdi:map-marker" className="w-4 h-4 text-[#D4AF37]" />
+                  <div className="flex items-center justify-between pt-3 border-t border-[#E2E2E2]">
+                    <div className="flex items-center gap-1 text-xs text-gray-600">
+                      <Icon icon="mdi:map-marker" className="w-4 h-4 text-[#0CEBD2]" />
                       <span>{testimonial.location}</span>
                     </div>
-                    <div className="flex items-center gap-1.5 bg-gray-50 px-2.5 py-1 rounded-lg border border-gray-200">
-                      <Icon icon="mdi:check-circle" className="w-3.5 h-3.5 text-[#D4AF37]" />
-                      <span className="text-xs text-[#334155] font-medium">
+                    <div className="flex items-center gap-1.5 bg-[#F6F6F6] px-2.5 py-1 rounded-lg border border-[#E2E2E2]">
+                      <Icon icon="mdi:check-circle" className="w-3.5 h-3.5 text-[#0CEBD2]" />
+                      <span className="text-xs text-[#232323] font-medium">
                         {testimonial.service}
                       </span>
                     </div>
@@ -154,7 +154,7 @@ export default function Testimonials() {
               const newIndex = activeIndex === testimonials.length - 3 ? 0 : activeIndex + 1;
               setActiveIndex(newIndex);
             }}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 bg-white border-2 border-[#D4AF37] rounded-full shadow-md hover:bg-[#D4AF37] hover:shadow-lg transition-all flex items-center justify-center text-[#001F3F] hover:text-white cursor-pointer"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 bg-white border-2 border-[#0CEBD2] rounded-full shadow-md hover:bg-[#0CEBD2] hover:shadow-lg transition-all flex items-center justify-center text-[#232323] hover:text-white cursor-pointer"
             aria-label="Next reviews"
           >
             <Icon icon="mdi:chevron-right" className="w-6 h-6" />
@@ -168,8 +168,8 @@ export default function Testimonials() {
                 onClick={() => setActiveIndex(index)}
                 className={`h-2 rounded-full transition-all cursor-pointer ${
                   index === activeIndex 
-                    ? 'bg-[#D4AF37] w-8' 
-                    : 'bg-gray-300 hover:bg-gray-400 w-2'
+                    ? 'bg-[#0CEBD2] w-8' 
+                    : 'bg-[#E2E2E2] hover:bg-[#9AF4E5] w-2'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -179,7 +179,7 @@ export default function Testimonials() {
 
         {/* CTA */}
         <div className="text-center mt-12">
-          <p className="text-xl text-[#334155] mb-6">
+          <p className="text-xl text-gray-600 mb-6">
             Join hundreds of satisfied customers in the Austin area
           </p>
           <QuoteButtonModal 

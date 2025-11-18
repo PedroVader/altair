@@ -48,13 +48,13 @@ export default function ServicesGrid() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#001F3F] mb-4">
-            Roof Repair Company in <span className="text-[#D4AF37]">Austin TX</span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#232323] mb-4">
+            Roof Repair Company in <span className="text-[#0CEBD2]">Austin TX</span>
           </h2>
-          <p className="text-[#334155] max-w-2xl mx-auto text-base sm:text-lg">
+          <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
             Professional roofing services backed by 15+ years of experience
           </p>
-          <div className="w-24 h-0.5 bg-[#D4AF37] mx-auto mt-6"></div>
+          <div className="w-24 h-0.5 bg-[#0CEBD2] mx-auto mt-6"></div>
         </div>
 
         {/* Services Grid */}
@@ -65,27 +65,27 @@ export default function ServicesGrid() {
               href={`/services/${service.slug}`}
               className="group"
             >
-              <div className="h-full bg-white rounded-xl border border-gray-200 hover:border-[#D4AF37] hover:shadow-xl transition-all duration-300 p-8">
+              <div className="h-full bg-white rounded-xl border-2 border-[#E2E2E2] hover:border-[#0CEBD2] hover:shadow-xl transition-all duration-300 p-8">
                 
                 {/* Icon */}
-                <div className="w-16 h-16 rounded-lg bg-[#001F3F] flex items-center justify-center mb-6">
-                  <Icon icon={service.icon} className="w-8 h-8 text-[#D4AF37]" />
+                <div className="w-16 h-16 rounded-lg bg-[#232323] flex items-center justify-center mb-6 group-hover:bg-[#0CEBD2] transition-colors">
+                  <Icon icon={service.icon} className="w-8 h-8 text-white" />
                 </div>
 
                 {/* Title */}
-                <h3 className="font-display text-xl font-bold text-[#001F3F] mb-3">
+                <h3 className="font-display text-xl font-bold text-[#232323] mb-3 group-hover:text-[#0CEBD2] transition-colors">
                   {service.name}
                 </h3>
 
                 {/* Description */}
-                <p className="text-[#334155] text-sm leading-relaxed mb-6">
+                <p className="text-gray-600 text-sm leading-relaxed mb-6">
                   {service.description}
                 </p>
 
                 {/* View Service Link */}
-                <div className="flex items-center gap-2 text-[#D4AF37] font-semibold text-sm">
+                <div className="flex items-center gap-2 text-[#0CEBD2] font-semibold text-sm">
                   <span>Learn More</span>
-                  <Icon icon="mdi:arrow-right" className="w-4 h-4" />
+                  <Icon icon="mdi:arrow-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
             </Link>
@@ -94,12 +94,12 @@ export default function ServicesGrid() {
 
         {/* CTA Bottom */}
         <div className="mt-16 text-center">
-          <p className="text-[#334155] mb-6 text-lg">
+          <p className="text-gray-600 mb-6 text-lg">
             Don't see what you're looking for?
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-[#001F3F] hover:bg-[#003d75] text-white font-semibold rounded-lg transition-colors"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-[#0CEBD2] hover:bg-[#0ad4bf] text-[#232323] font-bold rounded-lg transition-all shadow-lg hover:shadow-xl"
           >
             <span>Contact Us Today</span>
             <Icon icon="mdi:arrow-right" className="w-5 h-5" />

@@ -72,13 +72,13 @@ export default function FAQ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-[#001F3F] mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-[#232323] mb-4">
             {title}
           </h2>
-          <p className="text-lg text-[#334155] max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             {subtitle}
           </p>
-          <div className="w-24 h-0.5 bg-[#D4AF37] mx-auto mt-6"></div>
+          <div className="w-24 h-0.5 bg-[#0CEBD2] mx-auto mt-6"></div>
         </div>
 
         {/* FAQ Items - Grid 2 columnas */}
@@ -87,22 +87,22 @@ export default function FAQ({
             const isOpen = openIndexes.includes(index);
             
             return (
-              <details key={index} open className="bg-white rounded-xl border border-gray-200 hover:border-[#D4AF37] transition-all overflow-hidden">
+              <details key={index} open className="bg-white rounded-xl border-2 border-[#E2E2E2] hover:border-[#0CEBD2] transition-all overflow-hidden">
                 <summary 
                   onClick={(e) => {
                     e.preventDefault();
                     toggleFAQ(index);
                   }}
-                  className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition cursor-pointer list-none"
+                  className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-[#F6F6F6] transition cursor-pointer list-none"
                 >
-                  <h3 className="font-semibold text-[#001F3F] text-base pr-4">{faq.question}</h3>
-                  <div className={`w-8 h-8 rounded-full border-2 border-[#D4AF37] flex items-center justify-center flex-shrink-0 transition-all ${
-                    isOpen ? 'bg-[#D4AF37]' : 'bg-white'
+                  <h3 className="font-semibold text-[#232323] text-base pr-4">{faq.question}</h3>
+                  <div className={`w-8 h-8 rounded-full border-2 border-[#0CEBD2] flex items-center justify-center flex-shrink-0 transition-all ${
+                    isOpen ? 'bg-[#0CEBD2]' : 'bg-white'
                   }`}>
                     <Icon 
                       icon="mdi:chevron-down" 
                       className={`w-5 h-5 transition-all duration-300 ${
-                        isOpen ? 'rotate-180 text-white' : 'text-[#D4AF37]'
+                        isOpen ? 'rotate-180 text-white' : 'text-[#0CEBD2]'
                       }`}
                     />
                   </div>
@@ -112,7 +112,7 @@ export default function FAQ({
                     isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                   } overflow-hidden`}
                 >
-                  <div className="px-6 pb-4 text-[#334155] border-t border-gray-100 pt-4 leading-relaxed text-sm">
+                  <div className="px-6 pb-4 text-gray-600 border-t border-[#E2E2E2] pt-4 leading-relaxed text-sm">
                     {faq.answer}
                   </div>
                 </div>
@@ -122,17 +122,17 @@ export default function FAQ({
         </div>
 
         {/* CTA */}
-        <div className="text-center bg-gray-50 rounded-2xl p-8 border border-gray-200">
-          <h3 className="font-display text-2xl font-bold text-[#001F3F] mb-3">
+        <div className="text-center bg-[#F6F6F6] rounded-2xl p-8 border-2 border-[#E2E2E2]">
+          <h3 className="font-display text-2xl font-bold text-[#232323] mb-3">
             Still Have Questions?
           </h3>
-          <p className="text-[#334155] mb-6 max-w-xl mx-auto">
+          <p className="text-gray-600 mb-6 max-w-xl mx-auto">
             Our team is here to help. Contact us for personalized answers.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="tel:+15125550123"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#001F3F] hover:bg-[#003d75] text-white font-semibold rounded-lg transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#232323] hover:bg-[#1a1a1a] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-xl"
             >
               <Icon icon="mdi:phone" className="w-5 h-5" />
               Call (512) 555-0123

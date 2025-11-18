@@ -160,7 +160,7 @@ export default function Header() {
             {/* Phone Button */}
             <button 
               onClick={() => window.location.href = 'tel:+15125550123'}
-              className="flex items-center gap-2 px-6 py-3 bg-[#0CEBD2] hover:bg-[#0ad4bf] text-[#232323] rounded-lg transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl font-bold text-sm flex-shrink-0"
+              className="flex items-center gap-2 px-6 py-3 bg-[#0CEBD2] hover:bg-[#0ad4bf] text-[#fffff] rounded-lg transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl font-bold text-sm flex-shrink-0"
             >
               <Icon icon="mdi:phone" className="w-5 h-5" />
               <span>(512) 555-0123</span>
@@ -292,7 +292,7 @@ export default function Header() {
             <li className="pt-4">
               <button 
                 onClick={() => window.location.href = 'tel:+15125550123'}
-                className="flex items-center justify-center gap-2 w-full px-6 py-4 bg-[#0CEBD2] hover:bg-[#0ad4bf] text-[#232323] rounded-xl transition-all shadow-lg font-bold text-base cursor-pointer"
+                className="flex items-center justify-center gap-2 w-full px-6 py-4 bg-[#0CEBD2] hover:bg-[#0ad4bf] text-[#ffffff] rounded-xl transition-all shadow-lg font-bold text-base cursor-pointer"
               >
                 <Icon icon="mdi:phone" className="w-5 h-5" />
                 <span>(512) 555-0123</span>
