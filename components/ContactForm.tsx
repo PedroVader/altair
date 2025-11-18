@@ -43,11 +43,10 @@ const ContactForm = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-  // Estilos según variante - COMPACTO
   const containerStyles = {
-    hero: "bg-white rounded-2xl shadow-2xl p-5 w-full max-w-md border-2 border-gray-100",
-    sidebar: "bg-white rounded-2xl shadow-xl p-4 w-full border-2 border-gray-100",
-    fullpage: "bg-white rounded-2xl shadow-2xl p-6 w-full max-w-2xl mx-auto border-2 border-gray-100",
+    hero: "bg-white rounded-2xl shadow-2xl p-5 w-full max-w-md border-2 border-[#F6F6F6]",
+    sidebar: "bg-white rounded-2xl shadow-xl p-4 w-full border-2 border-[#F6F6F6]",
+    fullpage: "bg-white rounded-2xl shadow-2xl p-6 w-full max-w-2xl mx-auto border-2 border-[#F6F6F6]",
     modal: "bg-white rounded-2xl p-5"
   };
 
@@ -97,22 +96,22 @@ const ContactForm = ({
 
   return (
     <div className={containerStyles[variant]}>
-      {/* Header - COMPACTO */}
+      {/* Header */}
       <div className="mb-4 text-center">
-        <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#001F3F] to-[#003d75] rounded-xl mb-2 shadow-lg">
-          <Icon icon="mdi:clipboard-text" className="w-6 h-6 text-[#D4AF37]" />
+        <div className="inline-flex items-center justify-center w-12 h-12 bg-[#232323] rounded-xl mb-2 shadow-lg">
+          <Icon icon="mdi:clipboard-text" className="w-6 h-6 text-[#0CEBD2]" />
         </div>
-        <h3 className="font-display text-lg font-bold text-[#001F3F]">
+        <h3 className="font-display text-lg font-bold text-[#232323]">
           {title}
         </h3>
       </div>
 
-      {/* Form - COMPACTO */}
+      {/* Form */}
       <form onSubmit={handleSubmit} className="space-y-3">
         {/* Name */}
         <div>
-          <Label htmlFor="name" className="text-[#001F3F] font-semibold text-xs mb-1 flex items-center gap-1.5">
-            <Icon icon="mdi:account" className="w-3.5 h-3.5 text-[#D4AF37]" />
+          <Label htmlFor="name" className="text-[#232323] font-semibold text-xs mb-1 flex items-center gap-1.5">
+            <Icon icon="mdi:account" className="w-3.5 h-3.5 text-[#0CEBD2]" />
             Full Name *
           </Label>
           <Input
@@ -123,14 +122,14 @@ const ContactForm = ({
             onChange={handleInputChange}
             placeholder="John Doe"
             required
-            className="border-2 border-gray-200 focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/20 rounded-lg py-2 text-sm transition-all text-gray-900 placeholder:text-gray-400 h-10"
+            className="border-2 border-[#E2E2E2] focus:border-[#0CEBD2] focus:ring-1 focus:ring-[#0CEBD2]/20 rounded-lg py-2 text-sm transition-all text-gray-900 placeholder:text-gray-400 h-10"
           />
         </div>
 
         {/* Phone */}
         <div>
-          <Label htmlFor="phone" className="text-[#001F3F] font-semibold text-xs mb-1 flex items-center gap-1.5">
-            <Icon icon="mdi:phone" className="w-3.5 h-3.5 text-[#D4AF37]" />
+          <Label htmlFor="phone" className="text-[#232323] font-semibold text-xs mb-1 flex items-center gap-1.5">
+            <Icon icon="mdi:phone" className="w-3.5 h-3.5 text-[#0CEBD2]" />
             Phone *
           </Label>
           <Input
@@ -141,14 +140,14 @@ const ContactForm = ({
             onChange={handleInputChange}
             placeholder="(512) 555-0123"
             required
-            className="border-2 border-gray-200 focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/20 rounded-lg py-2 text-sm transition-all text-gray-900 placeholder:text-gray-400 h-10"
+            className="border-2 border-[#E2E2E2] focus:border-[#0CEBD2] focus:ring-1 focus:ring-[#0CEBD2]/20 rounded-lg py-2 text-sm transition-all text-gray-900 placeholder:text-gray-400 h-10"
           />
         </div>
 
         {/* Email */}
         <div>
-          <Label htmlFor="email" className="text-[#001F3F] font-semibold text-xs mb-1 flex items-center gap-1.5">
-            <Icon icon="mdi:email" className="w-3.5 h-3.5 text-[#D4AF37]" />
+          <Label htmlFor="email" className="text-[#232323] font-semibold text-xs mb-1 flex items-center gap-1.5">
+            <Icon icon="mdi:email" className="w-3.5 h-3.5 text-[#0CEBD2]" />
             Email *
           </Label>
           <Input
@@ -159,14 +158,14 @@ const ContactForm = ({
             onChange={handleInputChange}
             placeholder="john@example.com"
             required
-            className="border-2 border-gray-200 focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/20 rounded-lg py-2 text-sm transition-all text-gray-900 placeholder:text-gray-400 h-10"
+            className="border-2 border-[#E2E2E2] focus:border-[#0CEBD2] focus:ring-1 focus:ring-[#0CEBD2]/20 rounded-lg py-2 text-sm transition-all text-gray-900 placeholder:text-gray-400 h-10"
           />
         </div>
 
         {/* Service */}
         <div>
-          <Label htmlFor="service" className="text-[#001F3F] font-semibold text-xs mb-1 flex items-center gap-1.5">
-            <Icon icon="mdi:tools" className="w-3.5 h-3.5 text-[#D4AF37]" />
+          <Label htmlFor="service" className="text-[#232323] font-semibold text-xs mb-1 flex items-center gap-1.5">
+            <Icon icon="mdi:tools" className="w-3.5 h-3.5 text-[#0CEBD2]" />
             Service *
           </Label>
           <div className="relative">
@@ -176,7 +175,7 @@ const ContactForm = ({
               value={formData.service}
               onChange={handleInputChange}
               required
-              className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] appearance-none bg-white text-gray-900 text-sm transition-all cursor-pointer h-10"
+              className="w-full px-3 py-2 border-2 border-[#E2E2E2] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#0CEBD2]/20 focus:border-[#0CEBD2] appearance-none bg-white text-gray-900 text-sm transition-all cursor-pointer h-10"
             >
               <option value="Roof Repair">Roof Repair</option>
               <option value="Roof Replacement">Roof Replacement</option>
@@ -190,16 +189,16 @@ const ContactForm = ({
             </select>
             <Icon 
               icon="mdi:chevron-down" 
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#D4AF37] pointer-events-none"
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#0CEBD2] pointer-events-none"
             />
           </div>
         </div>
 
-        {/* Message - Solo en variantes fullpage y modal */}
+        {/* Message */}
         {(variant === "fullpage" || variant === "modal") && (
           <div>
-            <Label htmlFor="message" className="text-[#001F3F] font-semibold text-xs mb-1 flex items-center gap-1.5">
-              <Icon icon="mdi:message-text" className="w-3.5 h-3.5 text-[#D4AF37]" />
+            <Label htmlFor="message" className="text-[#232323] font-semibold text-xs mb-1 flex items-center gap-1.5">
+              <Icon icon="mdi:message-text" className="w-3.5 h-3.5 text-[#0CEBD2]" />
               Details (Optional)
             </Label>
             <textarea
@@ -209,16 +208,16 @@ const ContactForm = ({
               onChange={handleInputChange}
               placeholder="Tell us more..."
               rows={3}
-              className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] resize-none text-sm transition-all text-gray-900 placeholder:text-gray-400"
+              className="w-full px-3 py-2 border-2 border-[#E2E2E2] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#0CEBD2]/20 focus:border-[#0CEBD2] resize-none text-sm transition-all text-gray-900 placeholder:text-gray-400"
             />
           </div>
         )}
 
-        {/* Submit Button - COMPACTO */}
+        {/* Submit Button */}
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B87333] hover:from-[#E5C158] hover:to-[#D4AF37] text-white font-bold py-2.5 text-sm cursor-pointer transition-all disabled:opacity-50 rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-105 h-11"
+          className="w-full bg-[#0CEBD2] hover:bg-[#0ad4bf] text-[#232323] font-bold py-2.5 text-sm cursor-pointer transition-all disabled:opacity-50 rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl h-11"
         >
           {isSubmitting ? (
             <>
@@ -233,9 +232,9 @@ const ContactForm = ({
           )}
         </Button>
 
-        {/* Status Messages - COMPACTO */}
+        {/* Status Messages */}
         {submitStatus === "success" && (
-          <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-400 rounded-lg p-2.5">
+          <div className="bg-green-50 border border-green-400 rounded-lg p-2.5">
             <div className="flex items-center gap-2 justify-center">
               <Icon icon="mdi:check-circle" className="w-4 h-4 text-green-600 flex-shrink-0" />
               <p className="text-green-800 text-xs font-semibold">
@@ -246,7 +245,7 @@ const ContactForm = ({
         )}
         
         {submitStatus === "error" && (
-          <div className="bg-gradient-to-r from-red-50 to-rose-50 border border-red-400 rounded-lg p-2.5">
+          <div className="bg-red-50 border border-red-400 rounded-lg p-2.5">
             <div className="flex items-center gap-2 justify-center">
               <Icon icon="mdi:alert-circle" className="w-4 h-4 text-red-600 flex-shrink-0" />
               <p className="text-red-800 text-xs font-semibold">
@@ -257,19 +256,19 @@ const ContactForm = ({
         )}
       </form>
 
-      {/* Phone CTA - COMPACTO */}
+      {/* Phone CTA */}
       {showPhone && (
-        <div className="mt-4 pt-4 border-t border-gray-200">
+        <div className="mt-4 pt-4 border-t border-[#E2E2E2]">
           <div className="text-center">
-            <p className="text-xs text-[#334155] mb-2">
+            <p className="text-xs text-gray-500 mb-2">
               Prefer to talk?
             </p>
             <a 
               href="tel:+15125550123" 
-              className="inline-flex items-center gap-2 text-[#001F3F] font-bold text-base hover:text-[#D4AF37] transition-colors cursor-pointer group"
+              className="inline-flex items-center gap-2 text-[#232323] font-bold text-base hover:text-[#0CEBD2] transition-colors cursor-pointer group"
             >
-              <div className="w-8 h-8 rounded-full bg-[#D4AF37]/10 flex items-center justify-center group-hover:bg-[#D4AF37] transition-colors">
-                <Icon icon="mdi:phone" className="w-4 h-4 text-[#D4AF37] group-hover:text-white transition-colors" />
+              <div className="w-8 h-8 rounded-full bg-[#9AF4E5]/30 flex items-center justify-center group-hover:bg-[#0CEBD2] transition-colors">
+                <Icon icon="mdi:phone" className="w-4 h-4 text-[#0CEBD2] group-hover:text-[#232323] transition-colors" />
               </div>
               <span>(512) 555-0123</span>
             </a>

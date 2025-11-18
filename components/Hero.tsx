@@ -16,25 +16,28 @@ export default function Hero() {
         >
           <source src="/videos/roof-video-1-hd.mp4" type="video/mp4" />
         </video>
-        {/* Overlay gradient para legibilidad */}
+        
+        {/* Blur lateral izquierdo */}
         <div 
-      className="absolute left-0 top-0 bottom-0 w-1/3 backdrop-blur-sm"
-      style={{
-        maskImage: 'linear-gradient(to right, black, transparent)',
-        WebkitMaskImage: 'linear-gradient(to right, black, transparent)'
-      }}
-    ></div>
-    
-    {/* Blur derecho con fade */}
-    <div 
-      className="absolute right-0 top-0 bottom-0 w-1/3 backdrop-blur-sm"
-      style={{
-        maskImage: 'linear-gradient(to left, black, transparent)',
-        WebkitMaskImage: 'linear-gradient(to left, black, transparent)'
-      }}
-    ></div>      
-        <div className="absolute inset-0 bg-[#001F3F]/30"></div>
-        </div>
+          className="absolute left-0 top-0 bottom-0 w-1/3 backdrop-blur-sm"
+          style={{
+            maskImage: 'linear-gradient(to right, black, transparent)',
+            WebkitMaskImage: 'linear-gradient(to right, black, transparent)'
+          }}
+        ></div>
+        
+        {/* Blur lateral derecho */}
+        <div 
+          className="absolute right-0 top-0 bottom-0 w-1/3 backdrop-blur-sm"
+          style={{
+            maskImage: 'linear-gradient(to left, black, transparent)',
+            WebkitMaskImage: 'linear-gradient(to left, black, transparent)'
+          }}
+        ></div>
+        
+        {/* Overlay gris oscuro */}
+        <div className="absolute inset-0 bg-[#232323]/50"></div>
+      </div>
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,14 +45,14 @@ export default function Hero() {
           
           {/* Left Side - Content */}
           <div className="text-white space-y-4 md:space-y-5">
-            {/* Trust Badge Premium */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-[#D4AF37]/30 shadow-lg">
+            {/* Trust Badge */}
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-[#0CEBD2]/30 shadow-lg">
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
                   <Icon 
                     key={i} 
                     icon="mdi:star"
-                    className="w-4 h-4 text-[#D4AF37]"
+                    className="w-4 h-4 text-[#0CEBD2]"
                   />
                 ))}
               </div>
@@ -64,21 +67,21 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* Main Heading con font-display */}
+            {/* Main Heading */}
             <div>
-              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-3 md:mb-4">
-                Austin <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#B87333] block sm:inline">Roofing Company</span>
+              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-3 md:mb-4 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                Austin Roofing Company
               </h1>
-              <p className="text-sm sm:text-base text-white/90 leading-relaxed max-w-3xl font-light">
+              <p className="text-base sm:text-lg text-white/90 leading-relaxed max-w-3xl drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
                 Are you planning to have any construction or roofing done to your home? Then you've come to the right place. Austin Roofing Company – Roof Repair & Replacement is a leading roofing contractor in Austin, TX, offering expert roofing services for your family home or business in the greater Austin area.
               </p>
             </div>
 
-            {/* CTA Buttons Premium */}
+            {/* CTA Button */}
             <div className="flex flex-wrap gap-3 pt-2 md:pt-3">
               <a
                 href="tel:+15125550123"
-                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#D4AF37] to-[#B87333] hover:from-[#E5C158] hover:to-[#D4AF37] text-white font-bold rounded-xl transition-all hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer text-sm sm:text-base"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#0CEBD2] hover:bg-[#0ad4bf] text-[#232323] font-bold rounded-lg transition-all shadow-lg hover:shadow-xl cursor-pointer text-base"
               >
                 <Icon icon="mdi:phone" className="w-5 h-5" />
                 <span className="hidden xs:inline">(512) 555-0123</span>
@@ -86,11 +89,12 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Service Areas - Compact con estilo premium */}
-            <div className="pt-3 md:pt-4 border-t border-[#D4AF37]/20">
-              <div className="flex items-start sm:items-center gap-2 text-xs text-white/80">
-                <Icon icon="mdi:map-marker" className="w-4 h-4 flex-shrink-0 mt-0.5 sm:mt-0 text-[#D4AF37]" />
-                <span className="leading-relaxed font-light">
+          
+            {/* Service Areas */}
+            <div className="pt-3 md:pt-4 border-t border-white/20">
+              <div className="flex items-start sm:items-center gap-2 text-sm text-white/80">
+                <Icon icon="mdi:map-marker" className="w-5 h-5 flex-shrink-0 mt-0.5 sm:mt-0 text-[#0CEBD2]" />
+                <span className="leading-relaxed">
                   <span className="hidden sm:inline">Serving Austin, Round Rock, Cedar Park, Georgetown, Lakeway & Buda</span>
                   <span className="sm:hidden">Serving Austin & surrounding areas</span>
                 </span>
