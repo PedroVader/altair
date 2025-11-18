@@ -14,11 +14,27 @@ export default function Hero() {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="/videos/roof-video-1.mp4" type="video/mp4" />
+          <source src="/videos/roof-video-1-hd.mp4" type="video/mp4" />
         </video>
         {/* Overlay gradient para legibilidad */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#001F3F]/95 via-[#001F3F]/30 to-[#003d75]/80"></div>
-      </div>
+        <div 
+      className="absolute left-0 top-0 bottom-0 w-1/3 backdrop-blur-sm"
+      style={{
+        maskImage: 'linear-gradient(to right, black, transparent)',
+        WebkitMaskImage: 'linear-gradient(to right, black, transparent)'
+      }}
+    ></div>
+    
+    {/* Blur derecho con fade */}
+    <div 
+      className="absolute right-0 top-0 bottom-0 w-1/3 backdrop-blur-sm"
+      style={{
+        maskImage: 'linear-gradient(to left, black, transparent)',
+        WebkitMaskImage: 'linear-gradient(to left, black, transparent)'
+      }}
+    ></div>      
+        <div className="absolute inset-0 bg-[#001F3F]/30"></div>
+        </div>
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

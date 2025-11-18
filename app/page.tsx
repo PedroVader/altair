@@ -71,14 +71,14 @@ export default function Home() {
         
         {/* Trust Badges */}
         <TrustBadges />
-
-        <CertificatesCarousel />
         
         {/* About Section */}
         <AboutSection />
         
         {/* Services Grid */}
         <ServicesGrid />
+
+        <CertificatesCarousel />
         
         {/* Why Choose Us */}
         <WhyChooseUs />
