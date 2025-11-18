@@ -68,7 +68,7 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Features Icons */}
+            {/* Features Icons
             <div className="flex flex-wrap gap-4 pt-2">
               <div className="flex items-center gap-2 text-white/90 text-xs sm:text-sm">
                 <div className="w-8 h-8 rounded-lg bg-[#D4AF37]/20 flex items-center justify-center">
@@ -88,7 +88,7 @@ export default function Hero() {
                 </div>
                 <span className="font-medium">Lifetime Warranty</span>
               </div>
-            </div>
+            </div> */}
 
             {/* Service Areas - Compact con estilo premium */}
             <div className="pt-3 md:pt-4 border-t border-[#D4AF37]/20">
