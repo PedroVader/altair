@@ -14,20 +14,21 @@ export default function Footer() {
     <footer className="bg-white border-t-2 border-[#E2E2E2]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         
-        {/* Logo y Descripción - Centrado */}
-        <div className="text-center mb-8 sm:mb-12 pb-6 sm:pb-8 border-b-2 border-[#E2E2E2]">
-          <Link href="/" className="inline-flex items-center gap-3 mb-4 group">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#232323] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Icon icon="mdi:home-roof" className="w-7 h-7 sm:w-8 sm:h-8 text-[#FFB343]" />
-            </div>
-            <div className="font-display text-xl sm:text-2xl font-bold text-[#232323] leading-tight">
-              Altair Austin Roofing
-            </div>
-          </Link>
-          <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto mt-4 px-4">
-            Professional roofing services across Austin and Central Texas. Trusted by thousands of satisfied homeowners since 2008.
-          </p>
-        </div>
+       {/* Logo y Descripción - Centrado */}
+<div className="text-center mb-8 sm:mb-12 pb-6 sm:pb-8 border-b-2 border-[#E2E2E2]">
+  <Link href="/" className="inline-flex items-center justify-center mb-4 group">
+    <div className="relative w-auto group-hover:scale-105 transition-transform">
+      <img
+        src="/logos/logo-altair.png"
+        alt="Altair Austin Roofing - Austin's Premier Roofing Company"
+        className="h-45 w-auto object-contain"
+      />
+    </div>
+  </Link>
+  <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto mt-4 px-4">
+    Professional roofing services across Austin and Central Texas. Trusted by thousands of satisfied homeowners since 2008.
+  </p>
+</div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 sm:gap-10 lg:gap-8">
           

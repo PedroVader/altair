@@ -3,7 +3,22 @@
 import Link from 'next/link';
 import { Icon } from '@iconify/react';
 
-export default function ServicesGrid() {
+interface ServicesGridProps {
+  location?: {
+    slug: string;
+    name: string;
+  };
+  showAll?: boolean;
+  title?: string;
+  subtitle?: string;
+}
+
+export default function ServicesGrid({ 
+  location, 
+  showAll = true,
+  title,
+  subtitle
+}: ServicesGridProps) {
   const services = [
     {
       slug: 'roof-repair',
@@ -43,53 +58,74 @@ export default function ServicesGrid() {
     },
   ];
 
+  const displayServices = showAll ? services : services.slice(0, 6);
+
+  // Generar título dinámico
+  const defaultTitle = location 
+    ? `All Roofing Services in ${location.name}`
+    : 'Roof Repair Company in Austin TX';
+  
+  const displayTitle = title || defaultTitle;
+  const displaySubtitle = subtitle || 'Professional roofing services backed by 15+ years of experience';
+
   return (
     <section className="py-16 sm:py-20 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#232323] mb-4">
-            Roof Repair Company in <span className="text-[#FFB343]">Austin TX</span>
+            {location ? (
+              <>All Roofing Services in <span className="text-[#FFB343]">{location.name}</span></>
+            ) : (
+              <>Roof Repair Company in <span className="text-[#FFB343]">Austin TX</span></>
+            )}
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
-            Professional roofing services backed by 15+ years of experience
+            {displaySubtitle}
           </p>
           <div className="w-24 h-0.5 bg-[#FFB343] mx-auto mt-6"></div>
         </div>
 
         {/* Services Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service) => (
-            <Link 
-              key={service.slug} 
-              href={`/services/${service.slug}`}
-              className="group"
-            >
-              <div className="h-full bg-white rounded-xl border-2 border-[#E2E2E2] hover:border-[#FFB343] hover:shadow-xl transition-all duration-300 p-8">
-                
-                {/* Icon */}
-                <div className="w-16 h-16 rounded-lg bg-[#232323] flex items-center justify-center mb-6 group-hover:bg-[#FFB343] transition-colors">
-                  <Icon icon={service.icon} className="w-8 h-8 text-white" />
+          {displayServices.map((service) => {
+            // ✅ URL dinámica según contexto
+            const serviceUrl = location 
+              ? `/locations/${location.slug}/${service.slug}`
+              : `/services/${service.slug}`;
+
+            return (
+              <Link 
+                key={service.slug} 
+                href={serviceUrl}
+                className="group"
+              >
+                <div className="h-full bg-white rounded-xl border-2 border-[#E2E2E2] hover:border-[#FFB343] hover:shadow-xl transition-all duration-300 p-8">
+                  
+                  {/* Icon */}
+                  <div className="w-16 h-16 rounded-lg bg-[#232323] flex items-center justify-center mb-6 group-hover:bg-[#FFB343] transition-colors">
+                    <Icon icon={service.icon} className="w-8 h-8 text-white" />
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="font-display text-xl font-bold text-[#232323] mb-3 group-hover:text-[#FFB343] transition-colors">
+                    {service.name}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                    {service.description}
+                  </p>
+
+                  {/* View Service Link */}
+                  <div className="flex items-center gap-2 text-[#FFB343] font-semibold text-sm">
+                    <span>Learn More</span>
+                    <Icon icon="mdi:arrow-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
-
-                {/* Title */}
-                <h3 className="font-display text-xl font-bold text-[#232323] mb-3 group-hover:text-[#FFB343] transition-colors">
-                  {service.name}
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                  {service.description}
-                </p>
-
-                {/* View Service Link */}
-                <div className="flex items-center gap-2 text-[#FFB343] font-semibold text-sm">
-                  <span>Learn More</span>
-                  <Icon icon="mdi:arrow-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
         </div>
 
         {/* CTA Bottom */}

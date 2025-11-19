@@ -126,28 +126,32 @@ export default async function ServicePage({
         <div className="bg-gray-50 py-4 border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-2 text-sm text-gray-600">
-              <Link href="/" className="hover:text-[#00529C] transition-colors">
+              <Link href="/" className="hover:text-[#FFB343] transition-colors">
                 Home
               </Link>
               <Icon icon="mdi:chevron-right" className="w-4 h-4" />
-              <Link href="/services" className="hover:text-[#00529C] transition-colors">
+              <Link href="/services" className="hover:text-[#FFB343] transition-colors">
                 Services
               </Link>
               <Icon icon="mdi:chevron-right" className="w-4 h-4" />
-              <span className="text-[#00529C] font-semibold">{service.name}</span>
+              <span className="text-[#FFB343] font-semibold">{service.name}</span>
             </div>
           </div>
         </div>
 
-        {/* Hero Section */}
+        {/* Hero Section - Video Background */}
         <section className="relative py-12 md:py-16 overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <img 
-              src="/worker-repairing-roof.jpg" 
-              alt={service.name}
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
               className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
+            >
+              <source src="/videos/roof-video-1-hd.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
           </div>
 
           <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -160,7 +164,7 @@ export default async function ServicePage({
                       <Icon 
                         key={i} 
                         icon="mdi:star"
-                        className="w-3.5 h-3.5 text-[#FFE317]"
+                        className="w-3.5 h-3.5 text-[#FFB343]"
                       />
                     ))}
                   </div>
@@ -186,10 +190,9 @@ export default async function ServicePage({
                 </div>
 
                 <div className="flex flex-wrap gap-3 pt-4">
-                  {/* CORRECCIÓN APLICADA: Se agregó la etiqueta de apertura <a> */}
                   <a 
                     href="tel:+15125550123"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#FFE317] hover:bg-[#ffd700] text-[#00529C] font-bold rounded-xl transition-all hover:scale-105 shadow-xl text-sm"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] font-bold rounded-xl transition-all hover:scale-105 shadow-xl text-sm"
                   >
                     <Icon icon="mdi:phone" className="w-4 h-4" />
                     Call (512) 555-0123
@@ -206,124 +209,119 @@ export default async function ServicePage({
 
         <TrustBadgesMinimal />
 
-       {/* Intro Section */}
-<section className="py-16 bg-white">
-  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-8">
-      <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-4">
-        Professional {service.name} in Austin, TX
-      </h2>
-      <div className="w-24 h-1 bg-[#FFE317] mx-auto"></div>
-    </div>
-    
-    <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-6">
-      <p className="text-lg first-letter:text-5xl first-letter:font-bold first-letter:text-[#00529C] first-letter:mr-1 first-letter:float-left">
-        {service.description}
-      </p>
-      
-      {service.additionalInfo?.expertise && (
-        <p className="text-base">
-          {service.additionalInfo.expertise}
-        </p>
-      )}
-    </div>
-  </div>
-</section>
-
-{/* Features & Benefits */}
-{((service.features && service.features.length > 0) || (service.benefits && service.benefits.length > 0)) && (
-  <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      {/* Header */}
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-4">
-          What Makes Us Different
-        </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          Comprehensive {service.name.toLowerCase()} backed by expertise and dedication
-        </p>
-        <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-8">
-        
-        {/* Features Card */}
-        {service.features && service.features.length > 0 && (
-          <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#00529C] to-[#003d75] rounded-2xl transform transition-transform group-hover:scale-[1.02]"></div>
-            <div className="relative bg-white rounded-2xl p-8 shadow-xl border-2 border-gray-100 h-full">
+        {/* Intro Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#232323] mb-4">
+                Professional {service.name} in Austin, TX
+              </h2>
+              <div className="w-24 h-1 bg-[#FFB343] mx-auto"></div>
+            </div>
+            
+            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-6">
+              <p className="text-lg first-letter:text-5xl first-letter:font-bold first-letter:text-[#FFB343] first-letter:mr-1 first-letter:float-left">
+                {service.description}
+              </p>
               
-              {/* Icon Header */}
-              <div className="flex items-center gap-3 mb-6 pb-6 border-b-2 border-gray-100">
-                <div className="w-14 h-14 bg-gradient-to-br from-[#00529C] to-[#003d75] rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Icon icon="mdi:clipboard-check-outline" className="w-8 h-8 text-[#FFE317]" />
-                </div>
-                <h3 className="text-2xl font-bold text-[#00529C]">
-                  What We Offer
-                </h3>
-              </div>
-              
-              {/* Features List */}
-              <ul className="space-y-4">
-                {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-3 group/item">
-                    <div className="w-6 h-6 bg-[#FFE317] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform">
-                      <Icon icon="mdi:check-bold" className="w-4 h-4 text-[#00529C]" />
-                    </div>
-                    <span className="text-gray-700 leading-relaxed">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+              {service.additionalInfo?.expertise && (
+                <p className="text-base">
+                  {service.additionalInfo.expertise}
+                </p>
+              )}
             </div>
           </div>
-        )}
+        </section>
 
-        {/* Benefits Card */}
-        {service.benefits && service.benefits.length > 0 && (
-          <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#FFE317] to-[#ffd700] rounded-2xl transform transition-transform group-hover:scale-[1.02]"></div>
-            <div className="relative bg-white rounded-2xl p-8 shadow-xl border-2 border-gray-100 h-full">
+        {/* Features & Benefits */}
+        {((service.features && service.features.length > 0) || (service.benefits && service.benefits.length > 0)) && (
+          <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               
-              {/* Icon Header */}
-              <div className="flex items-center gap-3 mb-6 pb-6 border-b-2 border-gray-100">
-                <div className="w-14 h-14 bg-gradient-to-br from-[#FFE317] to-[#ffd700] rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Icon icon="mdi:star-circle-outline" className="w-8 h-8 text-[#00529C]" />
-                </div>
-                <h3 className="text-2xl font-bold text-[#00529C]">
-                  Why Choose Us
-                </h3>
+              {/* Header */}
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-[#232323] mb-4">
+                  What Makes Us Different
+                </h2>
+                <p className="text-gray-600 max-w-2xl mx-auto">
+                  Comprehensive {service.name.toLowerCase()} backed by expertise and dedication
+                </p>
+                <div className="w-24 h-1 bg-[#FFB343] mx-auto mt-4"></div>
               </div>
-              
-              {/* Benefits List */}
-              <ul className="space-y-4">
-                {service.benefits.map((benefit, idx) => (
-                  <li key={idx} className="flex items-start gap-3 group/item">
-                    <div className="w-6 h-6 bg-[#00529C] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform">
-                      <Icon icon="mdi:star" className="w-4 h-4 text-[#FFE317]" />
+
+              <div className="grid md:grid-cols-2 gap-8">
+                
+                {/* Features Card */}
+                {service.features && service.features.length > 0 && (
+                  <div className="relative group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#FFB343] to-[#FFA520] rounded-2xl transform transition-transform group-hover:scale-[1.02]"></div>
+                    <div className="relative bg-white rounded-2xl p-8 shadow-xl border-2 border-gray-100 h-full">
+                      
+                      {/* Icon Header */}
+                      <div className="flex items-center gap-3 mb-6 pb-6 border-b-2 border-gray-100">
+                        <div className="w-14 h-14 bg-[#FFB343] rounded-xl flex items-center justify-center flex-shrink-0">
+                          <Icon icon="mdi:clipboard-check-outline" className="w-8 h-8 text-[#232323]" />
+                        </div>
+                        <h3 className="text-2xl font-bold text-[#232323]">
+                          What We Offer
+                        </h3>
+                      </div>
+                      
+                      {/* Features List */}
+                      <ul className="space-y-4">
+                        {service.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-start gap-3 group/item">
+                            <div className="w-6 h-6 bg-[#FFB343] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform">
+                              <Icon icon="mdi:check-bold" className="w-4 h-4 text-[#232323]" />
+                            </div>
+                            <span className="text-gray-700 leading-relaxed">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <span className="text-gray-700 leading-relaxed">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
+                  </div>
+                )}
+
+                {/* Benefits Card */}
+                {service.benefits && service.benefits.length > 0 && (
+                  <div className="relative group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#232323] to-[#1a1a1a] rounded-2xl transform transition-transform group-hover:scale-[1.02]"></div>
+                    <div className="relative bg-white rounded-2xl p-8 shadow-xl border-2 border-gray-100 h-full">
+                      
+                      {/* Icon Header */}
+                      <div className="flex items-center gap-3 mb-6 pb-6 border-b-2 border-gray-100">
+                        <div className="w-14 h-14 bg-[#232323] rounded-xl flex items-center justify-center flex-shrink-0">
+                          <Icon icon="mdi:star-circle-outline" className="w-8 h-8 text-[#FFB343]" />
+                        </div>
+                        <h3 className="text-2xl font-bold text-[#232323]">
+                          Why Choose Us
+                        </h3>
+                      </div>
+                      
+                      {/* Benefits List */}
+                      <ul className="space-y-4">
+                        {service.benefits.map((benefit, idx) => (
+                          <li key={idx} className="flex items-start gap-3 group/item">
+                            <div className="w-6 h-6 bg-[#FFB343] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform">
+                              <Icon icon="mdi:star" className="w-4 h-4 text-[#232323]" />
+                            </div>
+                            <span className="text-gray-700 leading-relaxed">{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
+          </section>
         )}
-      </div>
-    </div>
-  </section>
-)}
 
-<CTA 
-          title={`Ready for Professional ${service.name}?`}
-          description="Contact us today for a free consultation and detailed estimate from Austin's trusted roofing experts."
-        />
-
-        {/* Additional Sections from additionalInfo */}
-        {service.additionalInfo?.fullService && (
+{/* Additional Sections from additionalInfo */}
+{service.additionalInfo?.fullService && (
           <section className="py-12 bg-white">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#00529C] mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#232323] mb-6">
                 Full-Service Roofing Company
               </h2>
               <p className="text-gray-700 leading-relaxed">
@@ -336,7 +334,7 @@ export default async function ServicePage({
         {service.additionalInfo?.customerService && (
           <section className="py-12 bg-gray-50">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#00529C] mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#232323] mb-6">
                 Quality Customer Service
               </h2>
               <p className="text-gray-700 leading-relaxed">
@@ -350,13 +348,13 @@ export default async function ServicePage({
         {service.additionalInfo?.process && service.additionalInfo.process.length > 0 && (
           <section className="py-16 bg-white">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-8 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#232323] mb-8 text-center">
                 Our {service.name} Process
               </h2>
               <div className="space-y-4">
                 {service.additionalInfo.process.map((step, idx) => (
                   <div key={idx} className="flex items-start gap-4 bg-gray-50 p-5 rounded-lg shadow-sm">
-                    <div className="flex-shrink-0 w-10 h-10 bg-[#00529C] text-white rounded-full flex items-center justify-center font-bold text-lg">
+                    <div className="flex-shrink-0 w-10 h-10 bg-[#FFB343] text-[#232323] rounded-full flex items-center justify-center font-bold text-lg">
                       {idx + 1}
                     </div>
                     <p className="text-gray-700 pt-1.5 leading-relaxed">{step}</p>
@@ -371,13 +369,13 @@ export default async function ServicePage({
         {service.additionalInfo?.specialties && service.additionalInfo.specialties.length > 0 && (
           <section className="py-16 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-8 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#232323] mb-8 text-center">
                 Our {service.name} Specialties
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {service.additionalInfo.specialties.map((specialty, idx) => (
                   <div key={idx} className="flex items-center gap-3 bg-white p-4 rounded-lg shadow-sm">
-                    <Icon icon="mdi:check-bold" className="w-5 h-5 text-[#FFE317] flex-shrink-0" />
+                    <Icon icon="mdi:check-bold" className="w-5 h-5 text-[#FFB343] flex-shrink-0" />
                     <span className="text-gray-700">{specialty}</span>
                   </div>
                 ))}
@@ -386,7 +384,7 @@ export default async function ServicePage({
           </section>
         )}
 
-<CTA 
+        <CTA 
           title={`Ready for Professional ${service.name}?`}
           description="Contact us today for a free consultation and detailed estimate from Austin's trusted roofing experts."
         />
@@ -397,7 +395,7 @@ export default async function ServicePage({
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
               {service.additionalInfo?.whyReplace && (
                 <div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-[#00529C] mb-6">
+                  <h2 className="text-2xl md:text-3xl font-bold text-[#232323] mb-6">
                     Why Choose {service.name}?
                   </h2>
                   <p className="text-gray-700 leading-relaxed">
@@ -408,7 +406,7 @@ export default async function ServicePage({
 
               {service.additionalInfo?.commitment && (
                 <div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-[#00529C] mb-6">
+                  <h2 className="text-2xl md:text-3xl font-bold text-[#232323] mb-6">
                     Our Commitment
                   </h2>
                   <p className="text-gray-700 leading-relaxed">
@@ -420,46 +418,17 @@ export default async function ServicePage({
           </section>
         )}
 
-        {/* Weather Protection / Coverage */}
-        {(service.additionalInfo?.weatherProtection || service.additionalInfo?.coverage) && (
-          <section className="py-12 bg-gray-50">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-              {service.additionalInfo?.weatherProtection && (
-                <div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-[#00529C] mb-6">
-                    Protection for Your Home
-                  </h2>
-                  <p className="text-gray-700 leading-relaxed">
-                    {service.additionalInfo.weatherProtection}
-                  </p>
-                </div>
-              )}
-
-              {service.additionalInfo?.coverage && (
-                <div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-[#00529C] mb-6">
-                    Areas We Serve
-                  </h2>
-                  <p className="text-gray-700 leading-relaxed">
-                    {service.additionalInfo.coverage}
-                  </p>
-                </div>
-              )}
-            </div>
-          </section>
-        )}
-
         {/* Why Choose Us */}
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#232323] mb-4">
                 Why Choose Altair for {service.name}?
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 Experience the difference of working with Austin's most trusted roofing company
               </p>
-              <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
+              <div className="w-24 h-1 bg-[#FFB343] mx-auto mt-4"></div>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -495,9 +464,9 @@ export default async function ServicePage({
                   description: 'We work directly with insurance companies on claims'
                 }
               ].map((item, idx) => (
-                <div key={idx} className="bg-gray-50 rounded-xl p-6 hover:shadow-xl transition-all duration-300 border-2 border-gray-200 hover:border-[#FFE317]">
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#00529C] to-[#003d75] rounded-xl flex items-center justify-center mb-4">
-                    <Icon icon={item.icon} className="w-7 h-7 text-white" />
+                <div key={idx} className="bg-gray-50 rounded-xl p-6 hover:shadow-xl transition-all duration-300 border-2 border-gray-200 hover:border-[#FFB343]">
+                  <div className="w-14 h-14 bg-[#FFB343] rounded-xl flex items-center justify-center mb-4">
+                    <Icon icon={item.icon} className="w-7 h-7 text-[#232323]" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
                   <p className="text-sm text-gray-600">{item.description}</p>
@@ -511,13 +480,13 @@ export default async function ServicePage({
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#232323] mb-4">
                 What Our Customers Say
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 Read reviews from satisfied Austin homeowners
               </p>
-              <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
+              <div className="w-24 h-1 bg-[#FFB343] mx-auto mt-4"></div>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
@@ -550,7 +519,7 @@ export default async function ServicePage({
                       <div>
                         <div className="flex items-center gap-1.5">
                           <p className="font-bold text-gray-900 text-base">{review.name}</p>
-                          <Icon icon="mdi:check-decagram" className="w-4 h-4 text-blue-500" />
+                          <Icon icon="mdi:check-decagram" className="w-4 h-4 text-[#FFB343]" />
                         </div>
                         <p className="text-xs text-gray-500">{review.date}</p>
                       </div>
@@ -564,7 +533,7 @@ export default async function ServicePage({
 
                   <div className="flex gap-0.5 mb-3">
                     {[...Array(review.rating)].map((_, i) => (
-                      <Icon key={i} icon="mdi:star" className="w-4 h-4 text-[#FFE317]" />
+                      <Icon key={i} icon="mdi:star" className="w-4 h-4 text-[#FFB343]" />
                     ))}
                   </div>
 
@@ -586,13 +555,13 @@ export default async function ServicePage({
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#232323] mb-4">
                 All Roofing Services
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 Complete roofing solutions for every need
               </p>
-              <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
+              <div className="w-24 h-1 bg-[#FFB343] mx-auto mt-4"></div>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
@@ -602,18 +571,18 @@ export default async function ServicePage({
                   href={`/services/${serviceItem.slug}`}
                   className="group"
                 >
-                  <div className="h-full bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 hover:border-[#00529C] overflow-hidden">
+                  <div className="h-full bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 hover:border-[#FFB343] overflow-hidden">
                     <div className="p-6 sm:p-8 text-center flex flex-col items-center min-h-[280px]">
-                      <div className="mb-4 text-gray-700 group-hover:text-[#00529C] transition-colors duration-300">
+                      <div className="mb-4 text-gray-700 group-hover:text-[#FFB343] transition-colors duration-300">
                         <Icon icon={serviceItem.icon} className="w-14 h-14 sm:w-16 sm:h-16" />
                       </div>
-                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 group-hover:text-[#00529C] transition-colors duration-300">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 group-hover:text-[#FFB343] transition-colors duration-300">
                         {serviceItem.name}
                       </h3>
                       <p className="text-gray-600 text-sm sm:text-base leading-relaxed flex-grow">
                         {serviceItem.shortDescription}
                       </p>
-                      <div className="flex items-center gap-2 text-[#00529C] font-semibold text-sm group-hover:gap-3 transition-all duration-300 mt-4">
+                      <div className="flex items-center gap-2 text-[#FFB343] font-semibold text-sm group-hover:gap-3 transition-all duration-300 mt-4">
                         <span>View Service</span>
                         <Icon icon="mdi:arrow-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                       </div>
@@ -635,12 +604,12 @@ export default async function ServicePage({
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                {service.name} Throughout <span className="text-[#00529C]">Austin</span>
+                {service.name} Throughout <span className="text-[#FFB343]">Austin</span>
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto mb-6">
                 Professional roofing services throughout the greater Austin area
               </p>
-              <div className="w-24 h-1 bg-[#FFE317] mx-auto"></div>
+              <div className="w-24 h-1 bg-[#FFB343] mx-auto"></div>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto mb-16">
@@ -648,10 +617,10 @@ export default async function ServicePage({
                 <Link
                   key={location.slug}
                   href={`/locations/${location.slug}/${service.slug}`}
-                  className="bg-white rounded-lg p-4 text-center hover:shadow-lg transition-all border-2 border-gray-200 hover:border-[#00529C] group"
+                  className="bg-white rounded-lg p-4 text-center hover:shadow-lg transition-all border-2 border-gray-200 hover:border-[#FFB343] group"
                 >
-                  <Icon icon="mdi:map-marker" className="w-8 h-8 text-[#00529C] mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                  <p className="font-semibold text-gray-900 text-sm group-hover:text-[#00529C] transition-colors">{location.name}</p>
+                  <Icon icon="mdi:map-marker" className="w-8 h-8 text-[#FFB343] mx-auto mb-2 group-hover:scale-110 transition-transform" />
+                  <p className="font-semibold text-gray-900 text-sm group-hover:text-[#FFB343] transition-colors">{location.name}</p>
                   <p className="text-xs text-gray-500 mt-1">{location.zip}</p>
                 </Link>
               ))}
@@ -688,23 +657,23 @@ export default async function ServicePage({
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#232323] mb-4">
                 Frequently Asked Questions
               </h2>
               <p className="text-gray-600">
                 Common questions about {service.name.toLowerCase()} in Austin
               </p>
-              <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
+              <div className="w-24 h-1 bg-[#FFB343] mx-auto mt-4"></div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               {faqs.map((faq, idx) => (
-                <details key={idx} open className="bg-white rounded-xl p-6 border-2 border-gray-200 shadow-sm group">
+                <details key={idx} open className="bg-white rounded-xl p-6 border-2 border-gray-200 hover:border-[#FFB343] shadow-sm group">
                   <summary className="flex items-center justify-between cursor-pointer list-none">
                     <h3 className="text-lg font-bold text-gray-900 pr-4">
                       {faq.question}
                     </h3>
-                    <Icon icon="mdi:chevron-down" className="w-6 h-6 text-[#00529C] group-open:rotate-180 transition-transform flex-shrink-0" />
+                    <Icon icon="mdi:chevron-down" className="w-6 h-6 text-[#FFB343] group-open:rotate-180 transition-transform flex-shrink-0" />
                   </summary>
                   <p className="mt-4 text-gray-700 leading-relaxed text-sm">
                     {faq.answer}
@@ -716,7 +685,7 @@ export default async function ServicePage({
         </section>
 
         {/* Final CTA */}
-        <section className="py-16 bg-gradient-to-br from-[#00529C] to-[#003d75]">
+        <section className="py-16 bg-gradient-to-br from-[#232323] to-[#1a1a1a]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Ready to Get Started with {service.name}?
@@ -727,13 +696,13 @@ export default async function ServicePage({
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:+15125550123"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFE317] hover:bg-[#ffd700] text-[#00529C] font-bold rounded-lg transition-all hover:scale-105 shadow-lg"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] font-bold rounded-lg transition-all hover:scale-105 shadow-lg"
               >
                 <Icon icon="mdi:phone" className="w-5 h-5" />
                 Call (512) 555-0123
               </a>
               <QuoteButtonModal 
-                text="Get a Quote"
+                text="Get Free Estimate"
                 variant="secondary"
                 className='cursor-pointer' 
               />

@@ -48,20 +48,24 @@ export default function AboutPage() {
       <main>
         {/* Hero Section */}
         <section className="relative py-20 md:py-32 overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <img
-              src="/worker-repairing-roof.jpg"
-              alt="Altair Austin Roofing Team"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
-          </div>
+        <div className="absolute inset-0 z-0">
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="w-full h-full object-cover"
+  >
+    <source src="/videos/roof-video-1-hd.mp4" type="video/mp4" />
+  </video>
+  <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+</div>
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 mb-6">
-                <Icon icon="mdi:shield-check" className="w-5 h-5 text-[#FFE317]" />
+                <Icon icon="mdi:shield-check" className="w-5 h-5 text-[#FFB343]" />
                 <span className="text-white font-medium text-sm">Licensed & Insured Since 2008</span>
               </div>
 
@@ -75,16 +79,11 @@ export default function AboutPage() {
               <div className="flex flex-wrap gap-4">
                 <a
                   href="tel:+15125550123"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFE317] hover:bg-[#ffd700] text-[#00529C] font-bold rounded-xl transition-all hover:scale-105 shadow-xl"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] font-bold rounded-xl transition-all hover:scale-105 shadow-xl"
                 >
                   <Icon icon="mdi:phone" className="w-5 h-5" />
                   Call (512) 555-0123
                 </a>
-                <QuoteButtonModal 
-  text="Get a Quote"
-  variant="white"
-  className='cursor-pointer'
-/>
               </div>
             </div>
           </div>
@@ -97,7 +96,7 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-[#232323] mb-6">
                   Our Story
                 </h2>
                 <div className="space-y-4 text-gray-700 leading-relaxed text-lg">
@@ -113,7 +112,7 @@ export default function AboutPage() {
                 </div>
 
                 {/* Mission Statement Box */}
-                <div className="mt-8 bg-gray-50 border-l-4 border-[#FFE317] p-6 rounded-r-lg">
+                <div className="mt-8 bg-gray-50 border-l-4 border-[#FFB343] p-6 rounded-r-lg">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Our Mission</h3>
                   <p className="text-gray-700 italic">
                     "To protect Austin families by providing the highest quality roofing services with integrity, expertise, and a commitment to excellence that stands the test of time."
@@ -124,18 +123,18 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
                   <img
-                    src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070"
+                    src="/roof-images/roof-luxury-4.jpg" 
                     alt="Altair Austin Roofing Team"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 {/* Floating Card */}
-                <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border-2 border-[#FFE317]">
+                <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border-2 border-[#FFB343]">
                   <div className="flex items-center gap-4">
                     <div>
                       <div className="flex gap-1 mb-2">
                         {[...Array(5)].map((_, i) => (
-                          <Icon key={i} icon="mdi:star" className="w-5 h-5 text-[#FFE317]" />
+                          <Icon key={i} icon="mdi:star" className="w-5 h-5 text-[#FFB343]" />
                         ))}
                       </div>
                       <div className="flex items-center gap-2">
@@ -157,13 +156,13 @@ export default function AboutPage() {
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#232323] mb-4">
                 Our Core Values
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                 The principles that guide everything we do
               </p>
-              <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
+              <div className="w-24 h-1 bg-[#FFB343] mx-auto mt-4"></div>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
@@ -171,7 +170,7 @@ export default function AboutPage() {
               <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200">
                 <div className="h-48 overflow-hidden relative">
                   <img
-                    src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070"
+                    src="/roof-images/roof-16.jpg"
                     alt="Integrity"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
@@ -191,7 +190,7 @@ export default function AboutPage() {
               <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200">
                 <div className="h-48 overflow-hidden relative">
                   <img
-                    src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070"
+                    src="/roof-images/roof-2.jpg"
                     alt="Quality"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
@@ -234,13 +233,13 @@ export default function AboutPage() {
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#232323] mb-4">
                 Why Choose Altair Austin Roofing?
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 The advantages of partnering with Central Texas's premier roofing company
               </p>
-              <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
+              <div className="w-24 h-1 bg-[#FFB343] mx-auto mt-4"></div>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -277,8 +276,8 @@ export default function AboutPage() {
                 }
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start gap-4 bg-gray-50 p-6 rounded-xl hover:shadow-lg transition-all">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#00529C] to-[#003d75] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Icon icon={item.icon} className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-[#FFB343] rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Icon icon={item.icon} className="w-6 h-6 text-[#232323]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 mb-2 text-lg">{item.title}</h3>
@@ -294,13 +293,13 @@ export default function AboutPage() {
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#232323] mb-4">
                 Meet Our Team
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 Experienced professionals dedicated to protecting your home
               </p>
-              <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
+              <div className="w-24 h-1 bg-[#FFB343] mx-auto mt-4"></div>
             </div>
 
             <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl">
@@ -317,18 +316,18 @@ export default function AboutPage() {
                   </p>
                   <div className="flex flex-wrap gap-4">
                     <div className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-lg">
-                      <Icon icon="mdi:account-group" className="w-5 h-5 text-[#00529C]" />
+                      <Icon icon="mdi:account-group" className="w-5 h-5 text-[#FFB343]" />
                       <span className="text-sm font-semibold text-gray-700">50+ Team Members</span>
                     </div>
                     <div className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-lg">
-                      <Icon icon="mdi:school" className="w-5 h-5 text-[#00529C]" />
+                      <Icon icon="mdi:school" className="w-5 h-5 text-[#FFB343]" />
                       <span className="text-sm font-semibold text-gray-700">Certified Experts</span>
                     </div>
                   </div>
                 </div>
                 <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
                   <img
-                    src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070"
+                    src="/roof-images/roof-luxury-14.jpg"
                     alt="Altair Roofing Team at Work"
                     className="w-full h-full object-cover"
                   />
@@ -339,7 +338,7 @@ export default function AboutPage() {
         </section>
 
         {/* Final CTA */}
-        <section className="py-16 bg-gradient-to-br from-[#00529C] to-[#003d75]">
+        <section className="py-16 bg-gradient-to-br from-[#232323] to-[#1a1a1a]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Ready to Work With Austin's Best?
@@ -350,16 +349,16 @@ export default function AboutPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:+15125550123"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFE317] hover:bg-[#ffd700] text-[#00529C] font-bold rounded-lg transition-all hover:scale-105 shadow-lg"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] font-bold rounded-lg transition-all hover:scale-105 shadow-lg"
               >
                 <Icon icon="mdi:phone" className="w-5 h-5" />
                 Call (512) 555-0123
               </a>
               <QuoteButtonModal 
-              text="Get a Quote"
-              variant="primary" 
-               className='cursor-pointer'
-            />
+                text="Get a Quote"
+                variant="primary" 
+                className='cursor-pointer'
+              />
             </div>
           </div>
         </section>

@@ -40,18 +40,19 @@ export default function LocationsPage() {
 
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="relative min-h-[70vh] flex items-center py-12">
-          {/* Background Image con overlay */}
-          <div 
-            className="absolute inset-0 z-0"
-            style={{
-              backgroundImage: "url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat"
-            }}
-          >
-            <div className="absolute inset-0 bg-black/50 backdrop-blur-xs"></div>
+        <section className="relative min-h-[70vh] flex items-center py-12 overflow-hidden">
+          {/* Background Video */}
+          <div className="absolute inset-0 z-0">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              <source src="/videos/roof-video-1-hd.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
           </div>
 
           {/* Content */}
@@ -59,7 +60,7 @@ export default function LocationsPage() {
             <div className="text-center text-white space-y-6">
               {/* Badge - Serving Austin */}
               <div className="inline-block">
-                <span className="bg-[#FFE317]/20 backdrop-blur-sm text-[#FFE317] px-5 py-2 rounded-full text-sm font-semibold border border-[#FFE317]/30">
+                <span className="bg-[#FFB343]/20 backdrop-blur-sm text-[#FFB343] px-5 py-2 rounded-full text-sm font-semibold border border-[#FFB343]/30">
                   Serving Central Texas
                 </span>
               </div>
@@ -67,7 +68,7 @@ export default function LocationsPage() {
               {/* Main Heading */}
               <div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                  Areas We <span className="text-[#FFE317]">Serve</span>
+                  Areas We <span className="text-[#FFB343]">Serve</span>
                 </h1>
                 <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
                   Professional roofing services across Central Texas and surrounding areas. We proudly serve residents in over 10 neighborhoods with expert craftsmanship and reliable service.
@@ -76,11 +77,11 @@ export default function LocationsPage() {
 
               {/* CTA Button */}
               <div className="pt-4">
-              <QuoteButtonModal 
-                text="Get a Quote"
-                variant="primary"  // ✅ Correcto - amarillo con azul
-                 className='cursor-pointer'
-              />
+                <QuoteButtonModal 
+                  text="Get a Quote"
+                  variant="primary"
+                  className='cursor-pointer'
+                />
               </div>
             </div>
           </div>
@@ -92,8 +93,8 @@ export default function LocationsPage() {
         <section className="py-12 sm:py-16 md:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8 sm:mb-10 md:mb-12">
-              <div className="inline-block border-b-4 border-[#FFE317] pb-2 mb-4">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#00529C] px-2">
+              <div className="inline-block pb-2 mb-4">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#232323] px-2">
                   Find Your Neighborhood
                 </h2>
               </div>
@@ -107,15 +108,15 @@ export default function LocationsPage() {
                 <Link
                   key={location.slug}
                   href={`/locations/${location.slug}`}
-                  className="group bg-white p-4 sm:p-5 md:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all border-2 border-gray-200 hover:border-[#FFE317]"
+                  className="group bg-white p-4 sm:p-5 md:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all border-2 border-gray-200 hover:border-[#FFB343]"
                 >
                   <div className="flex items-start gap-3">
                     <Icon 
                       icon="mdi:map-marker" 
-                      className="w-5 h-5 sm:w-6 sm:h-6 text-[#00529C] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" 
+                      className="w-5 h-5 sm:w-6 sm:h-6 text-[#FFB343] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" 
                     />
                     <div>
-                      <h3 className="font-bold text-sm sm:text-base text-gray-900 group-hover:text-[#00529C] transition mb-1">
+                      <h3 className="font-bold text-sm sm:text-base text-gray-900 group-hover:text-[#FFB343] transition mb-1">
                         {location.name}
                       </h3>
                       {location.zip && (
@@ -136,12 +137,12 @@ export default function LocationsPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Proudly Serving the <span className="text-[#00529C]">Greater Austin Area</span>
+                Proudly Serving the <span className="text-[#FFB343]">Greater Austin Area</span>
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 From downtown Austin to surrounding communities, we're your local roofing experts
               </p>
-              <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
+              <div className="w-24 h-1 bg-[#FFB343] mx-auto mt-4"></div>
             </div>
 
             {/* Google Maps Embed */}
@@ -185,7 +186,7 @@ export default function LocationsPage() {
                       'A+ BBB rating'
                     ].map((item, idx) => (
                       <div key={idx} className="flex items-center gap-3">
-                        <Icon icon="mdi:check-circle" className="w-5 h-5 text-[#FFE317] flex-shrink-0" />
+                        <Icon icon="mdi:check-circle" className="w-5 h-5 text-[#FFB343] flex-shrink-0" />
                         <span className="text-sm text-gray-700">{item}</span>
                       </div>
                     ))}
@@ -197,7 +198,7 @@ export default function LocationsPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-gradient-to-br from-[#00529C] to-[#003d75] py-16">
+        <section className="bg-gradient-to-br from-[#232323] to-[#1a1a1a] py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Don't See Your Area?
@@ -208,7 +209,7 @@ export default function LocationsPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:+15125550123"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFE317] hover:bg-[#ffd700] text-[#00529C] font-bold rounded-lg transition-all hover:scale-105 shadow-lg"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] font-bold rounded-lg transition-all hover:scale-105 shadow-lg"
               >
                 <Icon icon="mdi:phone" className="w-5 h-5" />
                 Call (512) 555-0123
@@ -216,9 +217,9 @@ export default function LocationsPage() {
               
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-[#00529C] font-bold rounded-lg transition-all hover:scale-105 shadow-lg"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-[#232323] font-bold rounded-lg transition-all hover:scale-105 shadow-lg"
               >
-                
+                Get a Quote
                 <Icon icon="mdi:arrow-right" className="w-5 h-5" />
               </Link>
             </div>

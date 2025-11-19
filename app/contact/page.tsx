@@ -54,7 +54,7 @@ function FAQAccordion() {
         const isOpen = openIndexes.includes(index);
         
         return (
-          <div key={index} className="bg-white rounded-xl shadow-sm border-2 border-gray-200 overflow-hidden hover:border-[#00529C] transition">
+          <div key={index} className="bg-white rounded-xl shadow-sm border-2 border-gray-200 overflow-hidden hover:border-[#FFB343] transition">
             <button
               onClick={() => toggleFAQ(index)}
               className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition"
@@ -62,7 +62,7 @@ function FAQAccordion() {
               <h3 className="font-bold text-gray-900 text-lg pr-4">{faq.question}</h3>
               <Icon 
                 icon="mdi:chevron-down" 
-                className={`w-6 h-6 text-[#00529C] flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                className={`w-6 h-6 text-[#FFB343] flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
               />
             </button>
             <div 
@@ -108,107 +108,112 @@ export default function ContactPage() {
 
       <main>
         {/* Hero Section with Form */}
-        <section 
-          className="relative min-h-[600px] flex items-center py-12 md:py-16"
-          style={{
-            backgroundImage: "url('/worker-repairing-roof.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center"
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+        <section className="relative min-h-[600px] flex items-center py-12 md:py-16 overflow-hidden">
+  {/* Background Video */}
+  <div className="absolute inset-0 z-0">
+    <video
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="w-full h-full object-cover"
+    >
+      <source src="/videos/roof-video-1-hd.mp4" type="video/mp4" />
+    </video>
+    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+  </div>
 
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-              
-              {/* Left - Content */}
-              <div className="text-white">
-                {/* Rating Badge */}
-                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20 mb-6">
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Icon key={i} icon="mdi:star" className="w-4 h-4 text-[#FFE317]" />
-                    ))}
-                  </div>
-                  <span className="text-white font-medium text-sm">5/5 Star Rated on</span>
-                  <img 
-                    src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" 
-                    alt="Google"
-                    className="h-4"
-                  />
-                </div>
-
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                  Contact Altair Austin Roofing
-                </h1>
-                
-                <p className="text-lg md:text-xl mb-8 leading-relaxed text-white/90">
-                  Get your free roof inspection and estimate today. Available 24/7 for emergency roofing services.
-                </p>
-
-                {/* Quick Contact */}
-                <div className="flex flex-wrap gap-4 mb-8">
-                  <a
-                    href="tel:+15125550123"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#FFE317] hover:bg-[#ffd700] text-[#00529C] font-bold rounded-xl transition-all hover:scale-105 shadow-xl"
-                  >
-                    <Icon icon="mdi:phone" className="w-5 h-5" />
-                    Call (512) 555-0123
-                  </a>
-                </div>
-
-                {/* Quick Info */}
-                <div className="space-y-3 text-sm text-white/90">
-                  <div className="flex items-center gap-2">
-                    <Icon icon="mdi:check-circle" className="w-5 h-5 text-[#FFE317]" />
-                    <span>24/7 Emergency Service Available</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Icon icon="mdi:check-circle" className="w-5 h-5 text-[#FFE317]" />
-                    <span>Free Roof Inspections & Estimates</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Icon icon="mdi:check-circle" className="w-5 h-5 text-[#FFE317]" />
-                    <span>Licensed & Insured Professionals</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right - Contact Form */}
-              <div className="w-full">
-                <div className="rounded-2xl shadow-2xl overflow-hidden">
-                  <ContactForm 
-                    variant="hero"
-                    showPhone={true}
-                  />
-                </div>
-              </div>
-            </div>
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+      
+      {/* Left - Content */}
+      <div className="text-white">
+        {/* Rating Badge */}
+        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20 mb-6">
+          <div className="flex gap-0.5">
+            {[...Array(5)].map((_, i) => (
+              <Icon key={i} icon="mdi:star" className="w-4 h-4 text-[#FFB343]" />
+            ))}
           </div>
-        </section>
+          <span className="text-white font-medium text-sm">5/5 Star Rated on</span>
+          <img 
+            src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" 
+            alt="Google"
+            className="h-4"
+          />
+        </div>
+
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
+          Contact Altair Austin Roofing
+        </h1>
+        
+        <p className="text-lg md:text-xl mb-8 leading-relaxed text-white/90">
+          Get your free roof inspection and estimate today. Available 24/7 for emergency roofing services.
+        </p>
+
+        {/* Quick Contact */}
+        <div className="flex flex-wrap gap-4 mb-8">
+          <a
+            href="tel:+15125550123"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] font-bold rounded-xl transition-all hover:scale-105 shadow-xl"
+          >
+            <Icon icon="mdi:phone" className="w-5 h-5" />
+            Call (512) 555-0123
+          </a>
+        </div>
+
+        {/* Quick Info */}
+        <div className="space-y-3 text-sm text-white/90">
+          <div className="flex items-center gap-2">
+            <Icon icon="mdi:check-circle" className="w-5 h-5 text-[#FFB343]" />
+            <span>24/7 Emergency Service Available</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Icon icon="mdi:check-circle" className="w-5 h-5 text-[#FFB343]" />
+            <span>Free Roof Inspections & Estimates</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Icon icon="mdi:check-circle" className="w-5 h-5 text-[#FFB343]" />
+            <span>Licensed & Insured Professionals</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Right - Contact Form */}
+      <div className="w-full">
+        <div className="rounded-2xl shadow-2xl overflow-hidden">
+          <ContactForm 
+            variant="hero"
+            showPhone={true}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
         {/* Contact Info Section */}
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#232323] mb-4">
                 Get In Touch
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 We're here to help! Reach out through any of these channels.
               </p>
-              <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
+              <div className="w-24 h-1 bg-[#FFB343] mx-auto mt-4"></div>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
               
               {/* Phone */}
-              <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200 hover:border-[#00529C] transition text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#00529C] to-[#003d75] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon icon="mdi:phone" className="w-8 h-8 text-white" />
+              <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200 hover:border-[#FFB343] transition text-center">
+                <div className="w-16 h-16 bg-[#FFB343] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Icon icon="mdi:phone" className="w-8 h-8 text-[#232323]" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2 text-lg">Phone</h3>
-                <a href="tel:+15125550123" className="text-[#00529C] hover:text-[#003d75] transition font-semibold block mb-2 text-lg">
+                <a href="tel:+15125550123" className="text-[#FFB343] hover:text-[#FFA520] transition font-semibold block mb-2 text-lg">
                   (512) 555-0123
                 </a>
                 <p className="text-sm text-gray-600">
@@ -218,12 +223,12 @@ export default function ContactPage() {
               </div>
 
               {/* Email */}
-              <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200 hover:border-[#00529C] transition text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#00529C] to-[#003d75] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon icon="mdi:email" className="w-8 h-8 text-white" />
+              <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200 hover:border-[#FFB343] transition text-center">
+                <div className="w-16 h-16 bg-[#FFB343] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Icon icon="mdi:email" className="w-8 h-8 text-[#232323]" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2 text-lg">Email</h3>
-                <a href="mailto:info@altairaustin.com" className="text-sm text-[#00529C] hover:text-[#003d75] transition font-semibold block mb-2">
+                <a href="mailto:info@altairaustin.com" className="text-sm text-[#FFB343] hover:text-[#FFA520] transition font-semibold block mb-2">
                   info@altairaustin.com
                 </a>
                 <p className="text-sm text-gray-600">
@@ -233,9 +238,9 @@ export default function ContactPage() {
               </div>
 
               {/* Service Area */}
-              <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200 hover:border-[#00529C] transition text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#00529C] to-[#003d75] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon icon="mdi:map-marker" className="w-8 h-8 text-white" />
+              <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200 hover:border-[#FFB343] transition text-center">
+                <div className="w-16 h-16 bg-[#FFB343] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Icon icon="mdi:map-marker" className="w-8 h-8 text-[#232323]" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2 text-lg">Service Area</h3>
                 <p className="text-gray-700 font-semibold mb-2">
@@ -248,15 +253,15 @@ export default function ContactPage() {
               </div>
 
               {/* Hours */}
-              <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200 hover:border-[#00529C] transition text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#00529C] to-[#003d75] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon icon="mdi:clock" className="w-8 h-8 text-white" />
+              <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200 hover:border-[#FFB343] transition text-center">
+                <div className="w-16 h-16 bg-[#FFB343] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Icon icon="mdi:clock" className="w-8 h-8 text-[#232323]" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2 text-lg">Hours</h3>
                 <div className="text-sm text-gray-700 space-y-1">
                   <p className="font-medium">Mon-Fri: 7AM-7PM</p>
                   <p className="font-medium">Sat: 8AM-5PM</p>
-                  <p className="text-[#00529C] font-bold">24/7 Emergency</p>
+                  <p className="text-[#FFB343] font-bold">24/7 Emergency</p>
                 </div>
               </div>
 
@@ -275,7 +280,7 @@ export default function ContactPage() {
                   '100% Satisfaction Guarantee'
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-3 bg-white rounded-lg p-4 border border-gray-200">
-                    <Icon icon="mdi:check-circle" className="w-6 h-6 text-[#FFE317] flex-shrink-0" />
+                    <Icon icon="mdi:check-circle" className="w-6 h-6 text-[#FFB343] flex-shrink-0" />
                     <span className="text-sm font-medium text-gray-700">{item}</span>
                   </div>
                 ))}
@@ -289,12 +294,12 @@ export default function ContactPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Roofing Services Throughout <span className="text-[#00529C]">Austin</span>
+                Roofing Services Throughout <span className="text-[#FFB343]">Austin</span>
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto mb-6">
                 Professional roofing services throughout the greater Austin area
               </p>
-              <div className="w-24 h-1 bg-[#FFE317] mx-auto"></div>
+              <div className="w-24 h-1 bg-[#FFB343] mx-auto"></div>
             </div>
 
             {/* Grid de Locations */}
@@ -303,10 +308,10 @@ export default function ContactPage() {
                 <Link
                   key={location.slug}
                   href={`/locations/${location.slug}`}
-                  className="bg-white rounded-lg p-4 text-center hover:shadow-lg transition-all border-2 border-gray-200 hover:border-[#00529C] group"
+                  className="bg-white rounded-lg p-4 text-center hover:shadow-lg transition-all border-2 border-gray-200 hover:border-[#FFB343] group"
                 >
-                  <Icon icon="mdi:map-marker" className="w-8 h-8 text-[#00529C] mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                  <p className="font-semibold text-gray-900 text-sm group-hover:text-[#00529C] transition-colors">{location.name}</p>
+                  <Icon icon="mdi:map-marker" className="w-8 h-8 text-[#FFB343] mx-auto mb-2 group-hover:scale-110 transition-transform" />
+                  <p className="font-semibold text-gray-900 text-sm group-hover:text-[#FFB343] transition-colors">{location.name}</p>
                   <p className="text-xs text-gray-500 mt-1">{location.zip}</p>
                 </Link>
               ))}
@@ -341,41 +346,40 @@ export default function ContactPage() {
           </div>
         </section>
 
-{/* FAQ Section */}
-<section className="py-16 bg-gray-50">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-12">
-      <h2 className="text-3xl md:text-4xl font-bold text-[#00529C] mb-4">
-        Frequently Asked Questions
-      </h2>
-      <p className="text-gray-600">
-        Find answers to common questions about our roofing services
-      </p>
-      <div className="w-24 h-1 bg-[#FFE317] mx-auto mt-4"></div>
-    </div>
+        {/* FAQ Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#232323] mb-4">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-gray-600">
+                Find answers to common questions about our roofing services
+              </p>
+              <div className="w-24 h-1 bg-[#FFB343] mx-auto mt-4"></div>
+            </div>
 
-    <div className="grid md:grid-cols-2 gap-6">
-      {faqs.map((faq, idx) => (
-        <details key={idx} open className="bg-white rounded-xl p-6 border-2 border-gray-200 shadow-sm group">
-          <summary className="flex items-center justify-between cursor-pointer list-none">
-            <h3 className="text-lg font-bold text-gray-900 pr-4">
-              {faq.question}
-            </h3>
-            <Icon icon="mdi:chevron-down" className="w-6 h-6 text-[#00529C] group-open:rotate-180 transition-transform flex-shrink-0" />
-          </summary>
-          <p className="mt-4 text-gray-700 leading-relaxed text-sm">
-            {faq.answer}
-          </p>
-        </details>
-      ))}
-    </div>
-  </div>
-</section>
+            <div className="grid md:grid-cols-2 gap-6">
+              {faqs.map((faq, idx) => (
+                <details key={idx} open className="bg-white rounded-xl p-6 border-2 border-gray-200 hover:border-[#FFB343] shadow-sm group">
+                  <summary className="flex items-center justify-between cursor-pointer list-none">
+                    <h3 className="text-lg font-bold text-gray-900 pr-4">
+                      {faq.question}
+                    </h3>
+                    <Icon icon="mdi:chevron-down" className="w-6 h-6 text-[#FFB343] group-open:rotate-180 transition-transform flex-shrink-0" />
+                  </summary>
+                  <p className="mt-4 text-gray-700 leading-relaxed text-sm">
+                    {faq.answer}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Final CTA */}
-        <section className="py-16 bg-gradient-to-br from-[#00529C] to-[#003d75]">
+        <section className="py-16 bg-gradient-to-br from-[#232323] to-[#1a1a1a]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <Icon icon="mdi:phone-in-talk" className="w-16 h-16 text-[#FFE317] mx-auto mb-6" />
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Ready to Get Started?
             </h2>
@@ -385,14 +389,14 @@ export default function ContactPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:+15125550123"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFE317] hover:bg-[#ffd700] text-[#00529C] font-bold rounded-lg transition-all hover:scale-105 shadow-xl"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] font-bold rounded-lg transition-all hover:scale-105 shadow-xl"
               >
                 <Icon icon="mdi:phone" className="w-5 h-5" />
                 Call (512) 555-0123
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-[#00529C] font-bold rounded-lg transition-all hover:scale-105 shadow-xl cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-[#232323] font-bold rounded-lg transition-all hover:scale-105 shadow-xl cursor-pointer"
               >
                 Get a Quote
                 <Icon icon="mdi:arrow-right" className="w-5 h-5" />
