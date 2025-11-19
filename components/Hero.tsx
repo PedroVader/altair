@@ -81,7 +81,7 @@ export default function Hero() {
             <div className="flex flex-wrap gap-3 pt-2 md:pt-3">
               <a
                 href="tel:+15125550123"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFB343] hover:bg-[#FFA520] text-[#ffffff] font-bold rounded-lg transition-all shadow-lg hover:shadow-xl cursor-pointer text-base"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFB343] hover:bg-[#FFA520] text-black font-bold rounded-lg transition-all shadow-lg hover:shadow-xl cursor-pointer text-base"
               >
                 <Icon icon="mdi:phone" className="w-5 h-5" />
                 <span className="hidden xs:inline">(512) 555-0123</span>

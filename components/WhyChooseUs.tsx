@@ -56,12 +56,12 @@ export default function ResidentialRoofing() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8">
-              Central Texas <span className="text-[#FF570A]">Best Roofing Company</span>
+              Central Texas <span className="text-[#FFB343]">Best Roofing Company</span>
             </h2>
             
             <div className="space-y-6 text-white/90 text-lg leading-relaxed">
               <p>
-                Are you looking for information on what the best roofing company in central Texas is? We're happy you found us! We've been in the roofing and construction business within Austin, Texas, for a long time. <strong className="text-[#FF570A]">We have helped over 25,000 customers</strong> with their roofing concerns. With that kind of experience, we're confident we can help you too!
+                Are you looking for information on what the best roofing company in central Texas is? We're happy you found us! We've been in the roofing and construction business within Austin, Texas, for a long time. <strong className="text-[#FFB343]">We have helped over 25,000 customers</strong> with their roofing concerns. With that kind of experience, we're confident we can help you too!
               </p>
               
               <p>
@@ -69,7 +69,7 @@ export default function ResidentialRoofing() {
               </p>
               
               <p>
-                <strong className="text-[#FF570A]">Austin Roofing Company – Roof Repair & Replacement</strong> will provide you with a high-standard roof. We are a top-notch roofing company in Austin offering the Austin community commercial and industrial roofing solutions. You will enjoy a roof that lasts your entire life at an affordable price.
+                <strong className="text-[#FFB343]">Austin Roofing Company – Roof Repair & Replacement</strong> will provide you with a high-standard roof. We are a top-notch roofing company in Austin offering the Austin community commercial and industrial roofing solutions. You will enjoy a roof that lasts your entire life at an affordable price.
               </p>
             </div>
           </div>
@@ -88,7 +88,7 @@ export default function ResidentialRoofing() {
             <p className="text-gray-600 max-w-2xl mx-auto text-lg">
               Professional roofing services for Austin homeowners
             </p>
-            <div className="w-24 h-0.5 bg-[#FF570A] mx-auto mt-6"></div>
+            <div className="w-24 h-0.5 bg-[#FFB343] mx-auto mt-6"></div>
           </div>
 
           {/* Intro Text */}
@@ -101,7 +101,7 @@ export default function ResidentialRoofing() {
           {/* Services Grid - CON IMÁGENES LUXURY */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {services.map((service, index) => (
-              <div key={index} className="bg-white rounded-xl border-2 border-[#E2E2E2] hover:border-[#FF570A] hover:shadow-xl transition-all duration-300 overflow-hidden group">
+              <div key={index} className="bg-white rounded-xl border-2 border-[#E2E2E2] hover:border-[#FFB343] hover:shadow-xl transition-all duration-300 overflow-hidden group">
                 
                 {/* Image */}
                 <div className="relative h-48 w-full overflow-hidden">
@@ -177,8 +177,8 @@ export default function ResidentialRoofing() {
                   }
                 ].map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-[#FF570A] flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Icon icon="mdi:check" className="w-4 h-4 text-white" />
+                    <div className="w-6 h-6 rounded-full bg-[#FFB343] flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Icon icon="mdi:check" className="w-4 h-4 text-[#232323]" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-[#232323] mb-1">{item.title}</h4>
@@ -198,14 +198,14 @@ export default function ResidentialRoofing() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:+15125550123"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FF570A] hover:bg-[#E64D09] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-xl"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] font-bold rounded-lg transition-all shadow-lg hover:shadow-xl"
               >
                 <Icon icon="mdi:phone" className="w-5 h-5" />
                 Call (512) 555-0123
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FF570A] hover:bg-[#E64D09] text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-xl"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] font-bold rounded-lg transition-all shadow-lg hover:shadow-xl"
               >
                 Get a Quote
               </a>
@@ -243,10 +243,10 @@ export default function ResidentialRoofing() {
             </p>
 
             {/* Award Badge */}
-            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-4 rounded-full border-2 border-[#FF570A]/50">
-              <Icon icon="mdi:star" className="w-6 h-6 text-[#FF570A]" />
+            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-4 rounded-full border-2 border-[#FFB343]/50">
+              <Icon icon="mdi:star" className="w-6 h-6 text-[#FFB343]" />
               <span className="text-white font-bold text-lg">Best Roofing Company in Austin 2024</span>
-              <Icon icon="mdi:star" className="w-6 h-6 text-[#FF570A]" />
+              <Icon icon="mdi:star" className="w-6 h-6 text-[#FFB343]" />
             </div>
           </div>
         </div>

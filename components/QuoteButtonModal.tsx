@@ -18,10 +18,10 @@ export default function QuoteButtonModal({
   const { isOpen, openModal, closeModal } = useFormModal();
 
   const variants = {
-    primary: "bg-[#FF570A] hover:bg-[#E64D09] text-white",
+    primary: "bg-[#FFB343] hover:bg-[#FFA520] text-[#232323]",
     secondary: "bg-[#232323] hover:bg-[#1a1a1a] text-white",
     white: "bg-white/10 backdrop-blur-md hover:bg-white/20 text-white border-2 border-white/30",
-    outline: "bg-transparent border-2 border-[#FF570A] text-[#FF570A] hover:bg-[#FF570A] hover:text-white"
+    outline: "bg-transparent border-2 border-[#FFB343] text-[#FFB343] hover:bg-[#FFB343] hover:text-[#232323]"
   };
 
   return (

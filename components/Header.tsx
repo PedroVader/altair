@@ -33,21 +33,14 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           
-          {/* Logo - Left */}
-          <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
-            <div className="w-10 h-10 bg-[#232323] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Icon icon="mdi:home-roof" className="w-6 h-6 text-[#FFB343]" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-display text-xl font-bold text-[#232323] group-hover:text-[#FFB343] transition-colors leading-tight hidden sm:block">
-                Altair Austin Roofing
-              </span>
-              <span className="font-display text-xl font-bold text-[#232323] group-hover:text-[#FFB343] transition-colors sm:hidden">
-                Altair
-              </span>
-              <span className="text-xs text-gray-600 font-medium tracking-wide hidden sm:block">
-                Austin's Premier Roofing
-              </span>
+          {/* Logo - Left - TAMAÑO MAXIMIZADO */}
+          <Link href="/" className="flex items-center group flex-shrink-0 h-full py-1">
+            <div className="relative h-full w-auto group-hover:scale-105 transition-transform flex items-center">
+              <img
+                src="/logos/logo-altair.png"
+                alt="Altair Austin Roofing - Austin's Premier Roofing"
+                className="h-45 w-auto object-contain" 
+              />
             </div>
           </Link>
 
@@ -160,7 +153,7 @@ export default function Header() {
             {/* Phone Button */}
             <button 
               onClick={() => window.location.href = 'tel:+15125550123'}
-              className="flex items-center gap-2 px-6 py-3 bg-[#FFB343] hover:bg-[#FFA520] text-[#fffff] rounded-lg transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl font-bold text-sm flex-shrink-0"
+              className="flex items-center gap-2 px-6 py-3 bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] rounded-lg transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl font-bold text-sm flex-shrink-0"
             >
               <Icon icon="mdi:phone" className="w-5 h-5" />
               <span>(512) 555-0123</span>
@@ -292,7 +285,7 @@ export default function Header() {
             <li className="pt-4">
               <button 
                 onClick={() => window.location.href = 'tel:+15125550123'}
-                className="flex items-center justify-center gap-2 w-full px-6 py-4 bg-[#FFB343] hover:bg-[#FFA520] text-[#fffff] rounded-xl transition-all shadow-lg font-bold text-base cursor-pointer"
+                className="flex items-center justify-center gap-2 w-full px-6 py-4 bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] rounded-xl transition-all shadow-lg font-bold text-base cursor-pointer"
               >
                 <Icon icon="mdi:phone" className="w-5 h-5" />
                 <span>(512) 555-0123</span>
