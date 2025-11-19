@@ -421,7 +421,7 @@ export default async function LocationPage({
                 Call (512) 555-0123
               </a>
               <QuoteButtonModal 
-                text="Get Free Estimate"
+                text="Get a Quote"
                 variant="primary"  
                 className='cursor-pointer'
               />

@@ -685,30 +685,42 @@ export default async function ServicePage({
         </section>
 
         {/* Final CTA */}
-        <section className="py-16 bg-gradient-to-br from-[#232323] to-[#1a1a1a]">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Get Started with {service.name}?
-            </h2>
-            <p className="text-xl text-white/90 mb-8">
-              Contact Altair Austin Roofing today for a free inspection and estimate
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:+15125550123"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] font-bold rounded-lg transition-all hover:scale-105 shadow-lg"
-              >
-                <Icon icon="mdi:phone" className="w-5 h-5" />
-                Call (512) 555-0123
-              </a>
-              <QuoteButtonModal 
-                text="Get Free Estimate"
-                variant="secondary"
-                className='cursor-pointer' 
-              />
-            </div>
-          </div>
-        </section>
+<section className="relative py-16 overflow-hidden">
+  {/* Background Image */}
+  <div className="absolute inset-0 z-0">
+    <img 
+      src="/roof-images/roof-luxury-7.jpg" 
+      alt="Luxury roofing"
+      className="w-full h-full object-cover"
+    />
+    {/* Dark overlay for text readability */}
+    <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/75 to-black/70"></div>
+  </div>
+
+  {/* Content */}
+  <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 drop-shadow-lg">
+      Ready to Get Started with {service.name}?
+    </h2>
+    <p className="text-xl text-white/90 mb-8 drop-shadow-md">
+      Contact Altair Austin Roofing today for a free inspection and estimate
+    </p>
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="tel:+15125550123"
+        className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] font-bold rounded-lg transition-all hover:scale-105 shadow-xl"
+      >
+        <Icon icon="mdi:phone" className="w-5 h-5" />
+        Call (512) 555-0123
+      </a>
+      <QuoteButtonModal 
+        text="Get a Quote"
+        variant="secondary"
+        className='cursor-pointer' 
+      />
+    </div>
+  </div>
+</section>
       </div>
     </>
   );

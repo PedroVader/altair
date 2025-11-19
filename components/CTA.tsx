@@ -23,12 +23,24 @@ export default function CTA({
   feature2 = "100% Satisfaction Guarantee"
 }: CTAProps) {
   return (
-    <section className="py-16 bg-gradient-to-br from-[#232323] to-[#1a1a1a]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+    <section className="relative py-16 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/roof-images/roof-luxury-3.jpg" 
+          alt="Luxury roofing background"
+          className="w-full h-full object-cover"
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/75 to-black/70"></div>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-lg">
           {title}
         </h2>
-        <p className="text-lg md:text-xl text-white/90 mb-8">
+        <p className="text-lg md:text-xl text-white/90 mb-8 drop-shadow-md">
           {description}
         </p>
 
@@ -37,7 +49,7 @@ export default function CTA({
           {/* Yellow-Orange Call Button */}
           <a
             href={primaryButtonHref}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] text-base font-bold rounded-xl transition-all hover:scale-105 shadow-lg"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] text-base font-bold rounded-xl transition-all hover:scale-105 shadow-xl"
           >
             <Icon icon="mdi:phone" className="w-5 h-5" />
             {primaryButtonText}
@@ -52,7 +64,7 @@ export default function CTA({
         </div>
 
         {/* Features */}
-        <div className="flex flex-wrap items-center justify-center gap-6 text-white/90 text-sm">
+        <div className="flex flex-wrap items-center justify-center gap-6 text-white/90 text-sm drop-shadow-md">
           <div className="flex items-center gap-2">
             <Icon icon="mdi:check" className="w-5 h-5 text-[#FFB343]" />
             <span>{feature1}</span>
