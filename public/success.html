@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You - Altair Austin Roofing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --austin-orange: #FFB343;
+      --austin-orange-dark: #FFA520;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f9fafb;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .bg-austin-orange {
+      background-color: var(--austin-orange);
+    }
+    
+    .bg-austin-orange:hover {
+      background-color: var(--austin-orange-dark);
+    }
+    
+    .text-austin-orange {
+      color: var(--austin-orange);
+    }
+    
+    .text-austin-orange:hover {
+      color: var(--austin-orange-dark);
+    }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen flex items-center justify-center p-4 sm:p-6">
+    <div class="bg-white rounded-2xl shadow-2xl p-6 sm:p-10 max-w-lg w-full text-center">
+      
+      <!-- Success Icon -->}
+      <div class="flex justify-center mb-6">
+        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center">
+          <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+      </div>
+      
+      <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+        Thank You!
+      </h1>
+      <p class="text-gray-600 text-base sm:text-lg mb-2">
+        We've received your request and will contact you shortly.
+      </p>
+      <p class="text-gray-500 text-sm mb-6 sm:mb-8">
+        Our team typically responds within 24 hours.
+      </p>
+      
+      <!-- Buttons -->
+      <div class="flex flex-col sm:flex-row gap-3 justify-center mb-6 sm:mb-0">
+        <a 
+          href="/" 
+          target="_parent"
+          class="inline-block bg-austin-orange text-[#232323] font-bold py-3 px-6 rounded-xl hover:bg-[#FFA520] transition shadow-lg active:scale-95"
+        >
+          Back to Home
+        </a>
+      </div>
+      
+      <!-- Contact Info -->
+      <div class="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-200">
+        <p class="text-sm text-gray-600 mb-2">Need immediate assistance?</p>
+        <a 
+          href="tel:+15125550123" 
+          class="text-austin-orange hover:text-[#FFA520] font-semibold text-base sm:text-lg transition inline-flex items-center gap-2 justify-center"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+          </svg>
+          (512) 555-0123
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

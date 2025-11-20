@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconify/iconify@3.1.0/dist/iconify.min.css">
+  <style>
+    :root {
+      --austin-orange: #FFB343;
+      --austin-orange-dark: #FFA520;
+      --austin-black: #232323;
+      --austin-gray: #E2E2E2;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    }
+    
+    .bg-austin-orange {
+      background-color: var(--austin-orange);
+    }
+    
+    .bg-austin-black {
+      background-color: var(--austin-black);
+    }
+    
+    .text-austin-orange {
+      color: var(--austin-orange);
+    }
+    
+    .border-austin-orange {
+      border-color: var(--austin-orange);
+    }
+    
+    .border-austin-gray {
+      border-color: var(--austin-gray);
+    }
+    
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--austin-orange) !important;
+      box-shadow: 0 0 0 1px rgba(255, 179, 67, 0.2) !important;
+    }
+    
+    .icon {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+    }
+  </style>
+</head>
+<body>
+  <div class="p-5">
+    
+    <div class="mb-4 text-center">
+      <div class="inline-flex items-center justify-center w-12 h-12 bg-austin-black rounded-xl mb-2 shadow-lg">
+        <span class="iconify text-austin-orange" data-icon="mdi:clipboard-text" style="font-size: 1.5rem;"></span>
+      </div>
+      <h3 class="text-lg font-bold text-[#232323]">
+        Get a Quote Today
+      </h3>
+    </div>
+
+    <form 
+      name="contact"
+      method="POST"
+      action="/success.html"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      class="space-y-3"
+      id="contactForm"
+      target="_top"
+    >
+      
+      <input type="hidden" name="form-name" value="contact" />
+      
+      <p style="display: none;">
+        <label>
+          Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off" />
+        </label>
+      </p>
+
+      <div>
+        <label for="name" class="text-[#232323] font-semibold text-xs mb-1 flex items-center gap-1.5">
+          <span class="iconify text-austin-orange" data-icon="mdi:account" style="font-size: 0.875rem;"></span>
+          Full Name *
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          placeholder="John Doe"
+          style="color: #000000;"
+          class="w-full px-3 py-2 border-2 border-austin-gray rounded-lg text-sm text-gray-900 placeholder:text-gray-400 h-10 transition-all"
+        />
+      </div>
+
+      <div>
+        <label for="phone" class="text-[#232323] font-semibold text-xs mb-1 flex items-center gap-1.5">
+          <span class="iconify text-austin-orange" data-icon="mdi:phone" style="font-size: 0.875rem;"></span>
+          Phone *
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          required
+          placeholder="(512) 555-0123"
+          maxlength="14"
+          style="color: #000000;"
+          class="w-full px-3 py-2 border-2 border-austin-gray rounded-lg text-sm text-gray-900 placeholder:text-gray-400 h-10 transition-all"
+        />
+        <p id="phoneError" class="text-red-500 text-xs mt-1" style="display: none;"></p>
+      </div>
+
+      <div>
+        <label for="email" class="text-[#232323] font-semibold text-xs mb-1 flex items-center gap-1.5">
+          <span class="iconify text-austin-orange" data-icon="mdi:email" style="font-size: 0.875rem;"></span>
+          Email *
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="john@example.com"
+          style="color: #000000;"
+          class="w-full px-3 py-2 border-2 border-austin-gray rounded-lg text-sm text-gray-900 placeholder:text-gray-400 h-10 transition-all"
+        />
+        <p id="emailError" class="text-red-500 text-xs mt-1" style="display: none;"></p>
+      </div>
+
+      <div>
+        <label for="service" class="text-[#232323] font-semibold text-xs mb-1 flex items-center gap-1.5">
+          <span class="iconify text-austin-orange" data-icon="mdi:tools" style="font-size: 0.875rem;"></span>
+          Service *
+        </label>
+        <div class="relative">
+          <select
+            id="service"
+            name="service"
+            required
+            style="color: #000000; background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'%23FFB343\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\'%3E%3C/path%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: right 0.75rem center; background-size: 1rem;"
+            class="w-full px-3 py-2 border-2 border-austin-gray rounded-lg text-sm text-gray-900 h-10 transition-all appearance-none cursor-pointer bg-white"
+          >
+            <option value="Roof Repair">Roof Repair</option>
+            <option value="Roof Replacement">Roof Replacement</option>
+            <option value="Roof Inspection">Roof Inspection</option>
+            <option value="Re-Roof">Re-Roof</option>
+            <option value="Emergency Service">Emergency Service</option>
+            <option value="Storm Damage">Storm Damage</option>
+            <option value="Hail Damage">Hail Damage</option>
+            <option value="Wind Damage">Wind Damage</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="messageField" style="display: none;">
+        <label for="message" class="text-[#232323] font-semibold text-xs mb-1 flex items-center gap-1.5">
+          <span class="iconify text-austin-orange" data-icon="mdi:message-text" style="font-size: 0.875rem;"></span>
+          Details (Optional)
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          rows="3"
+          placeholder="Tell us more..."
+          style="color: #000000;"
+          class="w-full px-3 py-2 border-2 border-austin-gray rounded-lg text-sm text-gray-900 placeholder:text-gray-400 resize-none transition-all"
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        id="submitBtn"
+        class="w-full bg-austin-black hover:bg-[#1a1a1a] text-white font-bold py-2.5 text-sm rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed border-2 border-austin-orange h-11 transition-all"
+      >
+        <span id="btnText">Get a Quote</span>
+        <span class="iconify text-austin-orange" data-icon="mdi:arrow-right" style="font-size: 1rem;"></span>
+      </button>
+    </form>
+
+    <div id="phoneCTA" class="mt-4 pt-4 border-t border-austin-gray" style="display: none;">
+      <div class="text-center">
+        <p class="text-xs text-gray-500 mb-2">
+          Prefer to talk?
+        </p>
+        <a 
+          href="tel:+15125550123" 
+          class="inline-flex items-center gap-2 text-[#232323] font-bold text-base hover:text-austin-orange transition-colors cursor-pointer group"
+        >
+          <div class="w-8 h-8 rounded-full bg-[rgba(255,179,67,0.2)] flex items-center justify-center group-hover:bg-austin-orange transition-colors">
+            <span class="iconify text-austin-orange group-hover:text-[#232323]" data-icon="mdi:phone" style="font-size: 1rem;"></span>
+          </div>
+          <span>(512) 555-0123</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <script>
+    const phoneInput = document.getElementById('phone');
+    const phoneError = document.getElementById('phoneError');
+    
+    function formatPhoneNumber(value) {
+      const phoneNumber = value.replace(/\D/g, '');
+      
+      if (phoneNumber.length <= 3) {
+        return phoneNumber;
+      } else if (phoneNumber.length <= 6) {
+        return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
+      } else {
+        return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
+      }
+    }
+    
+    phoneInput.addEventListener('input', function(e) {
+      const formatted = formatPhoneNumber(e.target.value);
+      e.target.value = formatted;
+      
+      const digitsOnly = e.target.value.replace(/\D/g, '');
+      if (digitsOnly && digitsOnly.length !== 10) {
+        phoneError.textContent = 'Phone number must be 10 digits';
+        phoneError.style.display = 'block';
+        phoneInput.style.borderColor = '#ef4444';
+      } else {
+        phoneError.style.display = 'none';
+        phoneInput.style.borderColor = '#E2E2E2';
+      }
+    });
+    
+    const emailInput = document.getElementById('email');
+    const emailError = document.getElementById('emailError');
+    
+    function validateEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+    
+    emailInput.addEventListener('input', function(e) {
+      const email = e.target.value;
+      if (email && !validateEmail(email)) {
+        emailError.textContent = 'Please enter a valid email address';
+        emailError.style.display = 'block';
+        emailInput.style.borderColor = '#ef4444';
+      } else {
+        emailError.style.display = 'none';
+        emailInput.style.borderColor = '#E2E2E2';
+      }
+    });
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const serviceParam = urlParams.get('service');
+    const locationParam = urlParams.get('location');
+    const showMessageParam = urlParams.get('showMessage');
+    const showPhoneParam = urlParams.get('showPhone');
+    const buttonTextParam = urlParams.get('buttonText');
+    
+    if (serviceParam) {
+      const serviceSelect = document.getElementById('service');
+      if (serviceSelect) {
+        const options = serviceSelect.options;
+        for (let i = 0; i < options.length; i++) {
+          if (options[i].value === serviceParam) {
+            serviceSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    }
+    
+    if (locationParam) {
+      const form = document.getElementById('contactForm');
+      const locationInput = document.createElement('input');
+      locationInput.type = 'hidden';
+      locationInput.name = 'location';
+      locationInput.value = locationParam;
+      form.appendChild(locationInput);
+    }
+
+    if (showMessageParam === 'true') {
+      document.getElementById('messageField').style.display = 'block';
+    }
+
+    if (showPhoneParam === 'true') {
+      document.getElementById('phoneCTA').style.display = 'block';
+    }
+
+    if (buttonTextParam) {
+      document.getElementById('btnText').textContent = buttonTextParam;
+    }
+
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    
+    form.addEventListener('submit', function(e) {
+      const phoneDigits = phoneInput.value.replace(/\D/g, '');
+      const emailValid = validateEmail(emailInput.value);
+      
+      if (phoneDigits.length !== 10 || !emailValid) {
+        e.preventDefault();
+        alert('Please fix the errors in the form before submitting.');
+        return false;
+      }
+      
+      submitBtn.disabled = true;
+      document.getElementById('btnText').textContent = 'Submitting...';
+    });
+  </script>
+</body>
+</html>

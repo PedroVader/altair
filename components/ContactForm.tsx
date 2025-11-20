@@ -1,283 +1,59 @@
-"use client"
-import { useState, FormEvent } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Icon } from "@iconify/react";
+'use client';
 
 interface ContactFormProps {
-  variant?: "hero" | "sidebar" | "fullpage" | "modal";
-  title?: string;
-  subtitle?: string;
-  showPhone?: boolean;
+  variant?: 'hero' | 'sidebar' | 'fullpage' | 'modal';
+  service?: string;
+  location?: string;
   buttonText?: string;
-  buttonColor?: "primary" | "secondary" | "accent";
-  onSuccess?: () => void;
+  showPhone?: boolean;
 }
 
-const ContactForm = ({
-  variant = "hero",
-  title = "Get a Quote Today",
-  showPhone = false,
-  buttonText = "Get a Quote",
-  buttonColor = "accent",
-  onSuccess
-}: ContactFormProps) => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+export default function ContactForm({ 
+  variant = 'hero',
+  service = '', 
+  location = '',
+  buttonText = 'Get a Quote',
+  showPhone = false
+}: ContactFormProps) {
+  // Construir la URL con parámetros
+  const params = new URLSearchParams();
+  if (service) params.append('service', service);
+  if (location) params.append('location', location);
+  if (buttonText) params.append('buttonText', buttonText);
+  if (showPhone) params.append('showPhone', 'true');
+  
+  // Mostrar mensaje en fullpage y modal
+  if (variant === 'fullpage' || variant === 'modal') {
+    params.append('showMessage', 'true');
+  }
+  
+  const queryString = params.toString();
+  const iframeSrc = queryString ? `/contact.html?${queryString}` : '/contact.html';
 
-  const containerStyles = {
-    hero: "bg-white rounded-2xl shadow-2xl p-5 w-full max-w-md border-2 border-[#F6F6F6]",
-    sidebar: "bg-white rounded-2xl shadow-xl p-4 w-full border-2 border-[#F6F6F6]",
-    fullpage: "bg-white rounded-2xl shadow-2xl p-6 w-full max-w-2xl mx-auto border-2 border-[#F6F6F6]",
-    modal: "bg-white rounded-2xl p-5"
+  // Altura según variante
+  const heights = {
+    hero: '580px',
+    sidebar: '580px',
+    fullpage: '680px',
+    modal: '650px'
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus("idle");
-
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData as any).toString(),
-      });
-
-      if (response.ok) {
-        setSubmitStatus("success");
-        form.reset();
-
-        setTimeout(() => {
-          if (onSuccess) {
-            onSuccess();
-          }
-          setSubmitStatus("idle");
-        }, 3000);
-      } else {
-        setSubmitStatus("error");
-      }
-    } catch (error) {
-      console.error("Form submission error:", error);
-      setSubmitStatus("error");
-    } finally {
-      setIsSubmitting(false);
-      if (submitStatus === "error") {
-        setTimeout(() => setSubmitStatus("idle"), 3000);
-      }
-    }
+  // Estilos del contenedor según variante
+  const containerStyles = {
+    hero: "bg-white rounded-2xl shadow-2xl w-full max-w-md border-2 border-[#F6F6F6]",
+    sidebar: "bg-white rounded-2xl shadow-xl w-full border-2 border-[#F6F6F6]",
+    fullpage: "bg-white rounded-2xl shadow-2xl w-full max-w-2xl mx-auto border-2 border-[#F6F6F6]",
+    modal: "bg-white rounded-2xl w-full"
   };
 
   return (
     <div className={containerStyles[variant]}>
-      {/* Hidden form for Netlify detection - Using dangerouslySetInnerHTML */}
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `
-            <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-              <input type="text" name="name" />
-              <input type="tel" name="phone" />
-              <input type="email" name="email" />
-              <select name="service">
-                <option>Roof Repair</option>
-              </select>
-              <textarea name="message"></textarea>
-            </form>
-          `
-        }}
+      <iframe
+        src={iframeSrc}
+        className="w-full border-0 rounded-2xl"
+        style={{ height: heights[variant] }}
+        title="Contact Form"
       />
-
-      {/* Header */}
-      <div className="mb-4 text-center">
-        <div className="inline-flex items-center justify-center w-12 h-12 bg-[#232323] rounded-xl mb-2 shadow-lg">
-          <Icon icon="mdi:clipboard-text" className="w-6 h-6 text-[#FFB343]" />
-        </div>
-        <h3 className="font-display text-lg font-bold text-[#232323]">
-          {title}
-        </h3>
-      </div>
-
-      {/* Form */}
-      <form 
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        onSubmit={handleSubmit} 
-        className="space-y-3"
-      >
-        {/* Hidden fields for Netlify */}
-        <input type="hidden" name="form-name" value="contact" />
-        <div style={{ display: 'none' }}>
-          <label>
-            Don't fill this out if you're human: <input name="bot-field" />
-          </label>
-        </div>
-
-        {/* Name */}
-        <div>
-          <Label htmlFor="name" className="text-[#232323] font-semibold text-xs mb-1 flex items-center gap-1.5">
-            <Icon icon="mdi:account" className="w-3.5 h-3.5 text-[#FFB343]" />
-            Full Name *
-          </Label>
-          <Input
-            id="name"
-            name="name"
-            type="text"
-            placeholder="John Doe"
-            required
-            className="border-2 border-[#E2E2E2] focus:border-[#FFB343] focus:ring-1 focus:ring-[#FFB343]/20 rounded-lg py-2 text-sm transition-all text-gray-900 placeholder:text-gray-400 h-10"
-          />
-        </div>
-
-        {/* Phone */}
-        <div>
-          <Label htmlFor="phone" className="text-[#232323] font-semibold text-xs mb-1 flex items-center gap-1.5">
-            <Icon icon="mdi:phone" className="w-3.5 h-3.5 text-[#FFB343]" />
-            Phone *
-          </Label>
-          <Input
-            id="phone"
-            name="phone"
-            type="tel"
-            placeholder="(512) 555-0123"
-            required
-            className="border-2 border-[#E2E2E2] focus:border-[#FFB343] focus:ring-1 focus:ring-[#FFB343]/20 rounded-lg py-2 text-sm transition-all text-gray-900 placeholder:text-gray-400 h-10"
-          />
-        </div>
-
-        {/* Email */}
-        <div>
-          <Label htmlFor="email" className="text-[#232323] font-semibold text-xs mb-1 flex items-center gap-1.5">
-            <Icon icon="mdi:email" className="w-3.5 h-3.5 text-[#FFB343]" />
-            Email *
-          </Label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="john@example.com"
-            required
-            className="border-2 border-[#E2E2E2] focus:border-[#FFB343] focus:ring-1 focus:ring-[#FFB343]/20 rounded-lg py-2 text-sm transition-all text-gray-900 placeholder:text-gray-400 h-10"
-          />
-        </div>
-
-        {/* Service */}
-        <div>
-          <Label htmlFor="service" className="text-[#232323] font-semibold text-xs mb-1 flex items-center gap-1.5">
-            <Icon icon="mdi:tools" className="w-3.5 h-3.5 text-[#FFB343]" />
-            Service *
-          </Label>
-          <div className="relative">
-            <select
-              id="service"
-              name="service"
-              defaultValue="Roof Repair"
-              required
-              className="w-full px-3 py-2 border-2 border-[#E2E2E2] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#FFB343]/20 focus:border-[#FFB343] appearance-none bg-white text-gray-900 text-sm transition-all cursor-pointer h-10"
-            >
-              <option value="Roof Repair">Roof Repair</option>
-              <option value="Roof Replacement">Roof Replacement</option>
-              <option value="Roof Inspection">Roof Inspection</option>
-              <option value="Re-Roof">Re-Roof</option>
-              <option value="Emergency Service">Emergency Service</option>
-              <option value="Storm Damage">Storm Damage</option>
-              <option value="Hail Damage">Hail Damage</option>
-              <option value="Wind Damage">Wind Damage</option>
-              <option value="Other">Other</option>
-            </select>
-            <Icon 
-              icon="mdi:chevron-down" 
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#FFB343] pointer-events-none"
-            />
-          </div>
-        </div>
-
-        {/* Message */}
-        {(variant === "fullpage" || variant === "modal") && (
-          <div>
-            <Label htmlFor="message" className="text-[#232323] font-semibold text-xs mb-1 flex items-center gap-1.5">
-              <Icon icon="mdi:message-text" className="w-3.5 h-3.5 text-[#FFB343]" />
-              Details (Optional)
-            </Label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Tell us more..."
-              rows={3}
-              className="w-full px-3 py-2 border-2 border-[#E2E2E2] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#FFB343]/20 focus:border-[#FFB343] resize-none text-sm transition-all text-gray-900 placeholder:text-gray-400"
-            />
-          </div>
-        )}
-
-        {/* Submit Button */}
-        <Button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full bg-[#232323] hover:bg-[#1a1a1a] text-white font-bold py-2.5 text-sm cursor-pointer transition-all disabled:opacity-50 rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl border-2 border-[#FFB343] h-11"
-        >
-          {isSubmitting ? (
-            <>
-              <Icon icon="mdi:loading" className="w-4 h-4 animate-spin text-[#FFB343]" />
-              <span>Submitting...</span>
-            </>
-          ) : (
-            <>
-              <span>{buttonText}</span>
-              <Icon icon="mdi:arrow-right" className="w-4 h-4 text-[#FFB343]" />
-            </>
-          )}
-        </Button>
-
-        {/* Status Messages */}
-        {submitStatus === "success" && (
-          <div className="bg-green-50 border border-green-400 rounded-lg p-2.5">
-            <div className="flex items-center gap-2 justify-center">
-              <Icon icon="mdi:check-circle" className="w-4 h-4 text-green-600 flex-shrink-0" />
-              <p className="text-green-800 text-xs font-semibold">
-                Thank you! We'll contact you soon.
-              </p>
-            </div>
-          </div>
-        )}
-        
-        {submitStatus === "error" && (
-          <div className="bg-red-50 border border-red-400 rounded-lg p-2.5">
-            <div className="flex items-center gap-2 justify-center">
-              <Icon icon="mdi:alert-circle" className="w-4 h-4 text-red-600 flex-shrink-0" />
-              <p className="text-red-800 text-xs font-semibold">
-                Something went wrong. Try again.
-              </p>
-            </div>
-          </div>
-        )}
-      </form>
-
-      {/* Phone CTA */}
-      {showPhone && (
-        <div className="mt-4 pt-4 border-t border-[#E2E2E2]">
-          <div className="text-center">
-            <p className="text-xs text-gray-500 mb-2">
-              Prefer to talk?
-            </p>
-            <a 
-              href="tel:+15125550123" 
-              className="inline-flex items-center gap-2 text-[#232323] font-bold text-base hover:text-[#FFB343] transition-colors cursor-pointer group"
-            >
-              <div className="w-8 h-8 rounded-full bg-[#FFB343]/20 flex items-center justify-center group-hover:bg-[#FFB343] transition-colors">
-                <Icon icon="mdi:phone" className="w-4 h-4 text-[#FFB343] group-hover:text-[#232323] transition-colors" />
-              </div>
-              <span>(512) 555-0123</span>
-            </a>
-          </div>
-        </div>
-      )}
     </div>
   );
-};
-
-export default ContactForm;
+}
