@@ -234,8 +234,8 @@ export default function ContactPage() {
                   <Icon icon="mdi:email" className="w-8 h-8 text-[#232323]" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2 text-lg">Email</h3>
-                <a href="mailto:info@altairaustin.com" className="text-sm text-[#FFB343] hover:text-[#FFA520] transition font-semibold block mb-2">
-                  info@altairaustin.com
+                <a href="mailto:info@austinroofingcompany.com" className="text-sm text-[#FFB343] hover:text-[#FFA520] transition font-semibold block mb-2">
+                  info@austinroofingcompany.com
                 </a>
                 <p className="text-sm text-gray-600">
                   Response within<br />

@@ -241,8 +241,8 @@ export default function PrivacyPolicyPage() {
               </p>
               <p className="text-gray-700">
                 <strong>Email:</strong>{' '}
-                <a href="mailto:info@altairaustin.com" className="text-[#FFB343] hover:text-[#FFA520]">
-                  info@altairaustin.com
+                <a href="mailto:info@austinroofingcompany.com" className="text-[#FFB343] hover:text-[#FFA520]">
+                    info@austinroofingcompany.com
                 </a>
               </p>
             </div>

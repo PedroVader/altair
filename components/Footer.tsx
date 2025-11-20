@@ -145,8 +145,8 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <Icon icon="mdi:email" className="w-5 h-5 text-[#FFB343] flex-shrink-0 mt-1" />
                 <div>
-                  <a href="mailto:info@altairaustin.com" className="text-sm text-[#232323] hover:text-[#FFB343] transition">
-                    info@altairaustin.com
+                  <a href="mailto:info@austinroofingcompany.com" className="text-sm text-[#232323] hover:text-[#FFB343] transition">
+                    info@austinroofingcompany.com
                   </a>
                 </div>
               </li>
@@ -235,12 +235,23 @@ export default function Footer() {
           </a>
         </div>
 
-        {/* Bottom Bar - Centrado */}
-        <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t-2 border-[#E2E2E2] text-center">
-          <p className="text-xs sm:text-sm text-gray-500">
-            © {new Date().getFullYear()} Altair Austin Roofing. All rights reserved.
-          </p>
-        </div>
+        {/* Bottom Bar - Con enlaces legales */}
+<div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t-2 border-[#E2E2E2]">
+  <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
+    <p className="text-xs sm:text-sm text-gray-500 text-center sm:text-left">
+      © {new Date().getFullYear()} Altair Austin Roofing. All rights reserved.
+    </p>
+    
+    <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm">
+      <Link 
+        href="/privacy-policy" 
+        className="text-gray-500 hover:text-[#FFB343] transition-colors"
+      >
+        Privacy Policy
+      </Link>
+    </div>
+  </div>
+</div>
       </div>
     </footer>
   );

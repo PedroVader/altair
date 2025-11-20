@@ -13,7 +13,7 @@ export function getOrganizationSchema() {
     description: 'Professional roofing services in Austin, TX. Residential roof repair, replacement, and installation. Licensed, insured, and trusted since 2008.',
     slogan: 'Expert roofing solutions for Central Texas homes and businesses',
     telephone: '+1-512-555-0123',
-    email: 'info@altairaustin.com',
+    email: 'info@austinroofingcompany.com',
     
     // Dirección principal
     address: {
@@ -235,7 +235,7 @@ export function getLocationSchema(
     name: `Altair Austin Roofing - ${locationName}`,
     description: locationDescription,
     telephone: '+1-512-555-0123',
-    email: 'info@altairaustin.com',
+    email: '',
     url: `https://altairaustin.com/locations/${locationSlug}`,
     image: 'https://altairaustin.com/worker-repairing-roof.jpg',
     priceRange: '$$',
