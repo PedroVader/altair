@@ -1,5 +1,6 @@
 [[redirects]]
   from = "/contact"
-  to = "/contact.html"
+  to = "/contact"
   status = 200
-  force = true
+  force = false
+  conditions = {Role = ["public"]}
