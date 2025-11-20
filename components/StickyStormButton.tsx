@@ -26,7 +26,7 @@ export default function StickyStormButton() {
       {/* Sticky Button - Más pequeño con botón X visible */}
       {isButtonVisible && (
         <div className="fixed bottom-6 left-6 z-50 flex items-start gap-2">
-          {/* Botón de cerrar - ANTES del botón principal */}
+          {/* Botón de cerrar */}
           <button
             onClick={() => setIsButtonVisible(false)}
             className="bg-white hover:bg-gray-100 text-gray-800 rounded-full p-2 shadow-lg transition-all hover:scale-110 border border-gray-300"
@@ -36,7 +36,7 @@ export default function StickyStormButton() {
             <Icon icon="mdi:close" className="w-4 h-4" />
           </button>
 
-          {/* Botón principal - Más pequeño */}
+          {/* Botón principal - ROJO (mantiene el estilo de emergencia) */}
           <button
             onClick={() => setIsModalOpen(true)}
             className="group flex items-center gap-2 bg-gradient-to-r from-[#E0144C] to-[#c01141] hover:from-[#c01141] hover:to-[#a01038] text-white px-4 py-2.5 rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-105 animate-pulse-subtle"
@@ -46,7 +46,7 @@ export default function StickyStormButton() {
                 icon="mdi:weather-lightning" 
                 className="w-5 h-5" 
               />
-              <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-[#FFE317] rounded-full animate-ping"></div>
+              <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-[#FFB343] rounded-full animate-ping"></div>
             </div>
             <div className="hidden sm:block">
               <div className="text-xs font-bold leading-tight">Emergency Storm Damage?</div>
@@ -58,13 +58,13 @@ export default function StickyStormButton() {
             />
           </button>
 
-          {/* Botón de llamada móvil */}
+          {/* Botón de llamada móvil - NARANJA */}
           <a
             href="tel:+15125550123"
-            className="sm:hidden fixed bottom-20 left-6 flex items-center gap-2 bg-[#00529C] hover:bg-[#003d75] text-white px-3 py-2 rounded-full shadow-lg transition-all hover:scale-105 text-xs"
+            className="sm:hidden fixed bottom-20 left-6 flex items-center gap-2 bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] px-3 py-2 rounded-full shadow-lg transition-all hover:scale-105 text-xs font-bold"
           >
             <Icon icon="mdi:phone" className="w-4 h-4" />
-            <span className="font-bold">Call</span>
+            <span>Call</span>
           </a>
         </div>
       )}
@@ -80,7 +80,7 @@ export default function StickyStormButton() {
 
           {/* Modal Content */}
           <div className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white rounded-2xl shadow-2xl animate-modal-appear">
-            {/* Header */}
+            {/* Header - ROJO (mantiene emergencia) */}
             <div className="sticky top-0 z-20 bg-gradient-to-r from-[#E0144C] to-[#c01141] text-white px-6 py-4 rounded-t-2xl flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Icon icon="mdi:weather-lightning" className="w-8 h-8" />
@@ -99,6 +99,7 @@ export default function StickyStormButton() {
 
             {/* Form Content */}
             <div className="p-6">
+              {/* Alert Box */}
               <div className="mb-6">
                 <div className="flex items-start gap-3 p-4 bg-red-50 border-l-4 border-[#E0144C] rounded-lg">
                   <Icon icon="mdi:alert-circle" className="w-6 h-6 text-[#E0144C] flex-shrink-0 mt-0.5" />
@@ -109,15 +110,17 @@ export default function StickyStormButton() {
                 </div>
               </div>
 
+              {/* Contact Form */}
               <ContactForm variant="modal" />
 
+              {/* Call Button - NARANJA */}
               <div className="mt-6 pt-6 border-t border-gray-200">
                 <p className="text-center text-sm text-gray-600 mb-4">
                   Need immediate assistance? Call us now:
                 </p>
                 <a
                   href="tel:+15125550123"
-                  className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#00529C] hover:bg-[#003d75] text-white font-bold rounded-lg transition-colors"
+                  className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] font-bold rounded-lg transition-all shadow-lg hover:shadow-xl"
                 >
                   <Icon icon="mdi:phone" className="w-5 h-5" />
                   (512) 555-0123

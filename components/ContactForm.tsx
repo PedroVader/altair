@@ -214,23 +214,23 @@ const ContactForm = ({
         )}
 
         {/* Submit Button */}
-        <Button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] font-bold py-2.5 text-sm cursor-pointer transition-all disabled:opacity-50 rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl h-11"
-        >
-          {isSubmitting ? (
-            <>
-              <Icon icon="mdi:loading" className="w-4 h-4 animate-spin" />
-              <span>Submitting...</span>
-            </>
-          ) : (
-            <>
-              <span>{buttonText}</span>
-              <Icon icon="mdi:arrow-right" className="w-4 h-4" />
-            </>
-          )}
-        </Button>
+<Button
+  type="submit"
+  disabled={isSubmitting}
+  className="w-full bg-[#232323] hover:bg-[#1a1a1a] text-white font-bold py-2.5 text-sm cursor-pointer transition-all disabled:opacity-50 rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl border-2 border-[#FFB343] h-11"
+>
+  {isSubmitting ? (
+    <>
+      <Icon icon="mdi:loading" className="w-4 h-4 animate-spin text-[#FFB343]" />
+      <span>Submitting...</span>
+    </>
+  ) : (
+    <>
+      <span>{buttonText}</span>
+      <Icon icon="mdi:arrow-right" className="w-4 h-4 text-[#FFB343]" />
+    </>
+  )}
+</Button>
 
         {/* Status Messages */}
         {submitStatus === "success" && (

@@ -90,47 +90,52 @@ export default function LocationsPage() {
         <TrustBadges />
 
         {/* Locations Grid */}
-        <section className="py-12 sm:py-16 md:py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-8 sm:mb-10 md:mb-12">
-              <div className="inline-block pb-2 mb-4">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#232323] px-2">
-                  Find Your Neighborhood
-                </h2>
-              </div>
-              <p className="text-base sm:text-lg text-gray-600 mt-4 px-4">
-                Click on your location to learn more about our roofing services in your area
-              </p>
-            </div>
+<section className="py-12 sm:py-16 md:py-20 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-8 sm:mb-10 md:mb-12">
+      <div className="inline-block pb-2 mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#232323] px-2">
+          Find Your Neighborhood
+        </h2>
+      </div>
+      <p className="text-base sm:text-lg text-gray-600 mt-4 px-4">
+        Click on your location to learn more about our roofing services in your area
+      </p>
+      <div className="w-24 h-1 bg-[#FFB343] mx-auto mt-4"></div>
+    </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
-              {locations.map((location) => (
-                <Link
-                  key={location.slug}
-                  href={`/locations/${location.slug}`}
-                  className="group bg-white p-4 sm:p-5 md:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all border-2 border-gray-200 hover:border-[#FFB343]"
-                >
-                  <div className="flex items-start gap-3">
-                    <Icon 
-                      icon="mdi:map-marker" 
-                      className="w-5 h-5 sm:w-6 sm:h-6 text-[#FFB343] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" 
-                    />
-                    <div>
-                      <h3 className="font-bold text-sm sm:text-base text-gray-900 group-hover:text-[#FFB343] transition mb-1">
-                        {location.name}
-                      </h3>
-                      {location.zip && (
-                        <p className="text-xs text-gray-500">
-                          ZIP: {location.zip}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
+    {/* Cards VERTICALES - Icon arriba, nombre medio, ZIP abajo */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
+      {locations.map((location) => (
+        <Link
+          key={location.slug}
+          href={`/locations/${location.slug}`}
+          className="group bg-white p-4 sm:p-5 md:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all border-2 border-gray-200 hover:border-[#FFB343] text-center"
+        >
+          {/* Icon arriba - centrado */}
+          <div className="flex justify-center mb-3">
+            <Icon 
+              icon="mdi:map-marker" 
+              className="w-8 h-8 text-[#FFB343] group-hover:scale-110 transition-transform" 
+            />
           </div>
-        </section>
+          
+          {/* Nombre del barrio - centrado */}
+          <h3 className="font-bold text-sm sm:text-base text-gray-900 group-hover:text-[#FFB343] transition mb-1">
+            {location.name}
+          </h3>
+          
+          {/* ZIP abajo - centrado */}
+          {location.zip && (
+            <p className="text-xs text-gray-500">
+              {location.zip}
+            </p>
+          )}
+        </Link>
+      ))}
+    </div>
+  </div>
+</section>
 
         {/* Google Map Section */}
         <section className="py-16 bg-gray-50">

@@ -40,20 +40,25 @@ export default function RoofTypesGrid({
               href={`/roof-types/${roofType.slug}`}
               className="group"
             >
-              <div className="h-full bg-white rounded-xl border-2 border-[#E2E2E2] hover:border-[#FFB343] hover:shadow-xl transition-all duration-300 p-8">
+              {/* Card NEGRA con hover naranja en border */}
+              <div className="h-full bg-[#232323] rounded-xl border-2 border-[#232323] hover:border-[#FFB343] hover:shadow-xl transition-all duration-300 p-8">
                 
-                {/* Icon */}
-                <div className="w-14 h-14 bg-[#232323] rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#FFB343] transition-colors">
-                  <Icon icon={roofType.icon} className="w-7 h-7 text-white" />
+                {/* Icon Container - NARANJA con símbolo negro */}
+                <div className="w-16 h-16 bg-[#FFB343] rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Icon 
+                    icon={roofType.icon} 
+                    className="w-8 h-8"
+                    style={{ color: '#232323' }}
+                  />
                 </div>
 
-                {/* Title */}
-                <h3 className="font-display text-xl font-bold text-[#232323] mb-3 group-hover:text-[#FFB343] transition-colors">
+                {/* Title - BLANCO */}
+                <h3 className="font-display text-xl font-bold text-white mb-3 group-hover:text-[#FFB343] transition-colors">
                   {roofType.name}
                 </h3>
 
-                {/* Description */}
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                {/* Description - BLANCO con opacidad */}
+                <p className="text-white/80 text-sm leading-relaxed mb-4">
                   {roofType.shortDescription}
                 </p>
 
@@ -61,21 +66,21 @@ export default function RoofTypesGrid({
                 {(roofType.averageLifespan || roofType.averageCost) && (
                   <div className="flex flex-wrap gap-3 mb-6 text-xs">
                     {roofType.averageLifespan && (
-                      <div className="flex items-center gap-1.5 bg-[#F6F6F6] px-3 py-2 rounded-lg border border-[#E2E2E2]">
+                      <div className="flex items-center gap-1.5 bg-white/10 px-3 py-2 rounded-lg border border-white/20">
                         <Icon icon="mdi:clock-outline" className="w-4 h-4 text-[#FFB343]" />
-                        <span className="text-[#232323] font-medium">{roofType.averageLifespan}</span>
+                        <span className="text-white font-medium">{roofType.averageLifespan}</span>
                       </div>
                     )}
                     {roofType.averageCost && (
-                      <div className="flex items-center gap-1.5 bg-[#F6F6F6] px-3 py-2 rounded-lg border border-[#E2E2E2]">
+                      <div className="flex items-center gap-1.5 bg-white/10 px-3 py-2 rounded-lg border border-white/20">
                         <Icon icon="mdi:currency-usd" className="w-4 h-4 text-[#FFB343]" />
-                        <span className="text-[#232323] font-medium">{roofType.averageCost}</span>
+                        <span className="text-white font-medium">{roofType.averageCost}</span>
                       </div>
                     )}
                   </div>
                 )}
 
-                {/* View Details Link */}
+                {/* View Details Link - NARANJA */}
                 <div className="flex items-center gap-2 text-[#FFB343] font-semibold text-sm">
                   <span>View Details</span>
                   <Icon icon="mdi:arrow-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

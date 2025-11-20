@@ -390,56 +390,62 @@ export default async function RoofTypePage({
           </div>
         </section>
 
-        {/* All Roof Types - H2 con H3 para cada card */}
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#232323] mb-4">
-                All Roof Types We Install
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Discover the perfect roofing material for your Austin home
+       {/* All Roof Types - H2 con H3 para cada card */}
+<section className="py-16 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl md:text-4xl font-bold text-[#232323] mb-4">
+        All Roof Types We Install
+      </h2>
+      <p className="text-gray-600 max-w-2xl mx-auto">
+        Discover the perfect roofing material for your Austin home
+      </p>
+      <div className="w-24 h-1 bg-[#FFB343] mx-auto mt-4"></div>
+    </div>
+
+    {/* Cards NEGRAS con iconos naranjas */}
+    <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
+      {roofTypes.map((roofTypeItem) => (
+        <Link
+          key={roofTypeItem.slug}
+          href={`/roof-types/${roofTypeItem.slug}`}
+          className="group"
+        >
+          {/* Card NEGRA */}
+          <div className="h-full bg-[#232323] rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-[#232323] hover:border-[#FFB343] overflow-hidden">
+            <div className="p-6 sm:p-8 text-center flex flex-col items-center min-h-[280px]">
+              
+              {/* Icon Container - NARANJA con símbolo negro */}
+              <div className="mb-4 w-16 h-16 bg-[#FFB343] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <Icon 
+                  icon={roofTypeItem.icon} 
+                  className="w-8 h-8"
+                  style={{ color: '#232323' }}
+                />
+              </div>
+
+              {/* Title - H3 - BLANCO */}
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-3 group-hover:text-[#FFB343] transition-colors duration-300">
+                {roofTypeItem.name}
+              </h3>
+
+              {/* Description - BLANCO con opacidad */}
+              <p className="text-white/80 text-sm sm:text-base leading-relaxed flex-grow">
+                {roofTypeItem.shortDescription}
               </p>
-              <div className="w-24 h-1 bg-[#FFB343] mx-auto mt-4"></div>
-            </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
-              {roofTypes.map((roofTypeItem) => (
-                <Link
-                  key={roofTypeItem.slug}
-                  href={`/roof-types/${roofTypeItem.slug}`}
-                  className="group"
-                >
-                  <div className="h-full bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 hover:border-[#FFB343] overflow-hidden">
-                    <div className="p-6 sm:p-8 text-center flex flex-col items-center min-h-[280px]">
-                      
-                      {/* Icon */}
-                      <div className="mb-4 text-gray-700 group-hover:text-[#FFB343] transition-colors duration-300">
-                        <Icon icon={roofTypeItem.icon} className="w-14 h-14 sm:w-16 sm:h-16" />
-                      </div>
-
-                      {/* Title - H3 */}
-                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 group-hover:text-[#FFB343] transition-colors duration-300">
-                        {roofTypeItem.name}
-                      </h3>
-
-                      {/* Description */}
-                      <p className="text-gray-600 text-sm sm:text-base leading-relaxed flex-grow">
-                        {roofTypeItem.shortDescription}
-                      </p>
-
-                      {/* View Link */}
-                      <div className="flex items-center gap-2 text-[#FFB343] font-semibold text-sm group-hover:gap-3 transition-all duration-300 mt-4">
-                        <span>View Details</span>
-                        <Icon icon="mdi:arrow-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              ))}
+              {/* View Link - NARANJA */}
+              <div className="flex items-center gap-2 text-[#FFB343] font-semibold text-sm group-hover:gap-3 transition-all duration-300 mt-4">
+                <span>View Details</span>
+                <Icon icon="mdi:arrow-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+              </div>
             </div>
           </div>
-        </section>
+        </Link>
+      ))}
+    </div>
+  </div>
+</section>
 
         {/* CTA Component */}
         <CTA 
@@ -626,30 +632,42 @@ export default async function RoofTypePage({
         </section>
 
         {/* Final CTA Section - H2 */}
-        <section className="py-16 bg-gradient-to-br from-[#232323] to-[#1a1a1a]">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Get Started with {roofType.name}?
-            </h2>
-            <p className="text-xl text-white/90 mb-8">
-              Contact us today for a free inspection and estimate.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:+15125550123"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] font-bold rounded-lg transition-all hover:scale-105 shadow-lg"
-              >
-                <Icon icon="mdi:phone" className="w-5 h-5" />
-                Call (512) 555-0123
-              </a>
-              <QuoteButtonModal 
-                text="Get a Quote"
-                variant="primary"  
-                className='cursor-pointer'
-              />
-            </div>
-          </div>
-        </section>
+<section className="relative py-16 overflow-hidden">
+  {/* Background Image */}
+  <div className="absolute inset-0 z-0">
+    <img 
+      src="/roof-images/roof-luxury-7.jpg" 
+      alt="Luxury roofing background"
+      className="w-full h-full object-cover"
+    />
+    {/* Dark overlay for text readability */}
+    <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/75 to-black/70"></div>
+  </div>
+
+  {/* Content */}
+  <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 drop-shadow-lg">
+      Ready to Get Started with {roofType.name}?
+    </h2>
+    <p className="text-xl text-white/90 mb-8 drop-shadow-md">
+      Contact us today for a free inspection and estimate.
+    </p>
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="tel:+15125550123"
+        className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] font-bold rounded-lg transition-all hover:scale-105 shadow-xl"
+      >
+        <Icon icon="mdi:phone" className="w-5 h-5" />
+        Call (512) 555-0123
+      </a>
+      <QuoteButtonModal 
+        text="Get Free Estimate"
+        variant="primary"  
+        className='cursor-pointer'
+      />
+    </div>
+  </div>
+</section>
       </div>
     </> 
   );

@@ -100,24 +100,29 @@ export default function ServicesGrid({
                 href={serviceUrl}
                 className="group"
               >
-                <div className="h-full bg-white rounded-xl border-2 border-[#E2E2E2] hover:border-[#FFB343] hover:shadow-xl transition-all duration-300 p-8">
+                {/* Card NEGRA con hover naranja en border */}
+                <div className="h-full bg-[#232323] rounded-xl border-2 border-[#232323] hover:border-[#FFB343] hover:shadow-xl transition-all duration-300 p-8">
                   
-                  {/* Icon */}
-                  <div className="w-16 h-16 rounded-lg bg-[#232323] flex items-center justify-center mb-6 group-hover:bg-[#FFB343] transition-colors">
-                    <Icon icon={service.icon} className="w-8 h-8 text-white" />
+                  {/* Icon - NARANJA */}
+                  <div className="w-16 h-16 rounded-lg bg-[#FFB343] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <Icon 
+                      icon={service.icon} 
+                      className="w-8 h-8"
+                      style={{ color: '#232323' }}
+                    />
                   </div>
 
-                  {/* Title */}
-                  <h3 className="font-display text-xl font-bold text-[#232323] mb-3 group-hover:text-[#FFB343] transition-colors">
+                  {/* Title - BLANCO */}
+                  <h3 className="font-display text-xl font-bold text-white mb-3 group-hover:text-[#FFB343] transition-colors">
                     {service.name}
                   </h3>
 
-                  {/* Description */}
-                  <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                  {/* Description - BLANCO con opacidad */}
+                  <p className="text-white/80 text-sm leading-relaxed mb-6">
                     {service.description}
                   </p>
 
-                  {/* View Service Link */}
+                  {/* View Service Link - NARANJA */}
                   <div className="flex items-center gap-2 text-[#FFB343] font-semibold text-sm">
                     <span>Learn More</span>
                     <Icon icon="mdi:arrow-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
