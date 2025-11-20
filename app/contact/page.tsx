@@ -181,12 +181,18 @@ export default function ContactPage() {
 
       {/* Right - Contact Form */}
       <div className="w-full">
-        <div className="rounded-2xl shadow-2xl overflow-hidden">
-          <ContactForm 
-            variant="hero"
-            showPhone={true}
-          />
-        </div>
+      <div className="bg-white rounded-2xl shadow-2xl border-2 border-gray-200 overflow-hidden">
+    <iframe
+      src="/contact.html?showPhone=true"
+      className="w-full border-0"
+      style={{ 
+        height: '550px',
+        display: 'block',
+        width: '100%'
+      }}
+      title="Contact Form"
+    />
+  </div>
       </div>
     </div>
   </div>
