@@ -28,7 +28,7 @@ export default function ContactForm({
   }
   
   const queryString = params.toString();
-  const iframeSrc = queryString ? `/contact.html?${queryString}` : '/contact.html';
+  const iframeSrc = queryString ? `/contact-form.html?${queryString}` : '/contact.html';
 
   // Altura según variante
   const heights = {
