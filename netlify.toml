@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "/contact"
+  from = "/contact.html"
   to = "/contact"
   status = 200
   force = false
