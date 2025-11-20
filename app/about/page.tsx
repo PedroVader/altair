@@ -356,7 +356,6 @@ export default function AboutPage() {
               </a>
               <QuoteButtonModal 
                 text="Get a Quote"
-                variant="primary" 
                 className='cursor-pointer'
               />
             </div>

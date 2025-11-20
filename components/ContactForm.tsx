@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -12,16 +12,7 @@ interface ContactFormProps {
   showPhone?: boolean;
   buttonText?: string;
   buttonColor?: "primary" | "secondary" | "accent";
-  onSubmit?: (data: FormData) => Promise<void>;
   onSuccess?: () => void;
-}
-
-interface FormData {
-  name: string;
-  phone: string;
-  email: string;
-  service: string;
-  message?: string;
 }
 
 const ContactForm = ({
@@ -30,16 +21,8 @@ const ContactForm = ({
   showPhone = false,
   buttonText = "Get a Quote",
   buttonColor = "accent",
-  onSubmit,
   onSuccess
 }: ContactFormProps) => {
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    phone: "",
-    email: "",
-    service: "Roof Repair",
-    message: ""
-  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
@@ -50,39 +33,34 @@ const ContactForm = ({
     modal: "bg-white rounded-2xl p-5"
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+    setSubmitStatus("idle");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
     try {
-      if (onSubmit) {
-        await onSubmit(formData);
-      } else {
-        console.log("Form submitted:", formData);
-        await new Promise(resolve => setTimeout(resolve, 1000));
-      }
-      
-      setSubmitStatus("success");
-      setFormData({ 
-        name: "", 
-        phone: "", 
-        email: "", 
-        service: "Roof Repair",
-        message: "" 
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString(),
       });
 
-      setTimeout(() => {
-        if (onSuccess) {
-          onSuccess();
-        }
-        setSubmitStatus("idle");
-      }, 2000);
+      if (response.ok) {
+        setSubmitStatus("success");
+        form.reset();
 
+        setTimeout(() => {
+          if (onSuccess) {
+            onSuccess();
+          }
+          setSubmitStatus("idle");
+        }, 3000);
+      } else {
+        setSubmitStatus("error");
+      }
     } catch (error) {
       console.error("Form submission error:", error);
       setSubmitStatus("error");
@@ -96,6 +74,23 @@ const ContactForm = ({
 
   return (
     <div className={containerStyles[variant]}>
+      {/* Hidden form for Netlify detection - Using dangerouslySetInnerHTML */}
+      <div
+        dangerouslySetInnerHTML={{
+          __html: `
+            <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+              <input type="text" name="name" />
+              <input type="tel" name="phone" />
+              <input type="email" name="email" />
+              <select name="service">
+                <option>Roof Repair</option>
+              </select>
+              <textarea name="message"></textarea>
+            </form>
+          `
+        }}
+      />
+
       {/* Header */}
       <div className="mb-4 text-center">
         <div className="inline-flex items-center justify-center w-12 h-12 bg-[#232323] rounded-xl mb-2 shadow-lg">
@@ -107,7 +102,22 @@ const ContactForm = ({
       </div>
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="space-y-3">
+      <form 
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={handleSubmit} 
+        className="space-y-3"
+      >
+        {/* Hidden fields for Netlify */}
+        <input type="hidden" name="form-name" value="contact" />
+        <div style={{ display: 'none' }}>
+          <label>
+            Don't fill this out if you're human: <input name="bot-field" />
+          </label>
+        </div>
+
         {/* Name */}
         <div>
           <Label htmlFor="name" className="text-[#232323] font-semibold text-xs mb-1 flex items-center gap-1.5">
@@ -118,8 +128,6 @@ const ContactForm = ({
             id="name"
             name="name"
             type="text"
-            value={formData.name}
-            onChange={handleInputChange}
             placeholder="John Doe"
             required
             className="border-2 border-[#E2E2E2] focus:border-[#FFB343] focus:ring-1 focus:ring-[#FFB343]/20 rounded-lg py-2 text-sm transition-all text-gray-900 placeholder:text-gray-400 h-10"
@@ -136,8 +144,6 @@ const ContactForm = ({
             id="phone"
             name="phone"
             type="tel"
-            value={formData.phone}
-            onChange={handleInputChange}
             placeholder="(512) 555-0123"
             required
             className="border-2 border-[#E2E2E2] focus:border-[#FFB343] focus:ring-1 focus:ring-[#FFB343]/20 rounded-lg py-2 text-sm transition-all text-gray-900 placeholder:text-gray-400 h-10"
@@ -154,8 +160,6 @@ const ContactForm = ({
             id="email"
             name="email"
             type="email"
-            value={formData.email}
-            onChange={handleInputChange}
             placeholder="john@example.com"
             required
             className="border-2 border-[#E2E2E2] focus:border-[#FFB343] focus:ring-1 focus:ring-[#FFB343]/20 rounded-lg py-2 text-sm transition-all text-gray-900 placeholder:text-gray-400 h-10"
@@ -172,8 +176,7 @@ const ContactForm = ({
             <select
               id="service"
               name="service"
-              value={formData.service}
-              onChange={handleInputChange}
+              defaultValue="Roof Repair"
               required
               className="w-full px-3 py-2 border-2 border-[#E2E2E2] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#FFB343]/20 focus:border-[#FFB343] appearance-none bg-white text-gray-900 text-sm transition-all cursor-pointer h-10"
             >
@@ -204,8 +207,6 @@ const ContactForm = ({
             <textarea
               id="message"
               name="message"
-              value={formData.message}
-              onChange={handleInputChange}
               placeholder="Tell us more..."
               rows={3}
               className="w-full px-3 py-2 border-2 border-[#E2E2E2] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#FFB343]/20 focus:border-[#FFB343] resize-none text-sm transition-all text-gray-900 placeholder:text-gray-400"
@@ -214,23 +215,23 @@ const ContactForm = ({
         )}
 
         {/* Submit Button */}
-<Button
-  type="submit"
-  disabled={isSubmitting}
-  className="w-full bg-[#232323] hover:bg-[#1a1a1a] text-white font-bold py-2.5 text-sm cursor-pointer transition-all disabled:opacity-50 rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl border-2 border-[#FFB343] h-11"
->
-  {isSubmitting ? (
-    <>
-      <Icon icon="mdi:loading" className="w-4 h-4 animate-spin text-[#FFB343]" />
-      <span>Submitting...</span>
-    </>
-  ) : (
-    <>
-      <span>{buttonText}</span>
-      <Icon icon="mdi:arrow-right" className="w-4 h-4 text-[#FFB343]" />
-    </>
-  )}
-</Button>
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full bg-[#232323] hover:bg-[#1a1a1a] text-white font-bold py-2.5 text-sm cursor-pointer transition-all disabled:opacity-50 rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl border-2 border-[#FFB343] h-11"
+        >
+          {isSubmitting ? (
+            <>
+              <Icon icon="mdi:loading" className="w-4 h-4 animate-spin text-[#FFB343]" />
+              <span>Submitting...</span>
+            </>
+          ) : (
+            <>
+              <span>{buttonText}</span>
+              <Icon icon="mdi:arrow-right" className="w-4 h-4 text-[#FFB343]" />
+            </>
+          )}
+        </Button>
 
         {/* Status Messages */}
         {submitStatus === "success" && (

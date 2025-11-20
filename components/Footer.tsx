@@ -153,10 +153,11 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <Icon icon="mdi:map-marker" className="w-5 h-5 text-[#FFB343] flex-shrink-0 mt-1" />
                 <div>
-                  <p className="text-sm text-gray-600">
-                    Austin, TX<br />
-                    78701
-                  </p>
+                <div className="text-sm text-gray-600 space-y-0.5">
+                <p>807 Brazos Street</p>
+                <p>STE 403</p>
+                <p>Austin, TX 78701</p>
+              </div>
                 </div>
               </li>
               <li className="flex items-start gap-3">
@@ -171,25 +172,25 @@ export default function Footer() {
             </ul>
 
             {/* Google Map Preview */}
-            <div className="mt-6 rounded-lg overflow-hidden border-2 border-[#E2E2E2] hover:border-[#FFB343] transition">
-              <a 
-                href="https://www.google.com/maps/place/Austin,+TX" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="block"
-              >
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d441113.09114674534!2d-98.0357904!3d30.307182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1234567890"
-                  width="100%"
-                  height="200"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Altair Austin Roofing - Service Area"
-                />
-              </a>
-            </div>
+<div className="mt-6 rounded-lg overflow-hidden border-2 border-[#E2E2E2] hover:border-[#FFB343] transition">
+  <a 
+    href="https://www.google.com/maps/dir//807+Brazos+Street+STE+403+Austin+TX+78701" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="block"
+  >
+    <iframe
+      src="https://www.google.com/maps?q=807+Brazos+Street+STE+403+Austin+TX+78701&output=embed"
+      width="100%"
+      height="200"
+      style={{ border: 0 }}
+      allowFullScreen
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+      title="Altair Austin Roofing - 807 Brazos St, Austin TX 78701"
+    />
+  </a>
+</div>
           </div>
 
         </div>

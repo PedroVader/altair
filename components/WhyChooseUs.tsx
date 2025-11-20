@@ -203,12 +203,11 @@ export default function ResidentialRoofing() {
                 <Icon icon="mdi:phone" className="w-5 h-5" />
                 Call (512) 555-0123
               </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] font-bold rounded-lg transition-all shadow-lg hover:shadow-xl"
-              >
-                Get a Quote
-              </a>
+              <QuoteButtonModal 
+  text="Get a Quote"
+  variant="primary"
+  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFB343] hover:bg-[#FFA520] text-[#232323] font-bold rounded-lg transition-all shadow-lg hover:shadow-xl cursor-pointer"
+/>
             </div>
           </div>
         </div>

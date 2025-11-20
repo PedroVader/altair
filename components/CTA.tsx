@@ -18,7 +18,7 @@ export default function CTA({
   description = "Contact us today and experience the difference. Get a free estimate in minutes!",
   primaryButtonText = "Call (512) 555-0123",
   primaryButtonHref = "tel:+15125550123",
-  secondaryButtonText = "Get Free Estimate",
+  secondaryButtonText = "Get a Quote",
   feature1 = "24/7 Emergency Service",
   feature2 = "100% Satisfaction Guarantee"
 }: CTAProps) {
